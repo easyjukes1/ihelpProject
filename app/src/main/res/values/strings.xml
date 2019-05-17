@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">iHelpProject</string>
+    <string name="app_name"></string>
 
     <string-array name="roles">
         <item>PleaseSelect</item>

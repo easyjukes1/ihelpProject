@@ -40,8 +40,8 @@ public class charityJobs_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_charityjob, container, false);
-        addFAb = view.findViewById(R.id.fab_add);
 
+        addFAb = view.findViewById(R.id.fab_add);
         addFAb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

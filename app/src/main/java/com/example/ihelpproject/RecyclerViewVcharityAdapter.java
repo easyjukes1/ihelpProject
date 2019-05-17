@@ -39,6 +39,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
         // myViewHolder.iv_imgCharity.setImageResource(charityData.get(i).getPicture());
 
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
