@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registerActivity">
+
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/layoutWho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="90dp"
+                android:text="who are you ? "
+                android:textColor="#000"
+                android:textSize="30dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:orientation="vertical"
+
+            >
+
+            <RadioGroup
+                android:id="@+id/rg_userType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <RadioButton
+                    android:id="@+id/rb_student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="student" />
+
+                <RadioButton
+                    android:id="@+id/rb_genralUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="genral user" />
+
+                <RadioButton
+                    android:id="@+id/rb_employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="employee" />
+
+                <RadioButton
+                    android:id="@+id/rb_supervisor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="supervisor" />
+
+                <RadioButton
+                    android:id="@+id/rb_charity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="charity" />
+
+                <Button
+                    android:id="@+id/btn_continue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="150dp"
+                    android:background="#2bbd7e"
+                    android:text="continue" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+</FrameLayout>

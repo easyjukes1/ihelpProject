@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">iHelpProject</string>
+    
+    <string-array name="roles">
+        <item>PleaseSelect</item>
+        <item>charityUser</item>
+        <item>employeeUser</item>
+        <item>generalUser</item>
+        <item>studentUser</item>
+        <item>supervisorUsers</item>
+    </string-array>
+
+
+
+    <string-array name="roleValues">
+        <item>PleaseSelect</item>
+        <item>charityUser</item>
+        <item>employeeUser</item>
+        <item>generalUser</item>
+        <item>studentUser</item>
+        <item>supervisorUsers</item>
+    </string-array>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_map"
+        android:enabled="true"
+        android:icon="@drawable/icon_map"
+        android:title="map"
+        />
+    <item
+        android:id="@+id/action_charity"
+        android:enabled="true"
+        android:icon="@drawable/ic_charity"
+        android:title="charity"
+         />
+    <item
+        android:id="@+id/action_jobs"
+        android:enabled="true"
+        android:icon="@drawable/icon_job"
+        android:title="jobs"
+         />
+</menu>
