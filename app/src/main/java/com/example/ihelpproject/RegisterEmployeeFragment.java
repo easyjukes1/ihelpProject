@@ -26,6 +26,7 @@ public class RegisterEmployeeFragment extends Fragment {
     View view;
     Button btn_create;
     Employees employeeUser;
+    DatabaseReference databaseRegisterEmployee;
 
 
     public RegisterEmployeeFragment() {
@@ -50,9 +51,9 @@ public class RegisterEmployeeFragment extends Fragment {
         et_companyName = view.findViewById(R.id.et_companyName);
         et_age = view.findViewById(R.id.et_age);
 
+        databaseRegisterEmployee = FirebaseDatabase.getInstance().getReference("employeeUser");
+
         btn_create = view.findViewById(R.id.btn_create);
-
-
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,12 +64,12 @@ public class RegisterEmployeeFragment extends Fragment {
                 String address = et_address.getText().toString();
                 int phoneNumber = Integer.parseInt(et_phonenumber.getText().toString());
                 String supervisor = et_supervisor.getText().toString();
-                String companyname = et_companyName.getText().toString();
-             //   int age = Integer.parseInt(et_age.getText().toString());
+                String companyName = et_companyName.getText().toString();
                 String age = et_age.getText().toString();
-                employeeUser = new Employees(name, email, username, password, age, address, phoneNumber, "employee", supervisor, companyname);
 
+                String id = databaseRegisterEmployee.push().getKey();
 
+                employeeUser = new Employees(id,name,email,username,password,age,address,phoneNumber,"employee",supervisor,companyName);
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 

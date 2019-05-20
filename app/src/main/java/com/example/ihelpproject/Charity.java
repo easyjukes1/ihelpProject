@@ -2,6 +2,7 @@ package com.example.ihelpproject;
 
 
 public class Charity {
+    private String id;
     private String role;
     private String name;
     private String address;
@@ -11,6 +12,17 @@ public class Charity {
     private String details;
     private String picture;
 
+    public Charity(String id, String role, String name, String address, String email, String password, String phonenumber, String details, String picture) {
+        this.id = id;
+        this.role = role;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+        this.phonenumber = phonenumber;
+        this.details = details;
+        this.picture = picture;
+    }
 
     public Charity(String role, String name, String address, String email, String password, String phonenumber) {
         this.role = role;
@@ -21,15 +33,12 @@ public class Charity {
         this.phonenumber = phonenumber;
     }
 
-    public Charity(String role, String name, String address, String email, String password, String phonenumber, String details, String picture) {
-        this.role = role;
-        this.name = name;
-        this.address = address;
-        this.email = email;
-        this.password = password;
-        this.phonenumber = phonenumber;
-        this.details = details;
-        this.picture = picture;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getRole() {
@@ -95,6 +104,4 @@ public class Charity {
     public void setPicture(String picture) {
         this.picture = picture;
     }
-
-
 }

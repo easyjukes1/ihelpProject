@@ -9,8 +9,6 @@
         <item>studentUser</item>
         <item>supervisorUsers</item>
     </string-array>
-
-
     <string-array name="roleValues">
         <item>PleaseSelect</item>
         <item>charityUser</item>
@@ -19,5 +17,6 @@
         <item>studentUser</item>
         <item>supervisorUsers</item>
     </string-array>
+
     <string name="title_activity_maps">Map</string>
 </resources>

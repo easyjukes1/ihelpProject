@@ -29,6 +29,7 @@ public class RegisterGenralUserFragment extends Fragment {
     View view;
     Button btn_create;
     GenralUser genralUser;
+    DatabaseReference databaseRegisterGeneralUser;
 
 
     public RegisterGenralUserFragment() {
@@ -51,10 +52,9 @@ public class RegisterGenralUserFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         et_age = view.findViewById(R.id.et_age);
+        databaseRegisterGeneralUser = FirebaseDatabase.getInstance().getReference("generalUser");
 
         btn_create = view.findViewById(R.id.btn_create);
-
-
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,15 +64,16 @@ public class RegisterGenralUserFragment extends Fragment {
                 String username = et_username.getText().toString();
                 String address = et_address.getText().toString();
                 int phoneNumber = Integer.parseInt(et_phonenumber.getText().toString());
-                //int age = Integer.parseInt(et_age.getText().toString());
                 String age = et_age.getText().toString();
-                genralUser = new GenralUser(name, email, username, password, age, address, phoneNumber, "genralUser");
+                String id = databaseRegisterGeneralUser.push().getKey();
+
+                genralUser = new GenralUser(id,name,email,username,password,age,address,phoneNumber,"generalUser");
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                FirebaseDatabase.getInstance().getReference("genralUsers")
+                                FirebaseDatabase.getInstance().getReference("generalUser")
                                         .child(mAuth.getCurrentUser().getUid())
                                         .setValue(genralUser).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override

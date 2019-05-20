@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
@@ -29,10 +31,11 @@ import static android.app.Activity.RESULT_OK;
 
 public class RegisterCharityFragment extends Fragment {
     private FirebaseAuth mAuth;
-    EditText et_name, et_phonenumber1, et_email, et_username, et_password, et_address;
+  TextInputLayout et_name, et_phonenumber1, et_email, et_username, et_password, et_address;
     View view;
     Button btn_create, btn_img;
     Charity charityUser;
+    DatabaseReference databaseRegisterCharity;
 
     public RegisterCharityFragment() {
         // Required empty public constructor
@@ -50,41 +53,46 @@ public class RegisterCharityFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         btn_create = view.findViewById(R.id.btn_create);
+        databaseRegisterCharity = FirebaseDatabase.getInstance().getReference("charityUser");
 
 
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = et_email.getText().toString();
-                final String password = et_password.getText().toString();
-                final String name = et_name.getText().toString();
-                final String address = et_address.getText().toString();
-                final String phoneNumber = et_phonenumber1.getText().toString();
+                final String email = et_email.getEditText().getText().toString().trim();
+                final String password = et_password.getEditText().getText().toString().trim();
+                final String name = et_name.getEditText().getText().toString().trim();
+                final String address = et_address.getEditText().getText().toString().trim();
+                final String phoneNumber = et_phonenumber1.getEditText().getText().toString().trim();
 
+                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) |validatePhoneNumber(phoneNumber) ){
+                    String id = databaseRegisterCharity.push().getKey();
+                    charityUser = new Charity(id,"charity",name,address,email,password,phoneNumber,"null", "null");
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
-                charityUser = new Charity("charity", name, address, email, password, phoneNumber);
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    FirebaseDatabase.getInstance().getReference("charityUser")
+                                            .child(mAuth.getCurrentUser().getUid())
+                                            .setValue(charityUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Intent i = new Intent(getActivity(), RegisterAccountCheckActivity.class);
+                                                startActivity(i);
+                                                Toast.makeText(getActivity(), "account created", Toast.LENGTH_LONG).show();
+                                            } else {
 
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                FirebaseDatabase.getInstance().getReference("charityUser")
-                                        .child(mAuth.getCurrentUser().getUid())
-                                        .setValue(charityUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Intent i = new Intent(getActivity(), RegisterAccountCheckActivity.class);
-                                            startActivity(i);
-                                            Toast.makeText(getActivity(), "account created", Toast.LENGTH_LONG).show();
-                                        } else {
-
-                                            Toast.makeText(getActivity(), "there is something wrong", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getActivity(), "there is something wrong", Toast.LENGTH_LONG).show();
+                                            }
                                         }
-                                    }
-                                });
-                            }
-                        });
+                                    });
+                                }
+                            });
+                }
+
+
             }
         });
 
@@ -93,6 +101,68 @@ public class RegisterCharityFragment extends Fragment {
 
     }
 
+    private boolean validateEmail(String email){
 
-}
+        if (email.isEmpty()){
+            et_email.setError("field cant be empty");
+            return false;
+        }else {
+            et_email.setError(null);
+            et_email.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateEmail method.
+
+    private boolean validatePassword(String password){
+
+        if (password.isEmpty()){
+            et_password.setError("field cant be empty");
+            return false;
+        }else {
+            et_password.setError(null);
+            et_password.setErrorEnabled(false);
+            return true;
+        }
+    }// end validatePassword method.
+
+    private boolean validateName(String name){
+
+        if (name.isEmpty()){
+            et_name.setError("field cant be empty");
+            return false;
+        }else {
+            et_name.setError(null);
+            et_name.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateName method.
+
+    private boolean validateAddress(String address){
+
+        if (address.isEmpty()){
+            et_address.setError("field cant be empty");
+            return false;
+        }else {
+            et_address.setError(null);
+            et_address.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateAddress method.
+
+    private boolean validatePhoneNumber(String phoneNumber){
+
+        if (phoneNumber.isEmpty()){
+            et_phonenumber1.setError("field cant be empty");
+            return false;
+        }else {
+            et_phonenumber1.setError(null);
+            et_phonenumber1.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateAddress method.
+
+
+    }
+
+
 

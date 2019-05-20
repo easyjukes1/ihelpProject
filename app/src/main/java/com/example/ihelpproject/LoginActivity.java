@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                             Intent iVolunteerHomePageActivity = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(iVolunteerHomePageActivity);
 
-                                        } else if (user1.get("role").equals("genralUser")) {
+                                        } else if (user1.get("role").equals("generalUser")) {
                                             Intent i = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(i);
 

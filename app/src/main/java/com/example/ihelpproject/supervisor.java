@@ -1,19 +1,22 @@
 package com.example.ihelpproject;
 
 public class supervisor {
+    private String id;
     private String role;
     private String name;
     private String email;
     private String username;
     private String password;
 
-    public supervisor(String role, String name, String email, String username, String password) {
+    public supervisor(String id, String role, String name, String email, String username, String password) {
+        this.id = id;
         this.role = role;
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
     }
+
 
     public String getRole() {
         return role;

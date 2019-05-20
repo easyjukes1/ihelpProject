@@ -58,7 +58,7 @@ public class supervisorVolunteer_fragment extends Fragment {
                     String volunteerName= HashAddJob.get("name");
                    //temp string age ...
                    // String age = HashAddJob.get("age");
-                    listSupervisorVolunteers.add(new  Employees(volunteerName,""));
+                    listSupervisorVolunteers.add(new  Employees(volunteerName));
 
 
                 }

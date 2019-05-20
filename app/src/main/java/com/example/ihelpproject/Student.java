@@ -5,19 +5,18 @@ public class Student extends Volunteers {
     private String uniID;
     private String SuperVisor;
 
-    public Student(String name, String email, String username, String password,String age, String address, int phonenumber, String role, String uniID, String superVisor) {
-        super(name, email, username, password, age, address, phonenumber, role);
-        this.uniID = uniID;
-        SuperVisor = superVisor;
+    public Student(String id, String name, String email, String username, String password, String age, String address, int phonenumber, String role) {
+        super(id, name, email, username, password, age, address, phonenumber, role);
     }
 
     public Student(String name) {
-        super(name, name);
+        super(name);
     }
 
-    public Student(String name, String uniID) {
-        super(name, name);
+    public Student(String id, String name, String email, String username, String password, String age, String address, int phonenumber, String role, String uniID, String superVisor) {
+        super(id, name, email, username, password, age, address, phonenumber, role);
         this.uniID = uniID;
+        SuperVisor = superVisor;
     }
 
     public String getUniID() {

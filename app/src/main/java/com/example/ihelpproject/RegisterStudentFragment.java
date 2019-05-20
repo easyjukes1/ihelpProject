@@ -19,10 +19,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class RegisterStudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
@@ -30,6 +26,7 @@ public class RegisterStudentFragment extends Fragment {
     View view;
     Button btn_create;
     Student studentUser;
+    DatabaseReference databaseRegisterStudent;
 
     public RegisterStudentFragment() {
         // Required empty public constructor
@@ -53,6 +50,7 @@ public class RegisterStudentFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         et_age = view.findViewById(R.id.et_age);
+        databaseRegisterStudent = FirebaseDatabase.getInstance().getReference("studentUser");
 
         btn_create = view.findViewById(R.id.btn_create);
 
@@ -69,9 +67,9 @@ public class RegisterStudentFragment extends Fragment {
                 int phoneNumber = Integer.parseInt(et_phonenumber.getText().toString());
                 String studentId = et_studentId.getText().toString();
                 String age = et_age.getText().toString();
-                // int age = Integer.parseInt(et_age.getText().toString());
+                String id = databaseRegisterStudent.push().getKey();
 
-                studentUser = new Student(name, email, username, password, age, address, phoneNumber, "student", studentId, superVisor);
+                studentUser = new Student( id,name,email,username,password, age, address,phoneNumber ,"student",studentId,superVisor);
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {

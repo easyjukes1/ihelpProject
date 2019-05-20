@@ -20,9 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class RegisterSupervisorFragment extends Fragment {
 
     private FirebaseAuth mAuth;
@@ -30,7 +28,7 @@ public class RegisterSupervisorFragment extends Fragment {
     View view;
     Button btn_create;
     supervisor supervisorUser;
-
+    DatabaseReference databaseRegisterSuperVisor;
     public RegisterSupervisorFragment() {
         // Required empty public constructor
     }
@@ -50,7 +48,7 @@ public class RegisterSupervisorFragment extends Fragment {
         et_email = view.findViewById(R.id.et_email);
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
-
+        databaseRegisterSuperVisor = FirebaseDatabase.getInstance().getReference("supervisorUsers");
 
         btn_create = view.findViewById(R.id.btn_create);
 
@@ -62,9 +60,9 @@ public class RegisterSupervisorFragment extends Fragment {
                 String password = et_password.getText().toString();
                 String name = et_name.getText().toString();
                 String username = et_username.getText().toString();
+                String id = databaseRegisterSuperVisor.push().getKey();
 
-
-                supervisorUser = new supervisor("supervisor", name, email, username, password);
+                supervisorUser = new supervisor(id,"supervisor", name, email, username, password);
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
