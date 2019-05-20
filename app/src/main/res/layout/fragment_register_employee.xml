@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RegisterEmployeeFragment">
 
     <ScrollView
@@ -35,231 +36,149 @@
                 android:textColor="#000"
                 android:textSize="20dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="name :"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
-
-                <EditText
-                    android:id="@+id/et_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                 />
 
             </LinearLayout>
 
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingBottom="5dp"
+                app:errorEnabled="true">
 
-                <TextView
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="email :"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:hint="name: "
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10">
 
-                </EditText>
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingBottom="5dp"
+                app:errorEnabled="true">
 
-                <TextView
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="username:"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:hint="email: "
+                    android:inputType="textEmailAddress" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" />
 
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingBottom="5dp"
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true">
 
-                <TextView
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="password:"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:hint="password: "
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" />
 
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/et_phonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingBottom="5dp"
+                app:errorEnabled="true">
 
-                <TextView
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="supervisor name :"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:hint="phone number:"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_supervisorName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/et_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:paddingBottom="5dp"
+                app:errorEnabled="true">
 
-                <TextView
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="company name :"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+                    android:hint="address:"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/et_companyName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            app:errorEnabled="true">
 
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:hint="username: "
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="age :"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/et_supervisorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            app:errorEnabled="true">
 
-                <EditText
-                    android:id="@+id/et_age"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:hint="supervisor name: "
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="adress :"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/et_companyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            app:errorEnabled="true">
 
-                <EditText
-                    android:id="@+id/et_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
+                android:hint="company name: "
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="phonenumber :"
-                    android:textColor="#000"
-                    android:textSize="20dp" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/et_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            app:errorEnabled="true">
 
-                <EditText
-                    android:id="@+id/et_phonenumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10" />
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="age: "
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
 
-            </LinearLayout>
 
-            <Button
+        <Button
                 android:id="@+id/btn_create"
                 android:layout_width="70dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="#2bbd7e"
                 android:text="signup" />
-        </LinearLayout>
+
+
     </ScrollView>
 </FrameLayout>

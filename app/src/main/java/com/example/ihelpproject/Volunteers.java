@@ -8,14 +8,14 @@ public class Volunteers {
     private String Password;
     private String Age;
     private String Address;
-    private int Phonenumber;
+    private String Phonenumber;
     private String role;
 
     public Volunteers(String name) {
         Name = name;
     }
 
-    public Volunteers(String id, String name, String email, String username, String password, String age, String address, int phonenumber, String role) {
+    public Volunteers(String id, String name, String email, String username, String password, String age, String address,String phonenumber, String role) {
         this.id = id;
         Name = name;
         Email = email;
@@ -83,11 +83,11 @@ public class Volunteers {
         Address = address;
     }
 
-    public int getPhonenumber() {
+    public String  getPhonenumber() {
         return Phonenumber;
     }
 
-    public void setPhonenumber(int phonenumber) {
+    public void setPhonenumber(String phonenumber) {
         Phonenumber = phonenumber;
     }
 

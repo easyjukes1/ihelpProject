@@ -5,7 +5,7 @@ public class Employees extends Volunteers {
     private String supervisor;
     private String CompanyName;
 
-    public Employees(String id, String name, String email, String username, String password, String age, String address, int phonenumber, String role) {
+    public Employees(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role) {
         super(id, name, email, username, password, age, address, phonenumber, role);
     }
 
@@ -13,7 +13,7 @@ public class Employees extends Volunteers {
         super(name);
     }
 
-    public Employees(String id, String name, String email, String username, String password, String age, String address, int phonenumber, String role, String supervisor, String companyName) {
+    public Employees(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role, String supervisor, String companyName) {
         super(id, name, email, username, password, age, address, phonenumber, role);
         this.supervisor = supervisor;
         CompanyName = companyName;
