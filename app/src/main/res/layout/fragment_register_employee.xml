@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".RegisterEmployeeFragment">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<FrameLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+   >
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -46,7 +46,6 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 app:errorEnabled="true">
-
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -179,6 +178,6 @@
                 android:background="#2bbd7e"
                 android:text="signup" />
 
-
-    </ScrollView>
+    </LinearLayout>
 </FrameLayout>
+</ScrollView>

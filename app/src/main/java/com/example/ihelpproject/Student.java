@@ -5,7 +5,7 @@ public class Student extends Volunteers {
     private String uniID;
     private String SuperVisor;
 
-    public Student(String id, String name, String email, String username, String password, String age, String address, int phonenumber, String role) {
+    public Student(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role) {
         super(id, name, email, username, password, age, address, phonenumber, role);
     }
 
@@ -13,7 +13,7 @@ public class Student extends Volunteers {
         super(name);
     }
 
-    public Student(String id, String name, String email, String username, String password, String age, String address, int phonenumber, String role, String uniID, String superVisor) {
+    public Student(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role, String uniID, String superVisor) {
         super(id, name, email, username, password, age, address, phonenumber, role);
         this.uniID = uniID;
         SuperVisor = superVisor;

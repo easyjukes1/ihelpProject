@@ -4,6 +4,7 @@ package com.example.ihelpproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
  */
 public class RegisterGenralUserFragment extends Fragment {
     private FirebaseAuth mAuth;
-    EditText et_name, et_email, et_username, et_password, et_age, et_address, et_phonenumber;
+    TextInputLayout et_name, et_email, et_username, et_password, et_age, et_address, et_phonenumber;
     View view;
     Button btn_create;
     GenralUser genralUser;
@@ -58,38 +59,41 @@ public class RegisterGenralUserFragment extends Fragment {
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = et_email.getText().toString();
-                String password = et_password.getText().toString();
-                String name = et_name.getText().toString();
-                String username = et_username.getText().toString();
-                String address = et_address.getText().toString();
-                int phoneNumber = Integer.parseInt(et_phonenumber.getText().toString());
-                String age = et_age.getText().toString();
-                String id = databaseRegisterGeneralUser.push().getKey();
+                String email = et_email.getEditText().getText().toString();
+                String password = et_password.getEditText().getText().toString();
+                String name = et_name.getEditText().getText().toString();
+                String username = et_username.getEditText().getText().toString();
+                String address = et_address.getEditText().getText().toString();
+                String phoneNumber = et_phonenumber.getEditText().getText().toString();
+                String age = et_age.getEditText().getText().toString();
+                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber)
+                        | validateAge(age)) {
+                    String id = databaseRegisterGeneralUser.push().getKey();
+                    genralUser = new GenralUser(id, name, email, username, password, age, address, phoneNumber, "generalUser");
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
-                genralUser = new GenralUser(id,name,email,username,password,age,address,phoneNumber,"generalUser");
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    FirebaseDatabase.getInstance().getReference("generalUser")
+                                            .child(mAuth.getCurrentUser().getUid())
+                                            .setValue(genralUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Intent i = new Intent(getActivity(), LoginActivity.class);
+                                                startActivity(i);
+                                                Toast.makeText(getActivity(), "account created", Toast.LENGTH_LONG).show();
+                                            } else {
 
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                FirebaseDatabase.getInstance().getReference("generalUser")
-                                        .child(mAuth.getCurrentUser().getUid())
-                                        .setValue(genralUser).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Intent i = new Intent(getActivity(), LoginActivity.class);
-                                            startActivity(i);
-                                            Toast.makeText(getActivity(), "account created", Toast.LENGTH_LONG).show();
-                                        } else {
-
-                                            Toast.makeText(getActivity(), "there is something wrong", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getActivity(), "there is something wrong", Toast.LENGTH_LONG).show();
+                                            }
                                         }
-                                    }
-                                });
-                            }
-                        });
+                                    });
+                                }
+                            });
+
+                }
 
 
             }
@@ -99,5 +103,89 @@ public class RegisterGenralUserFragment extends Fragment {
         return view;
 
     }
+
+
+    private boolean validateAge(String age) {
+        if (age.isEmpty()) {
+            et_age.setError("field cant be empty");
+            return false;
+        } else {
+            et_age.setError(null);
+            et_age.setErrorEnabled(false);
+            return true;
+        }
+    }//end validateAge
+
+    private boolean validateUsername(String username) {
+        if (username.isEmpty()) {
+            et_username.setError("field cant be empty");
+            return false;
+        } else {
+            et_username.setError(null);
+            et_username.setErrorEnabled(false);
+            return true;
+        }
+    }//end validateUsername
+
+
+    private boolean validateEmail(String email) {
+
+        if (email.isEmpty()) {
+            et_email.setError("field cant be empty");
+            return false;
+        } else {
+            et_email.setError(null);
+            et_email.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateEmail method.
+
+    private boolean validatePassword(String password) {
+
+        if (password.isEmpty()) {
+            et_password.setError("field cant be empty");
+            return false;
+        } else {
+            et_password.setError(null);
+            et_password.setErrorEnabled(false);
+            return true;
+        }
+    }// end validatePassword method.
+
+    private boolean validateName(String name) {
+
+        if (name.isEmpty()) {
+            et_name.setError("field cant be empty");
+            return false;
+        } else {
+            et_name.setError(null);
+            et_name.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateName method.
+
+    private boolean validateAddress(String address) {
+
+        if (address.isEmpty()) {
+            et_address.setError("field cant be empty");
+            return false;
+        } else {
+            et_address.setError(null);
+            et_address.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateAddress method.
+
+    private boolean validatePhoneNumber(String phoneNumber) {
+
+        if (phoneNumber.isEmpty()) {
+            et_phonenumber.setError("field cant be empty");
+            return false;
+        } else {
+            et_phonenumber.setError(null);
+            et_phonenumber.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateAddress method.
 
 }
