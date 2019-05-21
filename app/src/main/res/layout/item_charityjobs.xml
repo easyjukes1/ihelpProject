@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="80dp"
         android:background="#FFFFFF"
         android:orientation="horizontal">
 
@@ -16,8 +17,7 @@
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:contentDescription="charity jobs"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+
             android:src="@drawable/job2_icon" />
 
         <LinearLayout
