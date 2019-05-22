@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private FirebaseAuth mAuth;
-    Button btn_login , btn_map;
+    Button btn_login, btn_map;
     EditText et_email, et_password;
     TextView clickHere;
     Spinner spinner;
@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this,googleMapActivity.class);
+                Intent i = new Intent(LoginActivity.this, googleMapActivity.class);
                 startActivity(i);
             }
         });
@@ -91,24 +91,27 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                         if (user1.get("role").equals("charity")) {
                                             Intent icharityHomePageActivity = new Intent(LoginActivity.this, charityHomePageActivity.class);
                                             startActivity(icharityHomePageActivity);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
 
                                         } else if (user1.get("role").equals("employee")) {
                                             Intent iVolunteerHomePageActivity = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(iVolunteerHomePageActivity);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
 
                                         } else if (user1.get("role").equals("generalUser")) {
                                             Intent i = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(i);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
 
                                         } else if (user1.get("role").equals("student")) {
                                             Intent istudentUser = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(istudentUser);
-
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
 
                                         } else if (user1.get("role").equals("supervisor")) {
                                             Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, superVisorHomePageActivity.class);
                                             startActivity(isuperVisorHomePageActivity);
-
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
                                         }
 
                                     } else {

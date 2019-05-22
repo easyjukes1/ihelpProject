@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/jobRv"
-        android:layout_marginLeft="330dp"
-        android:layout_marginBottom="20dp"
-        android:paddingEnd="30dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
-        android:backgroundTint="#FF5722"
-        android:src="@drawable/ic_add_24dp"
-        app:elevation="6dp"
-        app:fabSize="normal"
-        tools:ignore="RtlSymmetry" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/jobRv"
@@ -28,4 +14,14 @@
         android:layout_marginTop="60dp">
 
     </android.support.v7.widget.RecyclerView>
-</RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:background="#03A9F4"
+        android:backgroundTint="#03A9F4"
+        android:src="@drawable/ic_add_24dp" />
+</LinearLayout>
