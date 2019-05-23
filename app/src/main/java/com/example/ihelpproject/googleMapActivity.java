@@ -26,6 +26,7 @@ public class googleMapActivity extends AppCompatActivity {
     private boolean perrGranted = false;
     private final static int requestCode1 = 1;
     private final static float DEFAULT_ZOOM = 15f;
+    double x, y;
 
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
@@ -56,6 +57,10 @@ public class googleMapActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(googleMapActivity.this, "found location", Toast.LENGTH_LONG).show();
                             Location currentLocation = (Location) task.getResult();
+                            assert currentLocation != null;
+                            x = currentLocation.getLatitude();
+                            y = currentLocation.getLongitude();
+
                             moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
                                     DEFAULT_ZOOM);
 
@@ -111,7 +116,6 @@ public class googleMapActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
     @Override
