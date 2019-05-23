@@ -48,7 +48,9 @@ public class charityJobs_fragment extends Fragment {
                 Intent i = new Intent(v.getContext(), CharityAddJobActivity.class);
                 startActivity(i);
 
+
             }
+
         });
         recyclerView = view.findViewById(R.id.jobRv);
         recyclerAdapter = new RecyclerViewCharityJobsAdapter(getContext(), listCharityJobs);

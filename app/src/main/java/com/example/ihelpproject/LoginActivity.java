@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                         if (user1.get("role").equals("charity")) {
                                             Intent icharityHomePageActivity = new Intent(LoginActivity.this, charityHomePageActivity.class);
                                             startActivity(icharityHomePageActivity);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                                         } else if (user1.get("role").equals("employee")) {
                                             Intent iVolunteerHomePageActivity = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);

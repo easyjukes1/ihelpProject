@@ -46,6 +46,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
                 intent.putExtra("description", CharityJobsData.get(i).getDescription());
 
                 context.startActivity(intent);
+
             }
         });
 
