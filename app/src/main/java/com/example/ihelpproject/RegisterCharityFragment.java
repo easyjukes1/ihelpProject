@@ -31,11 +31,12 @@ import static android.app.Activity.RESULT_OK;
 
 public class RegisterCharityFragment extends Fragment {
     private FirebaseAuth mAuth;
-  TextInputLayout et_name, et_phonenumber1, et_email, et_username, et_password, et_address;
+    TextInputLayout et_name, et_phonenumber1, et_email, et_username, et_password, et_address;
     View view;
-    Button btn_create, btn_img;
+    Button btn_create, btn_img, btn_location;
     Charity charityUser;
     DatabaseReference databaseRegisterCharity;
+    double x,y;
 
     public RegisterCharityFragment() {
         // Required empty public constructor
@@ -53,9 +54,18 @@ public class RegisterCharityFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         btn_create = view.findViewById(R.id.btn_create);
+        btn_location = view.findViewById(R.id.btn_location);
+
+
+        btn_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent getLocationIntent = new Intent(getActivity(),googleMapActivity.class);
+                startActivityForResult(getLocationIntent,1);
+            }
+        });
+
         databaseRegisterCharity = FirebaseDatabase.getInstance().getReference("charityUser");
-
-
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,9 +75,9 @@ public class RegisterCharityFragment extends Fragment {
                 final String address = et_address.getEditText().getText().toString().trim();
                 final String phoneNumber = et_phonenumber1.getEditText().getText().toString().trim();
 
-                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) |validatePhoneNumber(phoneNumber) ){
+                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) | validatePhoneNumber(phoneNumber)) {
                     String id = databaseRegisterCharity.push().getKey();
-                    charityUser = new Charity(id,"charity",name,address,email,password,phoneNumber,"null", "null");
+                    charityUser = new Charity(id, "charity", name, address, email, password, phoneNumber, "null", "null");
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
@@ -101,60 +111,73 @@ public class RegisterCharityFragment extends Fragment {
 
     }
 
-    private boolean validateEmail(String email){
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        if (email.isEmpty()){
+        if (requestCode == 1 && resultCode == RESULT_OK){
+            x = data.getDoubleExtra("x",0);
+            y = data.getDoubleExtra("y",0);
+
+            Toast.makeText(getActivity(),"this is x value !"+x,Toast.LENGTH_LONG).show();
+
+
+        }    }
+
+    private boolean validateEmail(String email) {
+
+        if (email.isEmpty()) {
             et_email.setError("field cant be empty");
             return false;
-        }else {
+        } else {
             et_email.setError(null);
             et_email.setErrorEnabled(false);
             return true;
         }
     }// end validateEmail method.
 
-    private boolean validatePassword(String password){
+    private boolean validatePassword(String password) {
 
-        if (password.isEmpty()){
+        if (password.isEmpty()) {
             et_password.setError("field cant be empty");
             return false;
-        }else {
+        } else {
             et_password.setError(null);
             et_password.setErrorEnabled(false);
             return true;
         }
     }// end validatePassword method.
 
-    private boolean validateName(String name){
+    private boolean validateName(String name) {
 
-        if (name.isEmpty()){
+        if (name.isEmpty()) {
             et_name.setError("field cant be empty");
             return false;
-        }else {
+        } else {
             et_name.setError(null);
             et_name.setErrorEnabled(false);
             return true;
         }
     }// end validateName method.
 
-    private boolean validateAddress(String address){
+    private boolean validateAddress(String address) {
 
-        if (address.isEmpty()){
+        if (address.isEmpty()) {
             et_address.setError("field cant be empty");
             return false;
-        }else {
+        } else {
             et_address.setError(null);
             et_address.setErrorEnabled(false);
             return true;
         }
     }// end validateAddress method.
 
-    private boolean validatePhoneNumber(String phoneNumber){
+    private boolean validatePhoneNumber(String phoneNumber) {
 
-        if (phoneNumber.isEmpty()){
+        if (phoneNumber.isEmpty()) {
             et_phonenumber1.setError("field cant be empty");
             return false;
-        }else {
+        } else {
             et_phonenumber1.setError(null);
             et_phonenumber1.setErrorEnabled(false);
             return true;
@@ -162,7 +185,7 @@ public class RegisterCharityFragment extends Fragment {
     }// end validateAddress method.
 
 
-    }
+}
 
 
 

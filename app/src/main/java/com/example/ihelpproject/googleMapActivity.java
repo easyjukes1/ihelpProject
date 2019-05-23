@@ -1,6 +1,7 @@
 package com.example.ihelpproject;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -8,6 +9,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -27,7 +30,7 @@ public class googleMapActivity extends AppCompatActivity {
     private final static int requestCode1 = 1;
     private final static float DEFAULT_ZOOM = 15f;
     double x, y;
-
+    Button btn_getLocation;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
 
@@ -36,8 +39,21 @@ public class googleMapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_map);
         getLocationPermission();
+        btn_getLocation = findViewById(R.id.btn_getLocation);
+        btn_getLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("x", x);
+                resultIntent.putExtra("y", y);
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
+        });
+
 
     }
+
 
     private void moveCamera(LatLng latLng, Float zoom) {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
@@ -63,6 +79,7 @@ public class googleMapActivity extends AppCompatActivity {
 
                             moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()),
                                     DEFAULT_ZOOM);
+
 
                         } else {
                             Toast.makeText(googleMapActivity.this, "didint found location", Toast.LENGTH_LONG).show();
@@ -139,4 +156,6 @@ public class googleMapActivity extends AppCompatActivity {
 
         }
     }
+
+
 }

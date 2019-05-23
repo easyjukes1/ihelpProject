@@ -116,6 +116,14 @@
                 android:layout_gravity="center"
                 android:background="#2bbd7e"
                 android:text="signup" />
+
+            <Button
+                android:id="@+id/btn_location"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="#2bbd7e"
+                android:text="location" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
