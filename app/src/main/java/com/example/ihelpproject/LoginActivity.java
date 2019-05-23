@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, googleMapActivity.class);
+                Intent i = new Intent(LoginActivity.this, map2.class);
                 startActivity(i);
             }
         });
