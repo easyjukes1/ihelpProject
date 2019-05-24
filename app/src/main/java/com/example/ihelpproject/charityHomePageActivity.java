@@ -1,6 +1,4 @@
 package com.example.ihelpproject;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
-
 public class charityHomePageActivity extends AppCompatActivity {
 
 

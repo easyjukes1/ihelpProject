@@ -21,7 +21,7 @@ public class volunteerCharityDetailsActivity extends AppCompatActivity {
         // String details= intent.getStringExtra("details");
 
 
-        tv_name = findViewById(R.id.charityName);
+        tv_name = findViewById(R.id.tv_charityName);
         tv_address = findViewById(R.id.tv_charityAddress);
         tv_email = findViewById(R.id.tv_charityEmail);
         tv_phonenumber = findViewById(R.id.tv_charityPhoneNumber);

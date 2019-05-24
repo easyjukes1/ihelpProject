@@ -9,14 +9,14 @@
         android:id="@+id/layoutCharity"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#FDFCFC"
+        android:background="#Ffff"
         android:orientation="horizontal">
 
 
         <ImageView
             android:id="@+id/img_charity"
             android:layout_width="100dp"
-            android:layout_height="70dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:contentDescription="charity"
             android:src="@drawable/org2" />

@@ -2,11 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ihelpproject">
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".map2"></activity>
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -29,14 +25,30 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".googleMapActivity" />
-        <activity android:name=".charityHomePageActivity" />
-        <activity android:name=".registerActivity" />
-        <activity android:name=".superVisorHomePageActivity" />
-        <activity android:name=".VolunteerHomePageActivity" />
-        <activity android:name=".volunteerSubmitJobsActivity" />
-        <activity android:name=".volunteerCharityDetailsActivity" />
-        <activity android:name=".RegisterAccountCheckActivity" />
+        <activity android:name=".map2" />
+        <activity android:name=".googleMapActivity"
+            android:parentActivityName=".LoginActivity"/>
+        <activity
+            android:name=".charityHomePageActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".registerActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".superVisorHomePageActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".VolunteerHomePageActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".volunteerSubmitJobsActivity"
+            android:parentActivityName=".VolunteerHomePageActivity" />
+        <activity
+            android:name=".volunteerCharityDetailsActivity"
+            android:parentActivityName=".VolunteerHomePageActivity" />
+        <activity
+            android:name=".RegisterAccountCheckActivity"
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +56,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CharityAddJobActivity" />
+        <activity
+            android:name=".CharityAddJobActivity"
+            android:parentActivityName=".charityHomePageActivity" />
     </application>
 
 </manifest>
