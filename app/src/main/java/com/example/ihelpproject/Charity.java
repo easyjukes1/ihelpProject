@@ -11,8 +11,9 @@ public class Charity {
     private String phonenumber;
     private String details;
     private String picture;
+    private double Latitude, longitude;
 
-    public Charity(String id, String role, String name, String address, String email, String password, String phonenumber, String details, String picture) {
+    public Charity(String id, String role, String name, String address, String email, String password, String phonenumber, String details, String picture, double latitude, double longitude) {
         this.id = id;
         this.role = role;
         this.name = name;
@@ -22,6 +23,8 @@ public class Charity {
         this.phonenumber = phonenumber;
         this.details = details;
         this.picture = picture;
+        Latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Charity(String role, String name, String address, String email, String password, String phonenumber) {
@@ -31,6 +34,22 @@ public class Charity {
         this.email = email;
         this.password = password;
         this.phonenumber = phonenumber;
+    }
+
+    public double getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        Latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getId() {

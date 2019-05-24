@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
+import org.w3c.dom.Text;
+
 import static android.app.Activity.RESULT_OK;
 
 
@@ -36,7 +39,8 @@ public class RegisterCharityFragment extends Fragment {
     Button btn_create, btn_img, btn_location;
     Charity charityUser;
     DatabaseReference databaseRegisterCharity;
-    double x,y;
+    TextView xView, yView;
+    double x, y;
 
     public RegisterCharityFragment() {
         // Required empty public constructor
@@ -55,13 +59,15 @@ public class RegisterCharityFragment extends Fragment {
         et_username = view.findViewById(R.id.et_username);
         btn_create = view.findViewById(R.id.btn_create);
         btn_location = view.findViewById(R.id.btn_location);
+        xView = view.findViewById(R.id.x);
+        yView = view.findViewById(R.id.y);
 
 
         btn_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent getLocationIntent = new Intent(getActivity(),googleMapActivity.class);
-                startActivityForResult(getLocationIntent,1);
+                Intent getLocationIntent = new Intent(getActivity(), googleMapActivity.class);
+                startActivityForResult(getLocationIntent, 1);
             }
         });
 
@@ -74,10 +80,13 @@ public class RegisterCharityFragment extends Fragment {
                 final String name = et_name.getEditText().getText().toString().trim();
                 final String address = et_address.getEditText().getText().toString().trim();
                 final String phoneNumber = et_phonenumber1.getEditText().getText().toString().trim();
+                final String xValue = xView.getText().toString().trim();
+                final String yValue = yView.getText().toString().trim();
 
-                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) | validatePhoneNumber(phoneNumber)) {
+                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) | validatePhoneNumber(phoneNumber)
+                        | validatex(xValue) | validatey(yValue)) {
                     String id = databaseRegisterCharity.push().getKey();
-                    charityUser = new Charity(id, "charity", name, address, email, password, phoneNumber, "null", "null");
+                    charityUser = new Charity(id, "charity", name, address, email, password, phoneNumber, "null", "null", x, y);
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
@@ -111,18 +120,43 @@ public class RegisterCharityFragment extends Fragment {
 
     }
 
+    private boolean validatex(String xValue) {
+        if (xValue.isEmpty()) {
+            et_email.setError("field cant be empty");
+            return false;
+        } else {
+            xView.setError(null);
+            x = Double.parseDouble(xValue);
+            return true;
+        }
+    }
+
+    private boolean validatey(String yValue) {
+        if (yValue.isEmpty()) {
+            xView.setError("field cant be empty");
+            return false;
+        } else {
+            xView.setError(null);
+            y = Double.parseDouble(yValue);
+            return true;
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1 && resultCode == RESULT_OK){
-            x = data.getDoubleExtra("x",0);
-            y = data.getDoubleExtra("y",0);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            x = data.getDoubleExtra("x", 0);
+            y = data.getDoubleExtra("y", 0);
 
-            Toast.makeText(getActivity(),"this is x value !"+x,Toast.LENGTH_LONG).show();
+            String valuex = Double.toString(x);
+            String valuey = Double.toString(y);
+            xView.setText(valuex);
+            yView.setText(valuey);
 
-
-        }    }
+        }
+    }
 
     private boolean validateEmail(String email) {
 
