@@ -52,10 +52,19 @@ public class charityvolunteer_fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Object getV = dataSnapshot1.getValue();
-                    HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
-                    String VolunteerName = HashGetV.get("name");
 
-                    listCharityStudentsVolunteers.add(new Student(VolunteerName));
+                    HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
+                    String volunteerName = HashGetV.get("name");
+                    String volunteerAge = HashGetV.get("age");
+                    String volunteerAddress = HashGetV.get("address");
+                    String volunteerEmail = HashGetV.get("email");
+                    String volunteerId = HashGetV.get("id");
+                    String volunteerSuperVisor = HashGetV.get("superVisor");
+                    String volunteerUniID = HashGetV.get("uniID");
+                    String volunteerUsername = HashGetV.get("username");
+
+                    listCharityStudentsVolunteers.add(new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
+                            null, volunteerAge, volunteerAddress, volunteerAddress, null, volunteerUniID, volunteerSuperVisor));
 
 
                 }

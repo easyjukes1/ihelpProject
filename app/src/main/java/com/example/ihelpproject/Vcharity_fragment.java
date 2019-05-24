@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Vcharity_fragment extends Fragment {
@@ -52,15 +53,25 @@ public class Vcharity_fragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Object charityUser1 = dataSnapshot1.getValue();
-                    HashMap<String, String> charityUser = (HashMap<String, String>) charityUser1;
+                    Object charityUserStrings = dataSnapshot1.getValue();
+                    HashMap<String, String> charityUser = (HashMap<String, String>) charityUserStrings;
                     String password = charityUser.get("password");
                     String name = charityUser.get("name");
                     String email = charityUser.get("email");
                     String address = charityUser.get("address");
                     String phoneumber = charityUser.get("phonenumber");
-                    listCharity.add(new Charity("charity", name, address, email, password, phoneumber));
+                    String details = charityUser.get("details");
 
+
+                    //double Latitude= Double.parseDouble(charityUser.get("Latitude"));
+                    //double longitude= Double.parseDouble(charityUser.get("longitude"));
+                   // Object charityUserDoubles = dataSnapshot1.getValue();
+                   /// HashMap<String, Double> charityUserD = (HashMap<String, Double>) charityUserDoubles;
+                    //double Latitude = (double) Double.parseDouble(Objects.<String>requireNonNull(String.valueOf(charityUserD.get("Latitude"))));
+                    //double longitude = (double) Double.parseDouble(Objects.<String>requireNonNull(String.valueOf(charityUserD.get("longitude"))));
+
+
+                    listCharity.add(new Charity("charity", name, address, email, password, phoneumber, details, null,null,null, null));
 
 
                 }

@@ -36,7 +36,7 @@ public class supervisorVolunteer_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_supervisorvolunteers, container, false);
-         recyclerView = view.findViewById(R.id.VolunteerRv);
+        recyclerView = view.findViewById(R.id.VolunteerRv);
 
         recyclerAdapter = new RecyclerViewSupervisorVolunteerAdapter(getContext(), listSupervisorVolunteers);
 
@@ -54,11 +54,19 @@ public class supervisorVolunteer_fragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Object getV = dataSnapshot1.getValue();
-                    HashMap<String, String> HashAddJob = (HashMap<String, String>) getV;
-                    String volunteerName= HashAddJob.get("name");
-                   //temp string age ...
-                   // String age = HashAddJob.get("age");
-                    listSupervisorVolunteers.add(new  Employees(volunteerName));
+                    HashMap<String, String> HashGetv = (HashMap<String, String>) getV;
+
+                    String volunteerName = HashGetv.get("name");
+                    String volunteerAge = HashGetv.get("age");
+                    String volunteerAddress = HashGetv.get("address");
+                    String volunteerEmail = HashGetv.get("email");
+                    String volunteerId = HashGetv.get("id");
+                    String volunteerSuperVisor = HashGetv.get("superVisor");
+                    String volunteerUsername = HashGetv.get("username");
+                    String volunteerNumber = HashGetv.get("phonenumber");
+                    String volunteerCompanyName = HashGetv.get("companyName");
+                    listSupervisorVolunteers.add(new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
+                            null, volunteerAge, volunteerAddress,volunteerNumber,"employee", volunteerSuperVisor,volunteerCompanyName));
 
 
                 }

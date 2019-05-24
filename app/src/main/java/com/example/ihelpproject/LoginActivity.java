@@ -96,22 +96,22 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                         } else if (user1.get("role").equals("employee")) {
                                             Intent iVolunteerHomePageActivity = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(iVolunteerHomePageActivity);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                                         } else if (user1.get("role").equals("generalUser")) {
                                             Intent i = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(i);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                                         } else if (user1.get("role").equals("student")) {
                                             Intent istudentUser = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                             startActivity(istudentUser);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                                         } else if (user1.get("role").equals("supervisor")) {
                                             Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, superVisorHomePageActivity.class);
                                             startActivity(isuperVisorHomePageActivity);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                         }
 
                                     } else {

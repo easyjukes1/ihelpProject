@@ -75,8 +75,6 @@ public class charityJobs_fragment extends Fragment {
                     String jobType = HashAddJob.get("jobType");
                     String description = HashAddJob.get("description ");
 
-
-
                     listCharityJobs.add(new charityJobs(id,jobTitle , jobType, description));
 
 

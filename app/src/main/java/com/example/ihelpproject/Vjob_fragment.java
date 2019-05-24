@@ -56,10 +56,10 @@ public class Vjob_fragment extends Fragment {
                     HashMap<String, String> HashAddJob = (HashMap<String, String>) addJob;
                     String id = HashAddJob.get("id");
                     String jobTitle = HashAddJob.get("jobTitle");
-                    String briefDescription = HashAddJob.get("jobType");
+                    String jobType = HashAddJob.get("jobType");
                     String description = HashAddJob.get("description");
 
-                    listJobs.add(new CharityAddJob(id, jobTitle, briefDescription, description));
+                    listJobs.add(new CharityAddJob(id, jobTitle, jobType, description));
 
 
                 }
