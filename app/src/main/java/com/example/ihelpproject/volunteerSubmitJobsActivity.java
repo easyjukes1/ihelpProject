@@ -39,15 +39,15 @@ public class volunteerSubmitJobsActivity extends AppCompatActivity {
         String description = intent.getStringExtra("description");
 
 
-        tv_jobTitle = findViewById(R.id.jobTitle);
-        tv_jobType = findViewById(R.id.jobType);
-        tv_description = findViewById(R.id.description);
+        tv_jobTitle = findViewById(R.id.tv_jobTitle);
+        tv_jobType = findViewById(R.id.tv_jobType);
+      //  tv_description = findViewById(R.id.description);
         submit = findViewById(R.id.btn_submit);
 
 
         tv_jobTitle.setText(jobTitle);
         tv_jobType.setText(jobType);
-        tv_description.setText(description);
+       // tv_description.setText(description);
 
 
     }
