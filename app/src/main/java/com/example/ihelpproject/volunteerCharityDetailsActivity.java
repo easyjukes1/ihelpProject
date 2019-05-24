@@ -22,9 +22,9 @@ public class volunteerCharityDetailsActivity extends AppCompatActivity {
 
 
         tv_name = findViewById(R.id.charityName);
-        tv_address = findViewById(R.id.charityAddress);
-        tv_email = findViewById(R.id.charityEmail);
-        tv_phonenumber = findViewById(R.id.charityPhoneNumber);
+        tv_address = findViewById(R.id.tv_charityAddress);
+        tv_email = findViewById(R.id.tv_charityEmail);
+        tv_phonenumber = findViewById(R.id.tv_charityPhoneNumber);
 
         tv_name.setText(name);
         tv_address.setText(address);
