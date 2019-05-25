@@ -88,28 +88,19 @@
 
         </LinearLayout>
 
-        <Button
-
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:background="#2bbd7e"
-        android:text="login" />
-
 
         <Button
-
-            android:id="@+id/btn_map"
+            android:layout_marginTop="4dp"
+            android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:background="#2bbd7e"
-            android:text="map" />
-
-
+            android:layout_marginStart="0dp"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="#fff"
+            android:text="login"
+            android:textAllCaps="false"
+            android:textColor="#3797CF"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"

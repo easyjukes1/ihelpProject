@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private FirebaseAuth mAuth;
-    Button btn_login, btn_map;
+    Button btn_login;
     EditText et_email, et_password;
     TextView clickHere;
     Spinner spinner;
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         btn_login = findViewById(R.id.btn_login);
-        btn_map = findViewById(R.id.btn_map);
+
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         clickHere = findViewById(R.id.clickHere);
@@ -61,14 +61,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-
-        btn_map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, googleMapActivity.class);
-                startActivity(i);
-            }
-        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

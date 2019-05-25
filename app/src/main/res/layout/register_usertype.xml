@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".registerActivity">
+    tools:context=".registerActivity"
+    android:background="#fff">
 
 
     <FrameLayout
@@ -85,9 +86,15 @@
                     android:id="@+id/btn_continue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="150dp"
-                    android:background="#2bbd7e"
-                    android:text="continue" />
+                    android:background="@drawable/custom_button"
+                    android:backgroundTint="#fff"
+                    android:paddingLeft="150dp"
+                    android:text="Sign up"
+                    android:textAllCaps="false"
+                    android:textColor="#3797CF"
+                    android:textSize="20sp" />
+
+
             </RadioGroup>
 
 
