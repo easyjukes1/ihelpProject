@@ -56,7 +56,8 @@ public class Vcharity_fragment extends Fragment {
                     String email = charityUser.get("email");
                     String address = charityUser.get("address");
                     String phoneumber = charityUser.get("phonenumber");
-                    String details = charityUser.get("details");
+                   // String details = charityUser.get("details");
+                    String id = charityUser.get("id");
 
 
                     //double Latitude= Double.parseDouble(charityUser.get("Latitude"));
@@ -67,7 +68,7 @@ public class Vcharity_fragment extends Fragment {
                     //double longitude = (double) Double.parseDouble(Objects.<String>requireNonNull(String.valueOf(charityUserD.get("longitude"))));
 
 
-                    listCharity.add(new Charity("charity", name, address, email, password, phoneumber, details, null,null,null, null));
+                    listCharity.add(new Charity(id,"charity",name,address,email,null,phoneumber,null,null,null,null));
 
 
                 }

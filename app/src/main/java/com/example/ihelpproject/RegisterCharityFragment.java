@@ -32,10 +32,6 @@ public class RegisterCharityFragment extends Fragment {
     TextView xView, yView;
     double x, y;
 
-    public RegisterCharityFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

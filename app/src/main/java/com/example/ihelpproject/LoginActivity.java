@@ -2,13 +2,13 @@ package com.example.ihelpproject;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +30,7 @@ import java.util.HashMap;
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private FirebaseAuth mAuth;
     Button btn_login;
-    EditText et_email, et_password;
+    TextInputLayout et_email, et_password;
     TextView clickHere;
     Spinner spinner;
     String role;
@@ -42,9 +42,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         mAuth = FirebaseAuth.getInstance();
         btn_login = findViewById(R.id.btn_login);
-
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         clickHere = findViewById(R.id.clickHere);
@@ -65,67 +65,69 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onClick(View v) {
 
-                String email1 = et_email.getText().toString();
-                String password1 = et_password.getText().toString();
+                String email1 = et_email.getEditText().getText().toString();
+                String password1 = et_password.getEditText().getText().toString();
 
-                mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            dbRef = FirebaseDatabase.getInstance().getReference(spinner.getSelectedItem().toString());
-                            dbRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    Object user = dataSnapshot.getValue();
-                                    if (user != null) {
-                                        HashMap<String, String> user1 = (HashMap<String, String>) user;
-                                        if (user1.get("role").equals("charity")) {
-                                            Intent icharityHomePageActivity = new Intent(LoginActivity.this, CharityHomePageActivity.class);
-                                            startActivity(icharityHomePageActivity);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (validateEmail(email1) | validatePassword(password1)) {
+                    mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                dbRef = FirebaseDatabase.getInstance().getReference(spinner.getSelectedItem().toString());
+                                dbRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        Object user = dataSnapshot.getValue();
+                                        if (user != null) {
+                                            HashMap<String, String> user1 = (HashMap<String, String>) user;
+                                            if (user1.get("role").equals("charity")) {
+                                                Intent icharityHomePageActivity = new Intent(LoginActivity.this, CharityHomePageActivity.class);
+                                                startActivity(icharityHomePageActivity);
+                                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                        } else if (user1.get("role").equals("employee")) {
-                                            Intent iVolunteerHomePageActivity = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
-                                            startActivity(iVolunteerHomePageActivity);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                            } else if (user1.get("role").equals("employee")) {
+                                                Intent iVolunteerHomePageActivity = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
+                                                startActivity(iVolunteerHomePageActivity);
+                                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                        } else if (user1.get("role").equals("generalUser")) {
-                                            Intent i = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
-                                            startActivity(i);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                            } else if (user1.get("role").equals("generalUser")) {
+                                                Intent i = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
+                                                startActivity(i);
+                                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                        } else if (user1.get("role").equals("student")) {
-                                            Intent istudentUser = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
-                                            startActivity(istudentUser);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                            } else if (user1.get("role").equals("student")) {
+                                                Intent istudentUser = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
+                                                startActivity(istudentUser);
+                                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                        } else if (user1.get("role").equals("Supervisor")) {
-                                            Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, SuperVisorHomePageActivity.class);
-                                            startActivity(isuperVisorHomePageActivity);
-                                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                            } else if (user1.get("role").equals("Supervisor")) {
+                                                Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, SuperVisorHomePageActivity.class);
+                                                startActivity(isuperVisorHomePageActivity);
+                                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                            }
+
+                                        } else {
+                                            Toast.makeText(LoginActivity.this, "please select the right user type", Toast.LENGTH_LONG).show();
                                         }
 
-                                    } else {
-                                        Toast.makeText(LoginActivity.this, "please select the right user type", Toast.LENGTH_LONG).show();
+
                                     }
 
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
+                                    }
+                                });
 
 
-                        }//end if
-                        else {
-                            Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            }//end if
+                            else {
+                                Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
 
+                            }
                         }
-                    }
-                });
+                    });
+                }
 
 
             }
@@ -145,6 +147,30 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     }
 
+    private boolean validateEmail(String email) {
+
+        if (email.isEmpty()) {
+            et_email.setError("field cant be empty");
+            return false;
+        } else {
+            et_email.setError(null);
+            et_email.setErrorEnabled(false);
+            return true;
+        }
+    }// end validateEmail method.
+
+    private boolean validatePassword(String password) {
+
+        if (password.isEmpty()) {
+            et_password.setError("field cant be empty");
+            return false;
+        } else {
+            et_password.setError(null);
+            et_password.setErrorEnabled(false);
+            return true;
+        }
+    }// end validatePassword method.
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         role = parent.getItemAtPosition(position).toString();
@@ -152,6 +178,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        //test
     }
 }
