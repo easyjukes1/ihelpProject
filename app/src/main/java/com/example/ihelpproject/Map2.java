@@ -18,7 +18,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 
-public class map2 extends AppCompatActivity implements OnMapReadyCallback, TaskLoadedCallback {
+public class Map2 extends AppCompatActivity implements OnMapReadyCallback, TaskLoadedCallback {
     private GoogleMap mMap;
     private MarkerOptions place1, place2;
 
@@ -34,7 +34,7 @@ public class map2 extends AppCompatActivity implements OnMapReadyCallback, TaskL
         getDirection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new FetchURL(map2.this).execute(getUrl(place1.getPosition(), place2.getPosition(), "driving"), "driving");
+                new FetchURL(Map2.this).execute(getUrl(place1.getPosition(), place2.getPosition(), "driving"), "driving");
             }
         });
         //27.658143,85.3199503
@@ -43,7 +43,7 @@ public class map2 extends AppCompatActivity implements OnMapReadyCallback, TaskL
         place2 = new MarkerOptions().position(new LatLng(27.667491, 85.3208583)).title("Location 2");
         MapFragment mapFragment = (MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(map2.this);
+        mapFragment.getMapAsync(Map2.this);
     }
 
     @Override

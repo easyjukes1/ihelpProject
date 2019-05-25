@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class supervisorVolunteer_fragment extends Fragment {
+public class SupervisorVolunteer_fragment extends Fragment {
     View view;
     private List<Employees> listSupervisorVolunteers;
     RecyclerView recyclerView;

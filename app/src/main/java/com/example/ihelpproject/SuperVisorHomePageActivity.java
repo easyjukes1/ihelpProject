@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class superVisorHomePageActivity extends AppCompatActivity {
+public class SuperVisorHomePageActivity extends AppCompatActivity {
 
 
     @Override
@@ -24,7 +24,7 @@ public class superVisorHomePageActivity extends AppCompatActivity {
 
         setSupportActionBar((android.support.v7.widget.Toolbar) findViewById(R.id.toolbar));
         TextView toolbarTitle = findViewById(R.id.toolbarTitle);
-        toolbarTitle.setText("supervisor homepage");
+        toolbarTitle.setText("Supervisor homepage");
 
         BottomNavigationView bottomNav;
         bottomNav = findViewById(R.id.bottom_navigation);
@@ -32,7 +32,7 @@ public class superVisorHomePageActivity extends AppCompatActivity {
 
         //by default fragment
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new supervisorVolunteer_fragment()).commit();
+                new SupervisorVolunteer_fragment()).commit();
 
 
     }
@@ -66,13 +66,13 @@ public class superVisorHomePageActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (menuItem.getItemId()) {
                         case R.id.action_myVolunteer:
-                            selectedFragment = new supervisorVolunteer_fragment();
+                            selectedFragment = new SupervisorVolunteer_fragment();
                             break;
                         case R.id.action_overview:
-                            selectedFragment = new supervisorOverView_fragment();
+                            selectedFragment = new SupervisorOverView_fragment();
                             break;
                         default:
-                            selectedFragment = new supervisorVolunteer_fragment();
+                            selectedFragment = new SupervisorVolunteer_fragment();
                             break;
                     }
 

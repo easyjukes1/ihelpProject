@@ -23,9 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class charityJobs_fragment extends Fragment {
+public class CharityJobs_fragment extends Fragment {
 
-    private List<charityJobs> listCharityJobs;
+    private List<CharityJobs> listCharityJobs;
 
     RecyclerViewCharityJobsAdapter recyclerAdapter;
     RecyclerView recyclerView;
@@ -71,7 +71,7 @@ public class charityJobs_fragment extends Fragment {
                     String jobType = HashAddJob.get("jobType");
 
 
-                    listCharityJobs.add(new charityJobs(id, jobTitle, jobType));
+                    listCharityJobs.add(new CharityJobs(id, jobTitle, jobType));
 
 
                 }

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class volunteerCharityDetailsActivity extends AppCompatActivity {
+public class VolunteerCharityDetailsActivity extends AppCompatActivity {
     TextView tv_name, tv_address, tv_email, tv_phonenumber, tv_details;
 
     @Override

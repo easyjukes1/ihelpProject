@@ -59,7 +59,7 @@ public class RegisterCharityFragment extends Fragment {
         btn_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent getLocationIntent = new Intent(getActivity(), googleMapActivity.class);
+                Intent getLocationIntent = new Intent(getActivity(), GoogleMapActivity.class);
                 startActivityForResult(getLocationIntent, 1);
             }
         });

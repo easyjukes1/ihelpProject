@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 
-public class volunteerSubmitJobsActivity extends AppCompatActivity {
+public class VolunteerSubmitJobsActivity extends AppCompatActivity {
     TextView tv_jobTitle, tv_jobType;
     FirebaseAuth mAuth;
     Button submit;
@@ -70,7 +70,7 @@ public class volunteerSubmitJobsActivity extends AppCompatActivity {
 
                             }
                             Toast.makeText(getApplicationContext(), "job submitted", Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(volunteerSubmitJobsActivity.this, VolunteerHomePageActivity.class);
+                            Intent i = new Intent(VolunteerSubmitJobsActivity.this, VolunteerHomePageActivity.class);
                             startActivity(i);
 
 

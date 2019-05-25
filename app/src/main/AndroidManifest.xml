@@ -25,26 +25,26 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".map2" />
-        <activity android:name=".googleMapActivity"
+        <activity android:name=".Map2" />
+        <activity android:name=".GoogleMapActivity"
             android:parentActivityName=".LoginActivity"/>
         <activity
-            android:name=".charityHomePageActivity"
+            android:name=".CharityHomePageActivity"
             android:parentActivityName=".LoginActivity" />
         <activity
-            android:name=".registerActivity"
+            android:name=".RegisterActivity"
             android:parentActivityName=".LoginActivity" />
         <activity
-            android:name=".superVisorHomePageActivity"
+            android:name=".SuperVisorHomePageActivity"
             android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".VolunteerHomePageActivity"
             android:parentActivityName=".LoginActivity" />
         <activity
-            android:name=".volunteerSubmitJobsActivity"
+            android:name=".VolunteerSubmitJobsActivity"
             android:parentActivityName=".VolunteerHomePageActivity" />
         <activity
-            android:name=".volunteerCharityDetailsActivity"
+            android:name=".VolunteerCharityDetailsActivity"
             android:parentActivityName=".VolunteerHomePageActivity" />
         <activity
             android:name=".RegisterAccountCheckActivity"
@@ -58,7 +58,7 @@
         </activity>
         <activity
             android:name=".CharityAddJobActivity"
-            android:parentActivityName=".charityHomePageActivity" />
+            android:parentActivityName=".CharityHomePageActivity" />
     </application>
 
 </manifest>

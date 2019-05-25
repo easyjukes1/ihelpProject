@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                     if (user != null) {
                                         HashMap<String, String> user1 = (HashMap<String, String>) user;
                                         if (user1.get("role").equals("charity")) {
-                                            Intent icharityHomePageActivity = new Intent(LoginActivity.this, charityHomePageActivity.class);
+                                            Intent icharityHomePageActivity = new Intent(LoginActivity.this, CharityHomePageActivity.class);
                                             startActivity(icharityHomePageActivity);
                                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
@@ -99,8 +99,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                             startActivity(istudentUser);
                                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                        } else if (user1.get("role").equals("supervisor")) {
-                                            Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, superVisorHomePageActivity.class);
+                                        } else if (user1.get("role").equals("Supervisor")) {
+                                            Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, SuperVisorHomePageActivity.class);
                                             startActivity(isuperVisorHomePageActivity);
                                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                         }
@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         clickHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, registerActivity.class);
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
         });

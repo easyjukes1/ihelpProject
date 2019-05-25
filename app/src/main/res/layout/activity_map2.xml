@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/map"
-        tools:context=".map2"
+        tools:context=".Map2"
         android:name="com.google.android.gms.maps.MapFragment" />
     <Button
         android:layout_width="wrap_content"

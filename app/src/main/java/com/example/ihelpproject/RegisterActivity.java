@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
-public class registerActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
 
     @Override

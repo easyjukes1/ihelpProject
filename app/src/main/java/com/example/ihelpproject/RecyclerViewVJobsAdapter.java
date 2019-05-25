@@ -39,7 +39,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, volunteerSubmitJobsActivity.class);
+                Intent intent = new Intent(context, VolunteerSubmitJobsActivity.class);
                 intent.putExtra("jobTitle", CharityJobsData.get(i).getJobTitle());
                 intent.putExtra("jobType", CharityJobsData.get(i).getJobType());
                 intent.putExtra("description", CharityJobsData.get(i).getDescription());

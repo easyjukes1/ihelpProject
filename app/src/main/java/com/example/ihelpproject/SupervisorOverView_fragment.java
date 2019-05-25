@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class supervisorOverView_fragment extends Fragment {
+public class SupervisorOverView_fragment extends Fragment {
     View view;
 
 
-    public supervisorOverView_fragment() {
+    public SupervisorOverView_fragment() {
         // Required empty public constructor
     }
 

@@ -23,7 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-public class googleMapActivity extends AppCompatActivity {
+public class GoogleMapActivity extends AppCompatActivity {
     private static String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private boolean perrGranted = false;
@@ -63,7 +63,7 @@ public class googleMapActivity extends AppCompatActivity {
 
     private void getDeviceLocation() {
 
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(googleMapActivity.this);
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(GoogleMapActivity.this);
         try {
             if (perrGranted) {
                 Task location = mFusedLocationProviderClient.getLastLocation();
@@ -71,7 +71,7 @@ public class googleMapActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(googleMapActivity.this, "found location", Toast.LENGTH_LONG).show();
+                            Toast.makeText(GoogleMapActivity.this, "found location", Toast.LENGTH_LONG).show();
                             Location currentLocation = (Location) task.getResult();
                             assert currentLocation != null;
                             x = currentLocation.getLatitude();
@@ -82,14 +82,14 @@ public class googleMapActivity extends AppCompatActivity {
 
 
                         } else {
-                            Toast.makeText(googleMapActivity.this, "didint found location", Toast.LENGTH_LONG).show();
+                            Toast.makeText(GoogleMapActivity.this, "didint found location", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
 
             }
         } catch (SecurityException e) {
-            Toast.makeText(googleMapActivity.this, "error", Toast.LENGTH_LONG).show();
+            Toast.makeText(GoogleMapActivity.this, "error", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -115,14 +115,14 @@ public class googleMapActivity extends AppCompatActivity {
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
-                Toast.makeText(googleMapActivity.this, "ready", Toast.LENGTH_LONG).show();
+                Toast.makeText(GoogleMapActivity.this, "ready", Toast.LENGTH_LONG).show();
                 mMap = googleMap;
 
                 if (perrGranted) {
                     getDeviceLocation();
-                    if (ActivityCompat.checkSelfPermission(googleMapActivity.this,
+                    if (ActivityCompat.checkSelfPermission(GoogleMapActivity.this,
                             Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                            && ActivityCompat.checkSelfPermission(googleMapActivity.this,
+                            && ActivityCompat.checkSelfPermission(GoogleMapActivity.this,
                             Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                         return;
                     }

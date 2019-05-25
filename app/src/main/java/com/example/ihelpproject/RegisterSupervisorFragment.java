@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,12 +20,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-
 public class RegisterSupervisorFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password;
-    supervisor supervisorUser;
+    Supervisor supervisorUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,10 +53,10 @@ public class RegisterSupervisorFragment extends Fragment {
                 String password = et_password.getEditText().getText().toString();
                 String name = et_name.getEditText().getText().toString();
                 String username = et_username.getEditText().getText().toString();
-                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username)){
+                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username)) {
 
                     String id = databaseRegisterSuperVisor.push().getKey();
-                    supervisorUser = new supervisor(id,"supervisor", name, email, username, password);
+                    supervisorUser = new Supervisor(id, "Supervisor", name, email, username, password);
 
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {

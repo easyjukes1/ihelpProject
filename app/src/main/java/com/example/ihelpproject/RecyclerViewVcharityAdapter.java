@@ -42,7 +42,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, volunteerCharityDetailsActivity.class);
+                Intent intent = new Intent(context, VolunteerCharityDetailsActivity.class);
                 intent.putExtra("name", charityData.get(i).getName());
                 intent.putExtra("address", charityData.get(i).getAddress());
                 intent.putExtra("email", charityData.get(i).getEmail());

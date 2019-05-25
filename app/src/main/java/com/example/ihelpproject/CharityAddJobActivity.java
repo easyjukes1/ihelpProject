@@ -44,7 +44,7 @@ public class CharityAddJobActivity extends AppCompatActivity {
                 // we will store the data on the genrated id .
                 databaseAddjob.child(id).setValue(addJob);
                 Toast.makeText(CharityAddJobActivity.this, "job added", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), charityHomePageActivity.class);
+                Intent i = new Intent(getApplicationContext(), CharityHomePageActivity.class);
                 startActivity(i);
 
             }

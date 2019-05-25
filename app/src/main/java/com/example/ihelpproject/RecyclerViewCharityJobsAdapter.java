@@ -20,9 +20,9 @@ import java.util.List;
 public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<RecyclerViewCharityJobsAdapter.myViewHolder> {
 
     private Context context;
-    private List<charityJobs> charityJobsData;
+    private List<CharityJobs> charityJobsData;
 
-    public RecyclerViewCharityJobsAdapter(Context context, List<charityJobs> charityJobsData) {
+    public RecyclerViewCharityJobsAdapter(Context context, List<CharityJobs> charityJobsData) {
         this.context = context;
         this.charityJobsData = charityJobsData;
     }

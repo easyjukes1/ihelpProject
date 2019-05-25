@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class charityHomePageActivity extends AppCompatActivity {
+public class CharityHomePageActivity extends AppCompatActivity {
 
 
     @Override
@@ -30,7 +30,7 @@ public class charityHomePageActivity extends AppCompatActivity {
         bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new charityJobs_fragment()).commit();
+                new CharityJobs_fragment()).commit();
 
 
     }
@@ -66,10 +66,10 @@ public class charityHomePageActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (menuItem.getItemId()) {
                         case R.id.action_job:
-                            selectedFragment = new charityJobs_fragment();
+                            selectedFragment = new CharityJobs_fragment();
                             break;
                         case R.id.action_ourVolunteer:
-                            selectedFragment = new charityvolunteer_fragment();
+                            selectedFragment = new Charityvolunteer_fragment();
                             break;
 
                     }

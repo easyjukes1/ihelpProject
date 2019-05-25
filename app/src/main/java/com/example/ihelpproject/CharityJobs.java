@@ -1,6 +1,6 @@
 package com.example.ihelpproject;
 
-public class charityJobs {
+public class CharityJobs {
     private String id;
     private String jobName;
     private String jobType;
@@ -25,7 +25,7 @@ public class charityJobs {
     }
 
 
-    public charityJobs(String id, String jobName, String jobType) {
+    public CharityJobs(String id, String jobName, String jobType) {
         this.id = id;
         this.jobName = jobName;
         this.jobType = jobType;
