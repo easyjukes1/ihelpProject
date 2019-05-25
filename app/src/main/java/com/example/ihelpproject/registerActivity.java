@@ -12,17 +12,16 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 public class registerActivity extends AppCompatActivity {
-    RadioGroup rg_userType;
-
-    RelativeLayout layout1;
-    LinearLayout Layout2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_usertype);
-        
+
+        final RadioGroup rg_userType;
+        final RelativeLayout layout1;
+        final LinearLayout Layout2;
         Button btn_continue;
         layout1 = findViewById(R.id.layoutWho);
         Layout2 = findViewById(R.id.layout2);
@@ -70,10 +69,19 @@ public class registerActivity extends AppCompatActivity {
                         selectedFragment = new RegisterSupervisorFragment();
 
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            selectedFragment).commit();
+                                selectedFragment).commit();
                         layout1.setVisibility(View.GONE);
                         Layout2.setVisibility(View.GONE);
                         break;
+
+                    default:
+                        selectedFragment = new RegisterCharityFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                selectedFragment).commit();
+                        layout1.setVisibility(View.GONE);
+                        Layout2.setVisibility(View.GONE);
+                        break;
+
                 }
             }
         });
@@ -83,5 +91,6 @@ public class registerActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //test
     }
 }

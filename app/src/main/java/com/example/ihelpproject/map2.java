@@ -17,7 +17,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-import java.util.Map;
 
 public class map2 extends AppCompatActivity implements OnMapReadyCallback, TaskLoadedCallback {
     private GoogleMap mMap;

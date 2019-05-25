@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 public class RegisterStudentFragment extends Fragment {
 
@@ -56,15 +57,15 @@ public class RegisterStudentFragment extends Fragment {
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = et_email.getEditText().getText().toString();
-                String password = et_password.getEditText().getText().toString();
-                String name = et_name.getEditText().getText().toString();
-                String username = et_username.getEditText().getText().toString();
-                String address = et_address.getEditText().getText().toString();
-                String superVisor = et_supervisorName.getEditText().getText().toString();
-                String phoneNumber = et_phonenumber.getEditText().getText().toString();
-                String studentId = et_studentId.getEditText().getText().toString();
-                String age = et_age.getEditText().getText().toString();
+                String email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
+                String password = Objects.requireNonNull(et_password.getEditText()).getText().toString();
+                String name = Objects.requireNonNull(et_name.getEditText()).getText().toString();
+                String username = Objects.requireNonNull(et_username.getEditText()).getText().toString();
+                String address = Objects.requireNonNull(et_address.getEditText()).getText().toString();
+                String superVisor = Objects.requireNonNull(et_supervisorName.getEditText()).getText().toString();
+                String phoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
+                String studentId = Objects.requireNonNull(et_studentId.getEditText()).getText().toString();
+                String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
                         validateSupervisor(superVisor) | validateAge(age) | validateStudentId(studentId)) {

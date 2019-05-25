@@ -17,7 +17,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
     private Context context;
     private List<Charity> charityData;
 
-    public RecyclerViewVcharityAdapter(Context context, List<Charity> charityData) {
+    RecyclerViewVcharityAdapter(Context context, List<Charity> charityData) {
         this.context = context;
         this.charityData = charityData;
     }
@@ -27,8 +27,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
         view = LayoutInflater.from(context).inflate(R.layout.item_vcharity, viewGroup, false);
-        myViewHolder myViewHolder = new myViewHolder(view);
-        return myViewHolder;
+        return new myViewHolder(view);
 
     }
 
@@ -61,7 +60,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
         return charityData.size();
     }
 
-    public static class myViewHolder extends RecyclerView.ViewHolder {
+    static class myViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tv_name;
         private TextView tv_address;
@@ -69,7 +68,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
         private LinearLayout parentLayout;
 
 
-        public myViewHolder(@NonNull View itemView) {
+        myViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.charityName);
             tv_address = itemView.findViewById(R.id.charityLocation);

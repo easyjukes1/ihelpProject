@@ -1,4 +1,5 @@
 package com.example.ihelpproject;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +10,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 import com.google.firebase.auth.FirebaseAuth;
+
 public class charityHomePageActivity extends AppCompatActivity {
 
 
@@ -41,17 +44,17 @@ public class charityHomePageActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbarmenu,menu);
+        inflater.inflate(R.menu.toolbarmenu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_signout:
                 FirebaseAuth.getInstance().signOut();
                 finish();
-                startActivity(new Intent(this,LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

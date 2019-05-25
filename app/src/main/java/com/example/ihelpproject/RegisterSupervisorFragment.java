@@ -26,8 +26,6 @@ public class RegisterSupervisorFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password;
-
-
     supervisor supervisorUser;
 
     @Override

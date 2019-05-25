@@ -27,10 +27,6 @@ public class supervisorVolunteer_fragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerViewSupervisorVolunteerAdapter recyclerAdapter;
 
-    public supervisorVolunteer_fragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

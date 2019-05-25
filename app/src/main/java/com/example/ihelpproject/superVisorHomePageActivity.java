@@ -51,11 +51,10 @@ public class superVisorHomePageActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_signout:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(this,LoginActivity.class));
+        if (item.getItemId() == R.id.action_signout) {
+            FirebaseAuth.getInstance().signOut();
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

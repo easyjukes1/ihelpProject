@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.TextView;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
     private Context context;
     private List<Employees> supervisorVolunteersData;
 
-    public RecyclerViewSupervisorVolunteerAdapter(Context context, List<Employees> supervisorVolunteersData) {
+    RecyclerViewSupervisorVolunteerAdapter(Context context, List<Employees> supervisorVolunteersData) {
         this.context = context;
         this.supervisorVolunteersData = supervisorVolunteersData;
     }
@@ -25,8 +24,7 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
         view = LayoutInflater.from(context).inflate(R.layout.item_supervisor_volunteer, viewGroup, false);
-        myViewHolder myViewHolder = new myViewHolder(view);
-        return myViewHolder;
+        return new myViewHolder(view);
 
     }
     @Override
@@ -40,13 +38,13 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
         return supervisorVolunteersData.size();
     }
 
-    public static class myViewHolder extends RecyclerView.ViewHolder {
+    static class myViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_VolunteerName;
        // private TextView tv_age;
 
 
 
-        public myViewHolder(@NonNull View itemView) {
+        myViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tv_VolunteerName = itemView.findViewById(R.id.VolunteerName);

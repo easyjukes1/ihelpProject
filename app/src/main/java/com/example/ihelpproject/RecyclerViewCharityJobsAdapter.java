@@ -8,10 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -56,9 +55,9 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
                 alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                      DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(charityJobsData.get(i).getId());
-                            databaseReference.removeValue();
-                     dialog.cancel();
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(charityJobsData.get(i).getId());
+                        databaseReference.removeValue();
+                        dialog.cancel();
                     }
                 });
                 alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
@@ -69,9 +68,6 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
                 });
                 AlertDialog dialog = alert.create();
                 dialog.show();
-
-
-
 
 
             }

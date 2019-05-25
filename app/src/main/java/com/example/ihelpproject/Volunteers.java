@@ -11,11 +11,9 @@ public class Volunteers {
     private String Phonenumber;
     private String role;
 
-    public Volunteers(String name) {
-        Name = name;
-    }
 
-    public Volunteers(String id, String name, String email, String username, String password, String age, String address,String phonenumber, String role) {
+
+    Volunteers(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role) {
         this.id = id;
         Name = name;
         Email = email;
@@ -91,11 +89,5 @@ public class Volunteers {
         Phonenumber = phonenumber;
     }
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

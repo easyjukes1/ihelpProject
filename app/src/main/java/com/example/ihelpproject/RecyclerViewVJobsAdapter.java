@@ -17,7 +17,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
     private Context context;
     private List<CharityAddJob> CharityJobsData;
 
-    public RecyclerViewVJobsAdapter(Context context, List<CharityAddJob> CharityJobsData) {
+    RecyclerViewVJobsAdapter(Context context, List<CharityAddJob> CharityJobsData) {
         this.context = context;
         this.CharityJobsData = CharityJobsData;
     }
@@ -27,8 +27,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
     public myViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
         view = LayoutInflater.from(context).inflate(R.layout.item_vcharityjob, viewGroup, false);
-        myViewHolder myViewHolder = new myViewHolder(view);
-        return myViewHolder;
+        return new myViewHolder(view);
 
     }
 
@@ -57,7 +56,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
         return CharityJobsData.size();
     }
 
-    public static class myViewHolder extends RecyclerView.ViewHolder {
+    static class myViewHolder extends RecyclerView.ViewHolder {
         //  private ImageView iv_jobImage;
         private TextView tv_jobTitle;
         private TextView tv_jobType;
@@ -65,7 +64,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
         private LinearLayout parentLayout;
 
 
-        public myViewHolder(@NonNull View itemView) {
+        myViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_jobTitle = itemView.findViewById(R.id.charityName);
 
