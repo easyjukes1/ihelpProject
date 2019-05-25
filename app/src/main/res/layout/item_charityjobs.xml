@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/img_charityJob"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_gravity="center"
             android:contentDescription="charity jobs"
 
