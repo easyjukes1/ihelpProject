@@ -28,9 +28,8 @@ public class RegisterGenralUserFragment extends Fragment {
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password, et_age, et_address, et_phonenumber;
     View view;
-    Button btn_create;
     GenralUser genralUser;
-    DatabaseReference databaseRegisterGeneralUser;
+
 
 
     public RegisterGenralUserFragment() {
@@ -45,6 +44,9 @@ public class RegisterGenralUserFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_register_genral_user, container, false);
         mAuth = FirebaseAuth.getInstance();
+        Button btn_create;
+        final DatabaseReference databaseRegisterGeneralUser;
+
 
         et_address = view.findViewById(R.id.et_address);
         et_phonenumber = view.findViewById(R.id.et_phonenumber);

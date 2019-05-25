@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 public class registerActivity extends AppCompatActivity {
     RadioGroup rg_userType;
-    Button btn_continue;
+
     RelativeLayout layout1;
     LinearLayout Layout2;
 
@@ -21,9 +21,9 @@ public class registerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.register_usertype);
-
+        
+        Button btn_continue;
         layout1 = findViewById(R.id.layoutWho);
         Layout2 = findViewById(R.id.layout2);
 

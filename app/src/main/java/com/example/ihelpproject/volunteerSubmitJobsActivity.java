@@ -22,32 +22,24 @@ import java.util.List;
 import java.util.Objects;
 
 public class volunteerSubmitJobsActivity extends AppCompatActivity {
-    TextView tv_jobTitle, tv_jobType, tv_description;
+    TextView tv_jobTitle, tv_jobType;
     FirebaseAuth mAuth;
     Button submit;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_charity_jobs);
-        mAuth = FirebaseAuth.getInstance();
+        tv_jobTitle = findViewById(R.id.tv_jobTitle);
+        tv_jobType = findViewById(R.id.tv_jobType);
+        submit = findViewById(R.id.btn_submit);
 
+        mAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         String jobTitle = intent.getStringExtra("jobTitle");
         String jobType = intent.getStringExtra("jobType");
-        String description = intent.getStringExtra("description");
-
-
-        tv_jobTitle = findViewById(R.id.tv_jobTitle);
-        tv_jobType = findViewById(R.id.tv_jobType);
-      //  tv_description = findViewById(R.id.description);
-        submit = findViewById(R.id.btn_submit);
-
-
         tv_jobTitle.setText(jobTitle);
         tv_jobType.setText(jobType);
-       // tv_description.setText(description);
 
 
     }
@@ -58,16 +50,16 @@ public class volunteerSubmitJobsActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String discription = tv_description.getText().toString();
+
                 final String jobType = tv_jobType.getText().toString();
-                final String jobTittle= tv_jobTitle.getText().toString();
+                final String jobTittle = tv_jobTitle.getText().toString();
                 FirebaseDatabase.getInstance().getReference("CharityAddjob").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             Object job = dataSnapshot1.getValue();
                             HashMap<String, String> job1 = (HashMap<String, String>) job;
-                            if (discription.equals(job1.get("description")) && jobType.equals(job1.get("jobType")) && jobTittle.equals(job1.get("jobTitle"))){
+                            if (jobType.equals(job1.get("jobType")) && jobTittle.equals(job1.get("jobTitle"))) {
                                 FirebaseDatabase.getInstance().getReference(job1.get("id")).child(mAuth.getCurrentUser().getUid()).setValue(mAuth.getCurrentUser().getUid())
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override

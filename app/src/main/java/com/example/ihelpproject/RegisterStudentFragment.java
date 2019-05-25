@@ -25,14 +25,7 @@ public class RegisterStudentFragment extends Fragment {
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password, et_studentId, et_supervisorName, et_age, et_address, et_phonenumber;
     View view;
-    Button btn_create;
     Student studentUser;
-    DatabaseReference databaseRegisterStudent;
-
-    public RegisterStudentFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +35,10 @@ public class RegisterStudentFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_register_student, container, false);
         mAuth = FirebaseAuth.getInstance();
+        Button btn_create;
+        final DatabaseReference databaseRegisterStudent;
+
+
         et_studentId = view.findViewById(R.id.et_ID);
         et_supervisorName = view.findViewById(R.id.et_supervisorName);
         et_address = view.findViewById(R.id.et_address);

@@ -26,24 +26,20 @@ public class RegisterSupervisorFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password;
-    View view;
-    Button btn_create;
-    supervisor supervisorUser;
-    DatabaseReference databaseRegisterSuperVisor;
-    public RegisterSupervisorFragment() {
-        // Required empty public constructor
-    }
 
+
+    supervisor supervisorUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-
+        View view;
         view = inflater.inflate(R.layout.fragment_register_supervisor, container, false);
         mAuth = FirebaseAuth.getInstance();
-
+        Button btn_create;
+        final DatabaseReference databaseRegisterSuperVisor;
 
         et_name = view.findViewById(R.id.et_name);
         et_email = view.findViewById(R.id.et_email);

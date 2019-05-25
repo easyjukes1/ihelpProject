@@ -72,11 +72,13 @@ public class superVisorHomePageActivity extends AppCompatActivity {
                         case R.id.action_overview:
                             selectedFragment = new supervisorOverView_fragment();
                             break;
-
+                        default:
+                            selectedFragment = new supervisorVolunteer_fragment();
+                            break;
                     }
 
 
-                    assert selectedFragment != null;
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
 

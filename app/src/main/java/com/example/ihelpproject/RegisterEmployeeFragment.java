@@ -24,19 +24,17 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterEmployeeFragment extends Fragment {
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password, et_supervisor, et_companyName, et_age, et_address, et_phonenumber;
-    View view;
+
     Button btn_create;
     Employees employeeUser;
     DatabaseReference databaseRegisterEmployee;
 
 
-    public RegisterEmployeeFragment() {
-        // Required empty public constructor
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view;
         view = inflater.inflate(R.layout.fragment_register_employee, container, false);
         mAuth = FirebaseAuth.getInstance();
 

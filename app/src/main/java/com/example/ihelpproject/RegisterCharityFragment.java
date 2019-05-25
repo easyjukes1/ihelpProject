@@ -36,7 +36,6 @@ public class RegisterCharityFragment extends Fragment {
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_phonenumber1, et_email, et_username, et_password, et_address;
     View view;
-    Button btn_create, btn_img, btn_location;
     Charity charityUser;
     DatabaseReference databaseRegisterCharity;
     TextView xView, yView;
@@ -50,7 +49,10 @@ public class RegisterCharityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_register_charity, container, false);
+
         mAuth = FirebaseAuth.getInstance();
+        Button btn_create, btn_location;
+
         et_address = view.findViewById(R.id.et_address);
         et_phonenumber1 = view.findViewById(R.id.et_phoneNumber);
         et_name = view.findViewById(R.id.et_name);

@@ -76,7 +76,7 @@ public class supervisorVolunteer_fragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                //when there is an error
             }
         });
 

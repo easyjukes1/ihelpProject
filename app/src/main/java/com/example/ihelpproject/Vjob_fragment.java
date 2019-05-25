@@ -22,19 +22,15 @@ import java.util.List;
 
 
 public class Vjob_fragment extends Fragment {
-    View view;
     private List<CharityAddJob> listJobs;
     RecyclerView recyclerView;
     RecyclerViewVJobsAdapter recyclerAdapter;
-
-    public Vjob_fragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view;
         view = inflater.inflate(R.layout.fragment_vjob, container, false);
         recyclerView = view.findViewById(R.id.jobRv);
 
@@ -69,7 +65,7 @@ public class Vjob_fragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                //when there is an error
             }
         });
 

@@ -115,6 +115,7 @@
 
 
                 </android.support.design.widget.TextInputLayout>
+
                 <Button
                     android:textAllCaps="false"
                     android:id="@+id/btn_location"
@@ -137,7 +138,26 @@
                 android:textColor="#3797CF"
                 android:textSize="20sp" />
 
+            <LinearLayout
+                android:background="#fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:textColor="#fff"
+                    android:id="@+id/x"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
+                    />
+                <TextView
+                    android:textColor="#fff"
+                    android:id="@+id/y"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

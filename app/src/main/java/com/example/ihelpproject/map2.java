@@ -22,13 +22,15 @@ import java.util.Map;
 public class map2 extends AppCompatActivity implements OnMapReadyCallback, TaskLoadedCallback {
     private GoogleMap mMap;
     private MarkerOptions place1, place2;
-    Button getDirection;
+
     private Polyline currentPolyline;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map2);
+        Button getDirection;
+
         getDirection = findViewById(R.id.btn_dir);
         getDirection.setOnClickListener(new View.OnClickListener() {
             @Override

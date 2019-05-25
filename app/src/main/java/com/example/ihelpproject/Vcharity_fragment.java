@@ -23,20 +23,16 @@ import java.util.Objects;
 
 
 public class Vcharity_fragment extends Fragment {
-    View view;
+
     private List<Charity> listCharity;
     RecyclerView recyclerView;
     RecyclerViewVcharityAdapter recyclerAdapter;
 
 
-    public Vcharity_fragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view;
         view = inflater.inflate(R.layout.fragment_vcharity, container, false);
         recyclerView = view.findViewById(R.id.charityRv);
 
@@ -81,7 +77,7 @@ public class Vcharity_fragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                //when there is an error
             }
         });
 

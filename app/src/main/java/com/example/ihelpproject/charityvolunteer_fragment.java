@@ -22,20 +22,16 @@ import java.util.List;
 
 
 public class charityvolunteer_fragment extends Fragment {
-    View view;
+
     private RecyclerView recyclerView;
     private List<Student> listCharityStudentsVolunteers;
     RecyclerViewCharityVolunteerAdapter recyclerAdapter;
 
 
-    public charityvolunteer_fragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view;
         view = inflater.inflate(R.layout.fragment_charityvolunteers, container, false);
         recyclerView = view.findViewById(R.id.VolunteerRv);
         recyclerAdapter = new RecyclerViewCharityVolunteerAdapter(getContext(), listCharityStudentsVolunteers);

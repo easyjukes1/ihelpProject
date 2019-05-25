@@ -24,23 +24,19 @@ import java.util.List;
 
 
 public class charityJobs_fragment extends Fragment {
-    View view;
+
     private List<charityJobs> listCharityJobs;
-    FloatingActionButton addFAb;
+
     RecyclerViewCharityJobsAdapter recyclerAdapter;
     RecyclerView recyclerView;
-
-
-    public charityJobs_fragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view;
         view = inflater.inflate(R.layout.fragment_charityjob, container, false);
 
+        FloatingActionButton addFAb;
         addFAb = view.findViewById(R.id.fab_add);
         addFAb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +71,7 @@ public class charityJobs_fragment extends Fragment {
                     String jobType = HashAddJob.get("jobType");
                     String description = HashAddJob.get("description ");
 
-                    listCharityJobs.add(new charityJobs(id,jobTitle , jobType, description));
+                    listCharityJobs.add(new charityJobs(id, jobTitle, jobType, description));
 
 
                 }
@@ -85,7 +81,7 @@ public class charityJobs_fragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                //error method
             }
         });
     }

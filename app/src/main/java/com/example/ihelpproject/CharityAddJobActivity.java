@@ -13,8 +13,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class CharityAddJobActivity extends AppCompatActivity {
-    Button btn_create;
-    EditText et_jobTitle, et_briefDescription, et_description;
 
     DatabaseReference databaseAddjob;
 
@@ -23,6 +21,8 @@ public class CharityAddJobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charity_add_job);
 
+        Button btn_create;
+        final EditText et_jobTitle, et_briefDescription, et_description;
         btn_create = findViewById(R.id.btn_create);
         et_jobTitle = findViewById(R.id.et_jobTitle);
         et_briefDescription = findViewById(R.id.et_briefDescription);

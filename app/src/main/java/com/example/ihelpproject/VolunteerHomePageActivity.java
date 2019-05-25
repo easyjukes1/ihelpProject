@@ -76,8 +76,11 @@ public class VolunteerHomePageActivity extends AppCompatActivity {
                         case R.id.action_jobs:
                             selectedFragment = new Vjob_fragment();
                             break;
+                    default:
+                        selectedFragment = new Vmap_fragment();
+                        break;
                     }
-                    assert selectedFragment != null;
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
                     return true;
