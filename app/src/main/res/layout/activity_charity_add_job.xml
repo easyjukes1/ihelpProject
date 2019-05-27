@@ -80,21 +80,27 @@
 
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="140dp">
 
+            <Button
+                android:layout_marginTop="4dp"
+                android:id="@+id/btn_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:background="@drawable/custom_button"
+                android:text="create"
+                android:textAllCaps="false"
+                android:textColor="#3797CF"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
 
     </LinearLayout>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_create"
-        android:layout_width="70dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:background="#2bbd7e"
-        android:text="create job" />
-</LinearLayout>
 
 
     </FrameLayout>

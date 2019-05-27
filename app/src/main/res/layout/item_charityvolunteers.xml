@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:paddingTop="5dp"
+    android:id="@+id/layoutVolunteer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="#ffff"
-    >
+    android:orientation="vertical"
+    android:paddingTop="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:id="@+id/volunteerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VolunteerName"
+                android:text="Volunteer Name"
                 android:textColor="#212121"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -53,8 +53,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_close_black_24dp"
-                android:contentDescription="delete" />
+                android:contentDescription="delete"
+                android:src="@drawable/ic_close_black_24dp" />
         </LinearLayout>
 
     </LinearLayout>

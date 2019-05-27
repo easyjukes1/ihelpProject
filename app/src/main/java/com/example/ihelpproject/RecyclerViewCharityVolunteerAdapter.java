@@ -1,11 +1,13 @@
 package com.example.ihelpproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -14,10 +16,11 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
 
     private Context context;
     private List<Volunteers> charityVolunteersData;
+    private List<Supervisor> charityVolunteersSuperVisorData;
 
     public RecyclerViewCharityVolunteerAdapter(Context context, List<Volunteers> charityVolunteersData) {
         this.context = context;
-        this. charityVolunteersData =  charityVolunteersData;
+        this.charityVolunteersData = charityVolunteersData;
     }
 
     @NonNull
@@ -31,8 +34,33 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(@NonNull myViewHolder myViewHolder, final int i) {
         myViewHolder.tv_volunteerName.setText(charityVolunteersData.get(i).getName());
+
+        myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, charityVolunteerDetailsActivity.class);
+                intent.putExtra("name", charityVolunteersData.get(i).getName());
+                intent.putExtra("email", charityVolunteersData.get(i).getEmail());
+                intent.putExtra("Username", charityVolunteersData.get(i).getAddress());
+                intent.putExtra("Age", charityVolunteersData.get(i).getPhonenumber());
+                intent.putExtra("address", charityVolunteersData.get(i).getAddress());
+                intent.putExtra("phonenumber", charityVolunteersData.get(i).getPhonenumber());
+                intent.putExtra("role", charityVolunteersData.get(i).getAddress());
+                intent.putExtra("Age", charityVolunteersData.get(i).getPhonenumber());
+                //    intent.putExtra("details",charityData.get(i).getDetails());
+                //employee data
+                String role = charityVolunteersData.get(i).getAddress();
+                if (role.equals("employee")){
+               //   charityVolunteersSuperVisorData.get(i).get;
+
+
+                }
+                context.startActivity(intent);
+            }
+        });
 
         //   myViewHolder.img_charityVolunteer.setImageResource( charityVolunteersData.get(i).getImg_charityVolunteer());
 
@@ -40,18 +68,20 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
 
     @Override
     public int getItemCount() {
-        return  charityVolunteersData.size();
+        return charityVolunteersData.size();
     }
 
     public static class myViewHolder extends RecyclerView.ViewHolder {
         //  private ImageView img_charityVolunteer;
         private TextView tv_volunteerName;
+        private LinearLayout parentLayout;
 
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             //    img_charityVolunteer = itemView.findViewById(R.id.img_charityVolunteer);
             tv_volunteerName = itemView.findViewById(R.id.volunteerName);
+            parentLayout = itemView.findViewById(R.id.layoutVolunteer);
 
         }
     }
