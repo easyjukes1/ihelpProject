@@ -69,7 +69,7 @@ public class CharityHomePageActivity extends AppCompatActivity {
                             selectedFragment = new CharityJobs_fragment();
                             break;
                         case R.id.action_ourVolunteer:
-                            selectedFragment = new Charityvolunteer_fragment();
+                            selectedFragment = new CharityVolunteer_fragment();
                             break;
 
                     }

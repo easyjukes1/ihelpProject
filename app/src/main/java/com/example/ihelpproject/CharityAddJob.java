@@ -5,13 +5,15 @@ public class CharityAddJob {
     private String jobTitle;
     private String jobType;
     private String description;
+    private  String charityId;
 
 
-    public CharityAddJob(String id, String jobTitle, String jobType, String description) {
+    public CharityAddJob(String id, String jobTitle, String jobType, String description, String charityId) {
         this.id = id;
         this.jobTitle = jobTitle;
         this.jobType = jobType;
         this.description = description;
+        this.charityId=charityId;
     }
 
     public String getId() {
@@ -46,4 +48,11 @@ public class CharityAddJob {
         this.description = description;
     }
 
+    public String getCharityId() {
+        return charityId;
+    }
+
+    public void setCharityId(String charityId) {
+        this.charityId = charityId;
+    }
 }

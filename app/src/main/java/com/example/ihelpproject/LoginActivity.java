@@ -65,8 +65,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onClick(View v) {
 
-                String email1 = et_email.getEditText().getText().toString();
-                String password1 = et_password.getEditText().getText().toString();
+                String email1 = et_email.getEditText().getText().toString().trim();
+                String password1 = et_password.getEditText().getText().toString().trim();
 
                 if (validateEmail(email1) | validatePassword(password1)) {
                     mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

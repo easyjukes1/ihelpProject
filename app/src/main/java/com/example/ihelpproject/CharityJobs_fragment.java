@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -69,10 +70,7 @@ public class CharityJobs_fragment extends Fragment {
                     String id = HashAddJob.get("id");
                     String jobTitle = HashAddJob.get("jobTitle");
                     String jobType = HashAddJob.get("jobType");
-
-
-                    listCharityJobs.add(new CharityJobs(id, jobTitle, jobType));
-
+                    listCharityJobs.add(new CharityJobs(id, jobTitle, jobType,null,null,""));
 
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

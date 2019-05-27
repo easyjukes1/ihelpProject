@@ -17,7 +17,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAQ5yIMCQM4oOdilkSsKla-v658doA8qxI" />
@@ -26,8 +25,9 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".Map2" />
-        <activity android:name=".GoogleMapActivity"
-            android:parentActivityName=".LoginActivity"/>
+        <activity
+            android:name=".GoogleMapActivity"
+            android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".CharityHomePageActivity"
             android:parentActivityName=".LoginActivity" />

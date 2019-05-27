@@ -13,11 +13,11 @@ import java.util.List;
 public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<RecyclerViewCharityVolunteerAdapter.myViewHolder> {
 
     private Context context;
-    private List<Student> charityVolunteersStidentData;
+    private List<Volunteers> charityVolunteersData;
 
-    public RecyclerViewCharityVolunteerAdapter(Context context, List<Student> charityVolunteersStidentData) {
+    public RecyclerViewCharityVolunteerAdapter(Context context, List<Volunteers> charityVolunteersData) {
         this.context = context;
-        this.charityVolunteersStidentData = charityVolunteersStidentData;
+        this. charityVolunteersData =  charityVolunteersData;
     }
 
     @NonNull
@@ -32,7 +32,7 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder myViewHolder, int i) {
-        myViewHolder.tv_volunteerName.setText(charityVolunteersStidentData.get(i).getName());
+        myViewHolder.tv_volunteerName.setText(charityVolunteersData.get(i).getName());
 
         //   myViewHolder.img_charityVolunteer.setImageResource( charityVolunteersData.get(i).getImg_charityVolunteer());
 
@@ -40,7 +40,7 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
 
     @Override
     public int getItemCount() {
-        return charityVolunteersStidentData.size();
+        return  charityVolunteersData.size();
     }
 
     public static class myViewHolder extends RecyclerView.ViewHolder {
