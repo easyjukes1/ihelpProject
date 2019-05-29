@@ -55,8 +55,8 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
                 alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(charityJobsData.get(i).getId());
-                        databaseReference.removeValue();
+                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(charityJobsData.get(i).getId());
+                        databaseReference1.removeValue();
                         dialog.cancel();
                     }
                 });
@@ -82,7 +82,6 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
     public static class myViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_jobName;
         private TextView tv_briefDescription;
-
         private LinearLayout parentLayout;
 
 

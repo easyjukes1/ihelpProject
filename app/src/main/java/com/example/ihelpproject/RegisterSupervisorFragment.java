@@ -49,20 +49,20 @@ public class RegisterSupervisorFragment extends Fragment {
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = et_email.getEditText().getText().toString();
-                String password = et_password.getEditText().getText().toString();
-                String name = et_name.getEditText().getText().toString();
-                String username = et_username.getEditText().getText().toString();
+                final String email = et_email.getEditText().getText().toString();
+                final String password = et_password.getEditText().getText().toString();
+                final String name = et_name.getEditText().getText().toString();
+                final String username = et_username.getEditText().getText().toString();
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username)) {
 
-                    String id = databaseRegisterSuperVisor.push().getKey();
-                    supervisorUser = new Supervisor(id, "Supervisor", name, email, username, password);
 
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+                                    String id = mAuth.getCurrentUser().getUid();
+                                    supervisorUser = new Supervisor(id, "supervisorUsers", name, email, username, password);
                                     FirebaseDatabase.getInstance().getReference("supervisorUsers")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(supervisorUser).addOnCompleteListener(new OnCompleteListener<Void>() {

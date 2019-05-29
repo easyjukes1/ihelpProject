@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 String password1 = et_password.getEditText().getText().toString().trim();
 
                 if (validateEmail(email1) | validatePassword(password1)) {
+                    
                     mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                         Object user = dataSnapshot.getValue();
                                         if (user != null) {
                                             HashMap<String, String> user1 = (HashMap<String, String>) user;
-                                            if (user1.get("role").equals("charity")) {
+                                            if (user1.get("role").equals("charityUser")) {
                                                 Intent icharityHomePageActivity = new Intent(LoginActivity.this, CharityHomePageActivity.class);
                                                 startActivity(icharityHomePageActivity);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

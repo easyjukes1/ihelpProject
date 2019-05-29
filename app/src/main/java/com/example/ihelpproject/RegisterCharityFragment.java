@@ -74,13 +74,15 @@ public class RegisterCharityFragment extends Fragment {
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) | validatePhoneNumber(phoneNumber)
                         | validatex(xValue) | validatey(yValue)) {
-                    String id = databaseRegisterCharity.push().getKey();
-                    charityUser = new Charity(id, "charity", name, address, email, password, phoneNumber, "null", "null", x, y);
+
+
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+                                    String id = mAuth.getCurrentUser().getUid();
+                                    charityUser = new Charity(id, "charityUser", name, address, email, password, phoneNumber, "null", "null", x, y);
                                     FirebaseDatabase.getInstance().getReference("charityUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(charityUser).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -57,27 +57,28 @@ public class RegisterStudentFragment extends Fragment {
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
-                String password = Objects.requireNonNull(et_password.getEditText()).getText().toString();
-                String name = Objects.requireNonNull(et_name.getEditText()).getText().toString();
-                String username = Objects.requireNonNull(et_username.getEditText()).getText().toString();
-                String address = Objects.requireNonNull(et_address.getEditText()).getText().toString();
-                String superVisor = Objects.requireNonNull(et_supervisorName.getEditText()).getText().toString();
-                String phoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
-                String studentId = Objects.requireNonNull(et_studentId.getEditText()).getText().toString();
-                String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
+                final String email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
+                final String password = Objects.requireNonNull(et_password.getEditText()).getText().toString();
+                final String name = Objects.requireNonNull(et_name.getEditText()).getText().toString();
+                final String username = Objects.requireNonNull(et_username.getEditText()).getText().toString();
+                final String address = Objects.requireNonNull(et_address.getEditText()).getText().toString();
+                final String superVisor = Objects.requireNonNull(et_supervisorName.getEditText()).getText().toString();
+                final String phoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
+                final String studentId = Objects.requireNonNull(et_studentId.getEditText()).getText().toString();
+                final String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
                         validateSupervisor(superVisor) | validateAge(age) | validateStudentId(studentId)) {
 
-                    String id = databaseRegisterStudent.push().getKey();
-                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "student", studentId, superVisor);
+
 
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+                                    String id = mAuth.getCurrentUser().getUid();
+                                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "studentUser", studentId, superVisor);
                                     FirebaseDatabase.getInstance().getReference("studentUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(studentUser).addOnCompleteListener(new OnCompleteListener<Void>() {

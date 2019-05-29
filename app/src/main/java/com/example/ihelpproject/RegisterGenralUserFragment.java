@@ -59,22 +59,23 @@ public class RegisterGenralUserFragment extends Fragment {
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
-                String password = Objects.requireNonNull(et_password.getEditText()).getText().toString();
-                String name = Objects.requireNonNull(et_name.getEditText()).getText().toString();
-                String username = Objects.requireNonNull(et_username.getEditText()).getText().toString();
-                String address = Objects.requireNonNull(et_address.getEditText()).getText().toString();
-                String phoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
-                String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
+                final String email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
+                final String password = Objects.requireNonNull(et_password.getEditText()).getText().toString();
+                final String name = Objects.requireNonNull(et_name.getEditText()).getText().toString();
+                final String username = Objects.requireNonNull(et_username.getEditText()).getText().toString();
+                final String address = Objects.requireNonNull(et_address.getEditText()).getText().toString();
+                final String phoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
+                final String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber)
                         | validateAge(age)) {
-                    String id = databaseRegisterGeneralUser.push().getKey();
-                    genralUser = new GenralUser(id, name, email, username, password, age, address, phoneNumber, "generalUser");
+
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(Objects.requireNonNull(getActivity()), new OnCompleteListener<AuthResult>() {
 
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
+                                    String id = mAuth.getCurrentUser().getUid();
+                                    genralUser = new GenralUser(id, name, email, username, password, age, address, phoneNumber, "generalUser");
                                     FirebaseDatabase.getInstance().getReference("generalUser")
                                             .child(Objects.requireNonNull(mAuth.getCurrentUser()).getUid())
                                             .setValue(genralUser).addOnCompleteListener(new OnCompleteListener<Void>() {
