@@ -12,9 +12,15 @@
         android:enabled="true"
         android:icon="@drawable/icon_v"
         android:title="volunteers"
-        android:iconTint="#fff"
-        />
 
+        />
+    <item
+        android:id="@+id/action_requestedVolunteers"
+        android:enabled="true"
+        android:icon="@drawable/icon_v"
+        android:title="requested volunteers"
+
+        />
 
 
 </menu>

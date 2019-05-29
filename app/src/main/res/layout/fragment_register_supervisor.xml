@@ -106,16 +106,19 @@
                 android:paddingStart="150dp"
                 android:paddingBottom="5dp">
 
+
                 <Button
+                    android:layout_marginTop="4dp"
                     android:id="@+id/btn_create"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
                     android:background="@drawable/custom_button"
-                    android:backgroundTint="#fff"
                     android:text="Sign up"
                     android:textAllCaps="false"
                     android:textColor="#3797CF"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    />
             </LinearLayout>
 
         </LinearLayout>

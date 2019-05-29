@@ -219,16 +219,16 @@
                     android:orientation="vertical">
 
                     <Button
-                        
-                        android:id="@+id/btn_submit"
-                        android:layout_marginLeft="120dp"
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/btn_create"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:textColor="#3797CF"
+                        android:layout_marginStart="0dp"
                         android:background="@drawable/custom_button"
-                        android:text="submit"
+                        android:text="create"
                         android:textAllCaps="false"
+                        android:textColor="#3797CF"
+                        android:textSize="20sp"
                         />
                 </LinearLayout>
 
