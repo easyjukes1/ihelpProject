@@ -1,6 +1,7 @@
 package com.example.ihelpproject;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 
 
 public class VolunteerSubmitJobsActivity extends AppCompatActivity {
-    TextView tv_jobTitle, tv_jobType;
+    TextView tv_jobTitle, tv_jobType,tv_charityPhoneNumber;
     FirebaseAuth mAuth;
     Button submit;
 
@@ -31,14 +32,28 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_volunteer_charity_jobs);
         tv_jobTitle = findViewById(R.id.tv_jobTitle);
         tv_jobType = findViewById(R.id.tv_jobType);
+        tv_charityPhoneNumber = findViewById(R.id.tv_charityPhoneNumber1);
         submit = findViewById(R.id.btn_submit);
 
         mAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         String jobTitle = intent.getStringExtra("jobTitle");
         String jobType = intent.getStringExtra("jobType");
+        String jobPohneNumber = intent.getStringExtra("phoneNumber");
+        final String charityPhoneNumber = intent.getStringExtra("PhoneNumber");
         tv_jobTitle.setText(jobTitle);
         tv_jobType.setText(jobType);
+        tv_charityPhoneNumber.setText(jobPohneNumber);
+
+
+        tv_charityPhoneNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri call  = Uri.parse("tel:"+charityPhoneNumber);
+                Intent intent1 = new Intent(Intent.ACTION_DIAL,call);
+                startActivity(intent1);
+            }
+        });
 
 
     }

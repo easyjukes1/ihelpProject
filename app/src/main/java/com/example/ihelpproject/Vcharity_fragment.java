@@ -60,14 +60,6 @@ public class Vcharity_fragment extends Fragment {
                     String id = charityUser.get("id");
 
 
-                    //double Latitude= Double.parseDouble(charityUser.get("Latitude"));
-                    //double longitude= Double.parseDouble(charityUser.get("longitude"));
-                   // Object charityUserDoubles = dataSnapshot1.getValue();
-                   /// HashMap<String, Double> charityUserD = (HashMap<String, Double>) charityUserDoubles;
-                    //double Latitude = (double) Double.parseDouble(Objects.<String>requireNonNull(String.valueOf(charityUserD.get("Latitude"))));
-                    //double longitude = (double) Double.parseDouble(Objects.<String>requireNonNull(String.valueOf(charityUserD.get("longitude"))));
-
-
                     listCharity.add(new Charity(id,"charity",name,address,email,null,phoneumber,null,null,null,null));
 
 

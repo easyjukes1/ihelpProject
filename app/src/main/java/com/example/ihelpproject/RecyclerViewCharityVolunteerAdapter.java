@@ -16,11 +16,12 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
 
     private Context context;
     private List<Volunteers> charityVolunteersData;
-    private List<Supervisor> charityVolunteersSuperVisorData;
+
 
     public RecyclerViewCharityVolunteerAdapter(Context context, List<Volunteers> charityVolunteersData) {
         this.context = context;
         this.charityVolunteersData = charityVolunteersData;
+
     }
 
     @NonNull
@@ -45,24 +46,13 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
                 intent.putExtra("name", charityVolunteersData.get(i).getName());
                 intent.putExtra("email", charityVolunteersData.get(i).getEmail());
                 intent.putExtra("Username", charityVolunteersData.get(i).getAddress());
-                intent.putExtra("Age", charityVolunteersData.get(i).getPhonenumber());
                 intent.putExtra("address", charityVolunteersData.get(i).getAddress());
                 intent.putExtra("phonenumber", charityVolunteersData.get(i).getPhonenumber());
-                intent.putExtra("role", charityVolunteersData.get(i).getAddress());
-                intent.putExtra("Age", charityVolunteersData.get(i).getPhonenumber());
-                //    intent.putExtra("details",charityData.get(i).getDetails());
-                //employee data
-                String role = charityVolunteersData.get(i).getAddress();
-                if (role.equals("employee")){
-               //   charityVolunteersSuperVisorData.get(i).get;
-
-
-                }
+                intent.putExtra("role", charityVolunteersData.get(i).getRole());
+                intent.putExtra("Age", charityVolunteersData.get(i).getAge());
                 context.startActivity(intent);
             }
         });
-
-        //   myViewHolder.img_charityVolunteer.setImageResource( charityVolunteersData.get(i).getImg_charityVolunteer());
 
     }
 

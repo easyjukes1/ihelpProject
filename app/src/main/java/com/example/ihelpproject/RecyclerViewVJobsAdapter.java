@@ -43,6 +43,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
                 intent.putExtra("jobTitle", CharityJobsData.get(i).getJobTitle());
                 intent.putExtra("jobType", CharityJobsData.get(i).getJobType());
                 intent.putExtra("description", CharityJobsData.get(i).getDescription());
+                intent.putExtra("phoneNumber", CharityJobsData.get(i).getPhoneNumber());
 
                 context.startActivity(intent);
 

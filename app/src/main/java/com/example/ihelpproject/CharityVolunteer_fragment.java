@@ -25,6 +25,7 @@ public class CharityVolunteer_fragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<Volunteers> listCharityVolunteers;
+
     RecyclerViewCharityVolunteerAdapter recyclerAdapter;
 
 

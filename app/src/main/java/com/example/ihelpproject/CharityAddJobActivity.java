@@ -23,11 +23,12 @@ public class CharityAddJobActivity extends AppCompatActivity {
         setContentView(R.layout.activity_charity_add_job);
 
         Button btn_create;
-        final TextInputLayout et_jobTitle, et_briefDescription, et_description;
+        final TextInputLayout et_jobTitle, et_briefDescription, et_description,et_phoneNumber;
         btn_create = findViewById(R.id.btn_create);
         et_jobTitle = findViewById(R.id.et_jobTitle);
         et_briefDescription = findViewById(R.id.et_briefDescription);
         et_description = findViewById(R.id.et_description);
+        et_phoneNumber = findViewById(R.id.et_phoneNumber);
 
         databaseAddjob = FirebaseDatabase.getInstance().getReference("CharityAddjob");
 
@@ -38,12 +39,13 @@ public class CharityAddJobActivity extends AppCompatActivity {
                 String briefDescription = et_briefDescription.getEditText().getText().toString();
                 String description = et_description.getEditText().getText().toString();
                 String charityId= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String phoneNumber= et_phoneNumber.getEditText().getText().toString();
 
 
                 //to create unique id for charity add Jobs
                 String id = databaseAddjob.push().getKey();
                 //creating an object of charity add job
-                CharityAddJob addJob = new CharityAddJob(id, jobTitle, briefDescription, description,charityId);
+                CharityAddJob addJob = new CharityAddJob(id, jobTitle, briefDescription, description,charityId,phoneNumber);
 
                 // we will store the data on the genrated id .
                 databaseAddjob.child(id).setValue(addJob);

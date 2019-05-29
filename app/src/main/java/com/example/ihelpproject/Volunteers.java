@@ -12,8 +12,7 @@ public class Volunteers {
     private String role;
 
 
-
-    Volunteers(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role) {
+    public Volunteers(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role) {
         this.id = id;
         Name = name;
         Email = email;
@@ -22,6 +21,14 @@ public class Volunteers {
         Age = age;
         Address = address;
         Phonenumber = phonenumber;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
         this.role = role;
     }
 
