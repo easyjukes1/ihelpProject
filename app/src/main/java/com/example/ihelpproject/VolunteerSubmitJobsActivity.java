@@ -67,7 +67,7 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
 
                 final String jobType = tv_jobType.getText().toString();
                 final String jobTittle = tv_jobTitle.getText().toString();
-                FirebaseDatabase.getInstance().getReference("CharityAddjob").addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("volunteersJobs").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {

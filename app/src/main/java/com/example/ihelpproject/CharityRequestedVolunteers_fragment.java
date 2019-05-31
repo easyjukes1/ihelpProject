@@ -20,17 +20,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 
 public class CharityRequestedVolunteers_fragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<Volunteers> listCharityVolunteers;
-    private HashMap<String, String> userData;
-
-
     RecyclerViewCharityRequestedVolunteersAdapter recyclerAdapter;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,20 +43,21 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         listCharityVolunteers = new ArrayList<>();
-        FirebaseDatabase.getInstance().getReference("CharityAddjob").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("CharityAddjob").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Object charity = dataSnapshot1.getValue();
                     HashMap<String, String> charityData = (HashMap<String, String>) charity;
                     if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(charityData.get("charityId"))) {
-                        FirebaseDatabase.getInstance().getReference(dataSnapshot1.getKey()).addValueEventListener(new ValueEventListener() {
+                        FirebaseDatabase.getInstance().getReference(Objects.requireNonNull(dataSnapshot1.getKey())).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot dataSnapshot2 : dataSnapshot.getChildren()) {
                                     getStudent(dataSnapshot2.getValue().toString());
                                     getGeneralUser(dataSnapshot2.getValue().toString());
                                     getEmployee(dataSnapshot2.getValue().toString());
+
                                 }
 
                             }
@@ -103,8 +101,15 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerUsername = userData.get("username");
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
-                    listCharityVolunteers.add(new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor));
+                    Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor);
+
+                    listCharityVolunteers.add(studentUser);
+                    assert volunteerId != null;
+                    FirebaseDatabase.getInstance().getReference("charityVolunteers")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child(volunteerId)
+                            .setValue(studentUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
@@ -133,8 +138,15 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerUsername = userData.get("username");
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
-                    listCharityVolunteers.add(new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole));
+                    GenralUser genralUser = new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole);
+
+                    listCharityVolunteers.add(genralUser);
+                    assert volunteerId != null;
+                    FirebaseDatabase.getInstance().getReference("charityVolunteers")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child(volunteerId)
+                            .setValue(genralUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
@@ -165,8 +177,15 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerUsername = userData.get("username");
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
-                    listCharityVolunteers.add(new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName));
+
+                    Employees employeesUser = new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName);
+                    assert volunteerId != null;
+                    FirebaseDatabase.getInstance().getReference("charityVolunteers")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child(volunteerId)
+                            .setValue(employeesUser);
+                    listCharityVolunteers.add(employeesUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }

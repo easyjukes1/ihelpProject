@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class CharityAddJobActivity extends AppCompatActivity {
 
     DatabaseReference databaseAddjob;
+    DatabaseReference databaseVolunteersJobs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,8 @@ public class CharityAddJobActivity extends AppCompatActivity {
         et_description = findViewById(R.id.et_description);
         et_phoneNumber = findViewById(R.id.et_phoneNumber);
 
-        databaseAddjob = FirebaseDatabase.getInstance().getReference("CharityAddjob");
+        databaseAddjob = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        databaseVolunteersJobs = FirebaseDatabase.getInstance().getReference("volunteersJobs");
 
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,12 +45,14 @@ public class CharityAddJobActivity extends AppCompatActivity {
 
 
                 //to create unique id for charity add Jobs
-                String id = databaseAddjob.push().getKey();
+                String idAddJob = databaseAddjob.push().getKey();
+                String idVolunteersJobs = databaseAddjob.push().getKey();
                 //creating an object of charity add job
-                CharityAddJob addJob = new CharityAddJob(id, jobTitle, briefDescription, description,charityId,phoneNumber);
+                CharityAddJob job = new CharityAddJob(idAddJob, jobTitle, briefDescription, description,charityId,phoneNumber);
 
-                // we will store the data on the genrated id .
-                databaseAddjob.child(id).setValue(addJob);
+                // we will store the data on the generated id .
+                databaseAddjob.child(idAddJob).setValue(job);
+                databaseVolunteersJobs.child(idVolunteersJobs).setValue(job);
                 Toast.makeText(CharityAddJobActivity.this, "job added", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), CharityHomePageActivity.class);
                 startActivity(i);

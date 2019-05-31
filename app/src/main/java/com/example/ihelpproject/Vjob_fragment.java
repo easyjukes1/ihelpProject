@@ -44,7 +44,7 @@ public class Vjob_fragment extends Fragment {
 
         listJobs = new ArrayList<>();
 
-        FirebaseDatabase.getInstance().getReference("CharityAddjob").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("volunteersJobs").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
