@@ -38,6 +38,7 @@ public class RegisterCharityFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_register_charity, container, false);
 
         mAuth = FirebaseAuth.getInstance();
+
         Button btn_create, btn_location;
 
         et_address = view.findViewById(R.id.et_address);
@@ -69,11 +70,11 @@ public class RegisterCharityFragment extends Fragment {
                 final String name = et_name.getEditText().getText().toString().trim();
                 final String address = et_address.getEditText().getText().toString().trim();
                 final String phoneNumber = et_phonenumber1.getEditText().getText().toString().trim();
-                final String xValue = xView.getText().toString().trim();
-                final String yValue = yView.getText().toString().trim();
+                final Double xValue = Double.valueOf(xView.getText().toString().trim());
+                final Double yValue = Double.valueOf(yView.getText().toString().trim());
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) | validatePhoneNumber(phoneNumber)
-                        | validatex(xValue) | validatey(yValue)) {
+                    ) {
 
 
                     mAuth.createUserWithEmailAndPassword(email, password)
@@ -82,7 +83,7 @@ public class RegisterCharityFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     String id = mAuth.getCurrentUser().getUid();
-                                    charityUser = new Charity(id, "charityUser", name, address, email, password, phoneNumber, "null", "null", x, y);
+                                    charityUser = new Charity(id, "charityUser", name, address, email, password, phoneNumber, "null", "null",xValue, yValue);
                                     FirebaseDatabase.getInstance().getReference("charityUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(charityUser).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -111,27 +112,7 @@ public class RegisterCharityFragment extends Fragment {
 
     }
 
-    private boolean validatex(String xValue) {
-        if (xValue.isEmpty()) {
-            et_email.setError("field cant be empty");
-            return false;
-        } else {
-            xView.setError(null);
-            x = Double.parseDouble(xValue);
-            return true;
-        }
-    }
 
-    private boolean validatey(String yValue) {
-        if (yValue.isEmpty()) {
-            xView.setError("field cant be empty");
-            return false;
-        } else {
-            xView.setError(null);
-            y = Double.parseDouble(yValue);
-            return true;
-        }
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

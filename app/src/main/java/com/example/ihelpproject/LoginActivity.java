@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 String password1 = et_password.getEditText().getText().toString().trim();
 
                 if (validateEmail(email1) | validatePassword(password1)) {
-                    
+
                     mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                                 startActivity(icharityHomePageActivity);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                            } else if (user1.get("role").equals("employee")) {
+                                            } else if (user1.get("role").equals("employeeUser")) {
                                                 Intent iVolunteerHomePageActivity = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                                 startActivity(iVolunteerHomePageActivity);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                                 startActivity(i);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                            } else if (user1.get("role").equals("student")) {
+                                            } else if (user1.get("role").equals("studentUser")) {
                                                 Intent istudentUser = new Intent(LoginActivity.this, VolunteerHomePageActivity.class);
                                                 startActivity(istudentUser);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

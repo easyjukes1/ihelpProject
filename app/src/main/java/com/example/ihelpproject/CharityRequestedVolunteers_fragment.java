@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -25,6 +26,8 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
 
     private RecyclerView recyclerView;
     private List<Volunteers> listCharityVolunteers;
+    private HashMap<String, String> userData;
+
 
     RecyclerViewCharityRequestedVolunteersAdapter recyclerAdapter;
 
@@ -43,30 +46,68 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         listCharityVolunteers = new ArrayList<>();
-
-        FirebaseDatabase.getInstance().getReference("studentUser").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("CharityAddjob").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Object getV = dataSnapshot1.getValue();
-                    HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
-                    String volunteerName = HashGetV.get("name");
-                    String volunteerAge = HashGetV.get("age");
-                    String volunteerAddress = HashGetV.get("address");
-                    String volunteerEmail = HashGetV.get("email");
-                    String volunteerId = HashGetV.get("id");
-                    String volunteerSuperVisor = HashGetV.get("superVisor");
-                    String volunteerUniID = HashGetV.get("uniID");
-                    String volunteerUsername = HashGetV.get("username");
-                    String volunteerRole = HashGetV.get("role");
-                    String volunteerNumber = HashGetV.get("phonenumber");
+                    Object charity = dataSnapshot1.getValue();
+                    HashMap<String, String> charityData = (HashMap<String, String>) charity;
+                    if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(charityData.get("charityId"))) {
+                        FirebaseDatabase.getInstance().getReference(dataSnapshot1.getKey()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot dataSnapshot2 : dataSnapshot.getChildren()) {
+                                    getStudent(dataSnapshot2.getValue().toString());
+                                    getGeneralUser(dataSnapshot2.getValue().toString());
+                                    getEmployee(dataSnapshot2.getValue().toString());
+                                }
 
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                //on error
+                            }
+                        });
+
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //on error
+            }
+        });
+
+
+    }
+
+    void getStudent(String ID) {
+        FirebaseDatabase.getInstance().getReference("studentUser").child(ID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Object user = dataSnapshot.getValue();
+                if (user != null) {
+                    HashMap<String, String> userData = (HashMap<String, String>) user;
+
+                    String volunteerName = userData.get("name");
+                    String volunteerAge = userData.get("age");
+                    String volunteerAddress = userData.get("address");
+                    String volunteerEmail = userData.get("email");
+                    String volunteerId = userData.get("id");
+                    String volunteerSuperVisor = userData.get("superVisor");
+                    String volunteerUniID = userData.get("uniID");
+                    String volunteerUsername = userData.get("username");
+                    String volunteerRole = userData.get("role");
+                    String volunteerNumber = userData.get("phonenumber");
                     listCharityVolunteers.add(new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
                             null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor));
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
-
             }
 
             @Override
@@ -74,30 +115,61 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                 //on error
             }
         });
-        FirebaseDatabase.getInstance().getReference("employeeUser").addValueEventListener(new ValueEventListener() {
+
+    }
+
+    void getGeneralUser(String ID) {
+        FirebaseDatabase.getInstance().getReference("generalUser").child(ID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Object getV = dataSnapshot1.getValue();
+                Object user = dataSnapshot.getValue();
+                if (user != null) {
+                    HashMap<String, String> userData = (HashMap<String, String>) user;
+                    String volunteerName = userData.get("name");
+                    String volunteerAge = userData.get("age");
+                    String volunteerAddress = userData.get("address");
+                    String volunteerEmail = userData.get("email");
+                    String volunteerId = userData.get("id");
+                    String volunteerUsername = userData.get("username");
+                    String volunteerRole = userData.get("role");
+                    String volunteerNumber = userData.get("phonenumber");
+                    listCharityVolunteers.add(new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerView.setAdapter(recyclerAdapter);
+                }
+            }
 
-                    HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
-                    String volunteerName = HashGetV.get("name");
-                    String volunteerAge = HashGetV.get("age");
-                    String volunteerAddress = HashGetV.get("address");
-                    String volunteerEmail = HashGetV.get("email");
-                    String volunteerId = HashGetV.get("id");
-                    String volunteerSuperVisor = HashGetV.get("superVisor");
-                    String volunteerUsername = HashGetV.get("username");
-                    String volunteerCompanyName = HashGetV.get("companyName");
-                    String volunteerNumber = HashGetV.get("phonenumber");
-                    String volunteerRole = HashGetV.get("role");
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //on error
+            }
+        });
 
+    }
+
+    void getEmployee(String ID) {
+        FirebaseDatabase.getInstance().getReference("employeeUser").child(ID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Object user = dataSnapshot.getValue();
+                if (user != null) {
+                    HashMap<String, String> userData = (HashMap<String, String>) user;
+                    String volunteerName = userData.get("name");
+                    String volunteerAge = userData.get("age");
+                    String volunteerAddress = userData.get("address");
+                    String volunteerEmail = userData.get("email");
+                    String volunteerId = userData.get("id");
+                    String volunteerSuperVisor = userData.get("superVisor");
+                    String volunteerCompanyName = userData.get("companyName");
+                    String volunteerUsername = userData.get("username");
+                    String volunteerRole = userData.get("role");
+                    String volunteerNumber = userData.get("phonenumber");
                     listCharityVolunteers.add(new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
                             null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName));
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
-
             }
 
             @Override
@@ -105,36 +177,6 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                 //on error
             }
         });
-        FirebaseDatabase.getInstance().getReference("generalUser").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Object getV = dataSnapshot1.getValue();
-
-                    HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
-                    String volunteerName = HashGetV.get("name");
-                    String volunteerAge = HashGetV.get("age");
-                    String volunteerAddress = HashGetV.get("address");
-                    String volunteerEmail = HashGetV.get("email");
-                    String volunteerId = HashGetV.get("id");
-                    String volunteerUsername = HashGetV.get("username");
-                    String volunteerRole = HashGetV.get("role");
-                    String volunteerNumber = HashGetV.get("phonenumber");
-                    listCharityVolunteers.add(new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole));
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    recyclerView.setAdapter(recyclerAdapter);
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                //on error
-            }
-        });
-
 
     }
 }

@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".charityVolunteerDetailsActivity"></activity>
+        <activity android:name=".charityVolunteerDetailsActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

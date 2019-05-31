@@ -13,6 +13,7 @@ public class Charity {
     private String picture;
     private Double Latitude, longitude;
 
+
     public Charity(String id, String role, String name, String address, String email, String password, String phonenumber, String details, String picture, Double latitude, Double longitude) {
         this.id = id;
         this.role = role;
@@ -26,7 +27,6 @@ public class Charity {
         Latitude = latitude;
         this.longitude = longitude;
     }
-
 
     public Double getLatitude() {
         return Latitude;

@@ -73,6 +73,7 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             Object job = dataSnapshot1.getValue();
                             HashMap<String, String> job1 = (HashMap<String, String>) job;
+
                             if (jobType.equals(job1.get("jobType")) && jobTittle.equals(job1.get("jobTitle"))) {
                                 FirebaseDatabase.getInstance().getReference(job1.get("id")).child(mAuth.getCurrentUser().getUid()).setValue(mAuth.getCurrentUser().getUid())
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 
 
-
 public class Vcharity_fragment extends Fragment {
 
     private List<Charity> listCharity;
@@ -51,18 +50,18 @@ public class Vcharity_fragment extends Fragment {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Object charityUserStrings = dataSnapshot1.getValue();
                     HashMap<String, String> charityUser = (HashMap<String, String>) charityUserStrings;
-                    String password = charityUser.get("password");
                     String name = charityUser.get("name");
                     String email = charityUser.get("email");
                     String address = charityUser.get("address");
                     String phoneumber = charityUser.get("phonenumber");
-                   // String details = charityUser.get("details");
                     String id = charityUser.get("id");
+                    HashMap<String, Double> charityUser1 = (HashMap<String, Double>) charityUserStrings;
 
 
-                    listCharity.add(new Charity(id,"charity",name,address,email,null,phoneumber,null,null,null,null));
+                    Double latitude = charityUser1.get("latitude");
+                    Double longitude = charityUser1.get("longitude");
 
-
+                    listCharity.add(new Charity(id, "charity", name, address, email, null, phoneumber, null, null, latitude, longitude));
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(recyclerAdapter);
