@@ -56,6 +56,15 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
                 intent.putExtra("phonenumber", charityVolunteersData.get(i).getPhonenumber());
                 intent.putExtra("role", charityVolunteersData.get(i).getRole());
                 intent.putExtra("Age", charityVolunteersData.get(i).getAge());
+          //      if (charityVolunteersData.get(i).getRole().equals("studentUser")) {
+            //        intent.putExtra("supervisorName", charityVolunteersData.get(i).get);
+              //      intent.putExtra("Age", charityVolunteersData.get(i).getAge());
+                //    intent.putExtra("Age", charityVolunteersData.get(i).getAge());
+                //}
+                //if (charityVolunteersData.get(i).getRole().equals("employeeUser")) {
+                  //  intent.putExtra("Age", charityVolunteersData.get(i).getAge());
+                    //intent.putExtra("Age", charityVolunteersData.get(i).getAge());
+                //}
                 context.startActivity(intent);
             }
         });

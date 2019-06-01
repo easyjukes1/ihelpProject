@@ -24,7 +24,8 @@ import java.util.Objects;
 public class RegisterStudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
-    TextInputLayout et_name, et_email, et_username, et_password, et_studentId, et_supervisorName, et_age, et_address, et_phonenumber;
+    TextInputLayout et_name, et_email, et_username, et_password, et_studentId, et_supervisorName,
+            et_age, et_address, et_phonenumber ,et_supervisorEmail,et_supervisor_phoneNumber;
     View view;
     Student studentUser;
 
@@ -37,11 +38,9 @@ public class RegisterStudentFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_register_student, container, false);
         mAuth = FirebaseAuth.getInstance();
         Button btn_create;
-        final DatabaseReference databaseRegisterStudent;
-
 
         et_studentId = view.findViewById(R.id.et_ID);
-        et_supervisorName = view.findViewById(R.id.et_supervisorName);
+
         et_address = view.findViewById(R.id.et_address);
         et_phonenumber = view.findViewById(R.id.et_phonenumber);
         et_name = view.findViewById(R.id.et_name);
@@ -49,7 +48,12 @@ public class RegisterStudentFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         et_age = view.findViewById(R.id.et_age);
-        databaseRegisterStudent = FirebaseDatabase.getInstance().getReference("studentUser");
+
+        et_supervisorName = view.findViewById(R.id.et_supervisorName);
+        et_supervisorEmail = view.findViewById(R.id.et_supervisorEmail);
+        et_supervisor_phoneNumber = view.findViewById(R.id.et_supervisorPhoneNumber);
+
+
 
         btn_create = view.findViewById(R.id.btn_create);
 
@@ -66,6 +70,8 @@ public class RegisterStudentFragment extends Fragment {
                 final String phoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
                 final String studentId = Objects.requireNonNull(et_studentId.getEditText()).getText().toString();
                 final String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
+                final String superVisorEmail = Objects.requireNonNull(et_supervisorEmail.getEditText()).getText().toString();
+                final String superVisorPhoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
                         validateSupervisor(superVisor) | validateAge(age) | validateStudentId(studentId)) {
@@ -78,7 +84,7 @@ public class RegisterStudentFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     String id = mAuth.getCurrentUser().getUid();
-                                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "studentUser", studentId, superVisor);
+                                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "studentUser", studentId, superVisor,superVisorEmail,superVisorPhoneNumber);
                                     FirebaseDatabase.getInstance().getReference("studentUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(studentUser).addOnCompleteListener(new OnCompleteListener<Void>() {

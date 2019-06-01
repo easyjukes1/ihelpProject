@@ -68,7 +68,7 @@ public class CharityVolunteer_fragment extends Fragment {
                     switch (volunteerRole) {
                         case "studentUser":
                             listCharityVolunteers.add(new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null));
                             break;
                         case "generalUser":
                             listCharityVolunteers.add(new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
