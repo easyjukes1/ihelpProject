@@ -32,13 +32,6 @@ public class charitVolunteerDetailsActivity1 extends AppCompatActivity {
         String volunteerAddress = intent.getStringExtra("address");
         String volunteerAge = intent.getStringExtra("Age");
         String volunteerRole = intent.getStringExtra("role");
-        // String supervisorName = intent.getStringExtra("supervisorName");
-        //String supervisorEmail = intent.getStringExtra("supervisorEmail");
-        // String supervisorPhoneNumber = intent.getStringExtra("supervisorPhoneNumber");
-
-        final GenralUser genralUser = new GenralUser(volunteerId, volunteerName, volunteerEmail, null,
-                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole);
-
 
         tv_name = findViewById(R.id.tv_charityName);
         tv_email = findViewById(R.id.tv_charityEmail);
@@ -59,9 +52,6 @@ public class charitVolunteerDetailsActivity1 extends AppCompatActivity {
         tv_phonenumber.setText(volunteerNumber);
         tv_age.setText(volunteerAge);
         tv_role.setText(volunteerRole);
-        // tv_supervisorName.setText(supervisorName);
-        // tv_supervisorEmail.setText(supervisorEmail);
-        // tv_supervisorPhoneNumber.setText(supervisorPhoneNumber);
 
 
         btn_delete.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +68,7 @@ public class charitVolunteerDetailsActivity1 extends AppCompatActivity {
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .child(volunteerId);
                         databaseReference.removeValue();
-                        Intent startActivityCharity = new Intent(charitVolunteerDetailsActivity1.this,CharityHomePageActivity.class);
+                        Intent startActivityCharity = new Intent(charitVolunteerDetailsActivity1.this, CharityHomePageActivity.class);
                         startActivity(startActivityCharity);
 
                         dialog.cancel();

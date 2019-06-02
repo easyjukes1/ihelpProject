@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,8 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        tools:context=".RegisterCharityFragment"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:context=".RegisterCharityFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,7 +23,8 @@
                 android:layout_width="130dp"
                 android:layout_height="100dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/icon_ih" />
+                android:src="@drawable/icon_ih"
+                android:contentDescription="@string/logo" />
 
             <TextView
 
@@ -31,9 +33,9 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:paddingBottom="15dp"
-                android:text="join ihelp today"
+                android:text="@string/join_ihelp_today"
                 android:textColor="#000"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
 
             <android.support.design.widget.TextInputLayout
@@ -62,7 +64,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="email: "
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    tools:ignore="HardcodedText" />
             </android.support.design.widget.TextInputLayout>
 
 
@@ -77,7 +80,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="password: "
+                    android:hint="@string/password"
                     android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
@@ -92,7 +95,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="phone number:"
+                    android:hint="@string/phone_number"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
@@ -111,53 +114,54 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="address:"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        tools:ignore="HardcodedText" />
 
 
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
-                    android:textAllCaps="false"
                     android:id="@+id/btn_location"
                     android:layout_width="70dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:background="#2bbd7e"
-                    android:text="get location" />
+                    android:text="get location"
+                    android:textAllCaps="false" />
             </LinearLayout>
 
 
             <Button
-                android:layout_marginTop="4dp"
                 android:id="@+id/btn_create"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/custom_button"
                 android:text="Sign up"
                 android:textAllCaps="false"
                 android:textColor="#3797CF"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
 
             <LinearLayout
-                android:background="#fff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#fff"
                 android:orientation="vertical">
+
                 <TextView
-                    android:textColor="#fff"
                     android:id="@+id/x"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#fff"
 
                     />
+
                 <TextView
-                    android:textColor="#fff"
                     android:id="@+id/y"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:textColor="#fff" />
             </LinearLayout>
         </LinearLayout>
 

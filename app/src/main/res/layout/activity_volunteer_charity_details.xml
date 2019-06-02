@@ -29,7 +29,8 @@
                     android:adjustViewBounds="true"
                     android:padding="3dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/org2" />
+                    android:src="@drawable/org2"
+                    android:contentDescription="charity pic" />
 
             </RelativeLayout>
 
@@ -41,7 +42,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15sp"
                 android:fontFamily="sans-serif-light"
-                android:text="charity name"
+                android:text="@string/charity_name"
                 android:textColor="@color/white"
                 android:textSize="32sp" />
 
@@ -50,10 +51,10 @@
 
 
         <RelativeLayout
-            android:paddingTop="29dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/rellay1">
+            android:layout_below="@+id/rellay1"
+            android:paddingTop="29dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email"
+                        android:text="@string/email"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -81,7 +82,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="charity@gmail.com"
+                        android:text="@string/charity_gmail_com"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -102,7 +103,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Phone"
+                        android:text="@string/phone"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -111,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="+9628216232"
+                        android:text="@string/_9628216232"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -132,7 +133,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Address"
+                        android:text="@string/address"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -141,7 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="charity address"
+                        android:text="@string/charity_address"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 

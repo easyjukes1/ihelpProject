@@ -61,7 +61,6 @@
         <activity
             android:name=".CharityAddJobActivity"
             android:parentActivityName=".CharityHomePageActivity" />
-        <activity android:name=".charityVolunteerDetailsActivity" />
         <activity android:name=".charitVolunteerDetailsActivity1" />
         <activity android:name=".CharityJobDetailsActivity" />
     </application>

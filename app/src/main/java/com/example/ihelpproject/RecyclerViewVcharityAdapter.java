@@ -35,8 +35,6 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull final myViewHolder myViewHolder, final int i) {
         myViewHolder.tv_name.setText(charityData.get(i).getName());
         myViewHolder.tv_address.setText(charityData.get(i).getAddress());
-        // myViewHolder.iv_imgCharity.setImageResource(charityData.get(i).getPicture());
-
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -47,8 +45,6 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
                 intent.putExtra("address", charityData.get(i).getAddress());
                 intent.putExtra("email", charityData.get(i).getEmail());
                 intent.putExtra("phonenumber", charityData.get(i).getPhonenumber());
-                //    intent.putExtra("details",charityData.get(i).getDetails());
-
 
                 context.startActivity(intent);
             }
@@ -64,7 +60,6 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
 
         private TextView tv_name;
         private TextView tv_address;
-        // private ImageView iv_imgCharity;
         private LinearLayout parentLayout;
 
 
@@ -72,7 +67,6 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
             super(itemView);
             tv_name = itemView.findViewById(R.id.charityName);
             tv_address = itemView.findViewById(R.id.charityLocation);
-            //  iv_imgCharity = itemView.findViewById(R.id.img_charity);
             parentLayout = itemView.findViewById(R.id.layoutCharity);
         }
     }

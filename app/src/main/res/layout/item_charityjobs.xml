@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-   android:id="@+id/parentLayout"
+    android:id="@+id/parentLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#ffff">
+    android:background="#ffff"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
-            android:contentDescription="charity jobs"
+            android:contentDescription="@string/charity_jobs"
 
             android:src="@drawable/job2_icon" />
 
@@ -32,7 +32,7 @@
                 android:id="@+id/jobName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="jobName"
+                android:text="@string/jobname"
                 android:textColor="#212121"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -54,28 +54,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text=" job type details"
+                    android:text="@string/job_type_details"
                     android:textColor="#757575" />
             </LinearLayout>
 
         </LinearLayout>
 
-
-        <LinearLayout
-            android:id="@+id/img_delete"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="4dp"
-            android:orientation="vertical">
-
-            <ImageView
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="delete"
-                android:src="@drawable/ic_close_black_24dp"
-             />
-        </LinearLayout>
 
     </LinearLayout>
 

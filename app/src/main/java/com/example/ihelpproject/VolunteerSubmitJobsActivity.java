@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 
 public class VolunteerSubmitJobsActivity extends AppCompatActivity {
-    TextView tv_jobTitle, tv_jobType,tv_charityPhoneNumber;
+    TextView tv_jobTitle, tv_jobType, tv_charityPhoneNumber;
     FirebaseAuth mAuth;
     Button submit;
 
@@ -49,8 +49,8 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
         tv_charityPhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri call  = Uri.parse("tel:"+charityPhoneNumber);
-                Intent intent1 = new Intent(Intent.ACTION_DIAL,call);
+                Uri call = Uri.parse("tel:" + charityPhoneNumber);
+                Intent intent1 = new Intent(Intent.ACTION_DIAL, call);
                 startActivity(intent1);
             }
         });
@@ -95,7 +95,7 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                        //on error
                     }
                 });
 

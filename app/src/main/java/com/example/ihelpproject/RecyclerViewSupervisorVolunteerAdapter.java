@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import java.util.List;
 
 public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter<RecyclerViewSupervisorVolunteerAdapter.myViewHolder> {
@@ -27,10 +28,10 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
         return new myViewHolder(view);
 
     }
+
     @Override
     public void onBindViewHolder(@NonNull myViewHolder myViewHolder, int i) {
         myViewHolder.tv_VolunteerName.setText(supervisorVolunteersData.get(i).getName());
-        //myViewHolder.tv_age.setText(String.valueOf(supervisorVolunteersData.get(i).getAge()));
     }
 
     @Override
@@ -40,15 +41,11 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
 
     static class myViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_VolunteerName;
-       // private TextView tv_age;
-
-
 
         myViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tv_VolunteerName = itemView.findViewById(R.id.VolunteerName);
-            //tv_age = itemView.findViewById(R.id.idNumber);
+
 
         }
     }

@@ -1,8 +1,7 @@
 package com.example.ihelpproject;
 
-import android.app.AlertDialog;
+
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,10 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -49,8 +44,8 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context,CharityJobDetailsActivity.class);
-                intent.putExtra("id",charityJobsData.get(i).getId());
+                Intent intent = new Intent(context, CharityJobDetailsActivity.class);
+                intent.putExtra("id", charityJobsData.get(i).getId());
                 intent.putExtra("date", charityJobsData.get(i).getDate());
                 intent.putExtra("description", charityJobsData.get(i).getDescription());
                 intent.putExtra("jobName", charityJobsData.get(i).getJobName());
@@ -67,19 +62,16 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
         return charityJobsData.size();
     }
 
-    public static class myViewHolder extends RecyclerView.ViewHolder {
+    static class myViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_jobName;
         private TextView tv_briefDescription;
         private LinearLayout parentLayout;
 
 
-
-        public myViewHolder(@NonNull View itemView) {
+        myViewHolder(@NonNull View itemView) {
             super(itemView);
-
             tv_jobName = itemView.findViewById(R.id.jobName);
             tv_briefDescription = itemView.findViewById(R.id.briefDescription);
-
             parentLayout = itemView.findViewById(R.id.parentLayout);
 
         }

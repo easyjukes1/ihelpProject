@@ -46,7 +46,7 @@ public class VolunteerHomePageActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbarmenu,menu);
+        inflater.inflate(R.menu.toolbarmenu, menu);
         return true;
     }
 
@@ -75,9 +75,9 @@ public class VolunteerHomePageActivity extends AppCompatActivity {
                         case R.id.action_jobs:
                             selectedFragment = new Vjob_fragment();
                             break;
-                    default:
-                        selectedFragment = new Vmap_fragment();
-                        break;
+                        default:
+                            selectedFragment = new Vmap_fragment();
+                            break;
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

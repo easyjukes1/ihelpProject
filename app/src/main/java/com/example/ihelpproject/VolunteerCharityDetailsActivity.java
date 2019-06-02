@@ -22,7 +22,6 @@ public class VolunteerCharityDetailsActivity extends AppCompatActivity {
         final String phonenumber = intent.getStringExtra("phonenumber");
 
 
-
         tv_name = findViewById(R.id.tv_charityName);
         tv_address = findViewById(R.id.tv_charityAddress);
         tv_email = findViewById(R.id.tv_charityEmail);
@@ -36,8 +35,8 @@ public class VolunteerCharityDetailsActivity extends AppCompatActivity {
         tv_phonenumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri call  = Uri.parse("tel:"+phonenumber);
-                Intent intent1 = new Intent(Intent.ACTION_DIAL,call);
+                Uri call = Uri.parse("tel:" + phonenumber);
+                Intent intent1 = new Intent(Intent.ACTION_DIAL, call);
                 startActivity(intent1);
             }
         });

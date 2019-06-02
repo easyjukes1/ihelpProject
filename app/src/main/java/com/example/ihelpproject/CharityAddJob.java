@@ -1,15 +1,15 @@
 package com.example.ihelpproject;
 
 public class CharityAddJob {
-   private  String id;
+    private String id;
     private String jobTitle;
     private String jobType;
     private String description;
-    private  String charityId;
+    private String charityId;
     private String phoneNumber;
 
 
-    public CharityAddJob(String id, String jobTitle, String jobType, String description, String charityId, String phoneNumber) {
+    CharityAddJob(String id, String jobTitle, String jobType, String description, String charityId, String phoneNumber) {
         this.id = id;
         this.jobTitle = jobTitle;
         this.jobType = jobType;
@@ -34,35 +34,18 @@ public class CharityAddJob {
         this.id = id;
     }
 
-    public String getJobTitle() {
+    String getJobTitle() {
         return jobTitle;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
 
-    public String getJobType() {
+    String getJobType() {
         return jobType;
     }
 
-    public void setJobType(String jobType) {
-        this.jobType = jobType;
-    }
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCharityId() {
-        return charityId;
-    }
-
-    public void setCharityId(String charityId) {
-        this.charityId = charityId;
-    }
 }

@@ -88,7 +88,7 @@ public class CharityVolunteer_fragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                //on error
             }
         });
 

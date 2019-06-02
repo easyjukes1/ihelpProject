@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +68,7 @@ public class Vmap_fragment extends Fragment implements OnMapReadyCallback {
                             .title("charity name "));
 
                     LatLng Amman = new LatLng(31.947572, 35.933473);
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Amman, 10f));
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Amman, 10f));
 
                 }
 
@@ -80,7 +79,6 @@ public class Vmap_fragment extends Fragment implements OnMapReadyCallback {
                 //when there is an error
             }
         });
-
 
 
     }

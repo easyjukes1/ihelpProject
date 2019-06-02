@@ -13,11 +13,6 @@ public class SupervisorOverView_fragment extends Fragment {
     View view;
 
 
-    public SupervisorOverView_fragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

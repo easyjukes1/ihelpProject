@@ -3,7 +3,6 @@ package com.example.ihelpproject;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -58,7 +57,7 @@ public class CharityJobDetailsActivity extends AppCompatActivity {
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .child(jobId);
                         databaseReference.removeValue();
-                        Intent startActivityCharity = new Intent(CharityJobDetailsActivity.this,CharityHomePageActivity.class);
+                        Intent startActivityCharity = new Intent(CharityJobDetailsActivity.this, CharityHomePageActivity.class);
                         startActivity(startActivityCharity);
                         dialog.cancel();
 

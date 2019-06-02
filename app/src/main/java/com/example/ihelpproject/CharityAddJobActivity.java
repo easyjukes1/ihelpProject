@@ -6,7 +6,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +23,7 @@ public class CharityAddJobActivity extends AppCompatActivity {
         setContentView(R.layout.activity_charity_add_job);
 
         Button btn_create;
-        final TextInputLayout et_jobTitle, et_briefDescription, et_description,et_phoneNumber;
+        final TextInputLayout et_jobTitle, et_briefDescription, et_description, et_phoneNumber;
         btn_create = findViewById(R.id.btn_create);
         et_jobTitle = findViewById(R.id.et_jobTitle);
         et_briefDescription = findViewById(R.id.et_briefDescription);
@@ -40,15 +39,15 @@ public class CharityAddJobActivity extends AppCompatActivity {
                 String jobTitle = et_jobTitle.getEditText().getText().toString();
                 String briefDescription = et_briefDescription.getEditText().getText().toString();
                 String description = et_description.getEditText().getText().toString();
-                String charityId= FirebaseAuth.getInstance().getCurrentUser().getUid();
-                String phoneNumber= et_phoneNumber.getEditText().getText().toString();
+                String charityId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String phoneNumber = et_phoneNumber.getEditText().getText().toString();
 
 
                 //to create unique id for charity add Jobs
                 String idAddJob = databaseAddjob.push().getKey();
                 String idVolunteersJobs = databaseAddjob.push().getKey();
                 //creating an object of charity add job
-                CharityAddJob job = new CharityAddJob(idAddJob, jobTitle, briefDescription, description,charityId,phoneNumber);
+                CharityAddJob job = new CharityAddJob(idAddJob, jobTitle, briefDescription, description, charityId, phoneNumber);
 
                 // we will store the data on the generated id .
                 databaseAddjob.child(idAddJob).setValue(job);

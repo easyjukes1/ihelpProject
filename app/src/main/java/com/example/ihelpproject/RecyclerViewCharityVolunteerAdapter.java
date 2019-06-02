@@ -62,15 +62,14 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
         return charityVolunteersData.size();
     }
 
-    public static class myViewHolder extends RecyclerView.ViewHolder {
-        //  private ImageView img_charityVolunteer;
+    static class myViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_volunteerName;
         private LinearLayout parentLayout;
 
 
-        public myViewHolder(@NonNull View itemView) {
+        myViewHolder(@NonNull View itemView) {
             super(itemView);
-            //    img_charityVolunteer = itemView.findViewById(R.id.img_charityVolunteer);
+
             tv_volunteerName = itemView.findViewById(R.id.volunteerName);
             parentLayout = itemView.findViewById(R.id.layoutVolunteer);
 

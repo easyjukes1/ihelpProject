@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <RelativeLayout
             android:id="@+id/rellay1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#009688"
-            android:paddingBottom="20dp"
-            >
+            android:paddingBottom="20dp">
 
             <RelativeLayout
                 android:id="@+id/imgUser"
@@ -27,6 +26,7 @@
                     android:layout_height="170dp"
                     android:layout_margin="9dp"
                     android:adjustViewBounds="true"
+                    android:contentDescription="job pic"
                     android:padding="3dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/org2" />
@@ -41,7 +41,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15sp"
                 android:fontFamily="sans-serif-light"
-                android:text="job title"
+                android:text="@string/job_title"
                 android:textColor="@color/white"
                 android:textSize="32sp" />
 
@@ -50,10 +50,10 @@
 
 
         <RelativeLayout
-            android:paddingTop="29dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/rellay1">
+            android:layout_below="@+id/rellay1"
+            android:paddingTop="29dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="charity name"
+                        android:text="@string/charity_name"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -81,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="charity name "
+                        android:text="@string/charity_name"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -101,7 +101,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="job type"
+                        android:text="@string/job_type"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -110,7 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="job type"
+                        android:text="@string/job_type"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -131,7 +131,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="charity email"
+                        android:text="@string/charity_email"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -140,7 +140,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="charity@gmail.com"
+                        android:text="@string/charity_gmail_com"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -161,7 +161,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Phone"
+                        android:text="@string/phone"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -170,7 +170,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="+9628216232"
+                        android:text="@string/_9628216232"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -191,7 +191,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Address"
+                        android:text="@string/address"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -200,7 +200,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="charity address"
+                        android:text="@string/charity_address"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -212,25 +212,24 @@
 
                 </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <Button
-                    android:backgroundTint="#fff"
-                    android:id="@+id/btn_submit"
-                    android:layout_marginLeft="120dp"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textColor="#3797CF"
-                    android:background="@drawable/custom_button"
-                    android:text="submit"
-                    android:textAllCaps="false"
-                    />
-            </LinearLayout>
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_submit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="120dp"
+                        android:background="@drawable/custom_button"
+                        android:backgroundTint="#fff"
+                        android:text="@string/submit"
+                        android:textAllCaps="false"
+                        android:textColor="#3797CF"
+                        android:textSize="20sp" />
+                </LinearLayout>
 
 
             </LinearLayout>

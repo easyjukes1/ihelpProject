@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
@@ -28,13 +27,6 @@ public class RegisterGenralUserFragment extends Fragment {
     View view;
     GenralUser genralUser;
 
-
-
-    public RegisterGenralUserFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,7 +35,6 @@ public class RegisterGenralUserFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_register_genral_user, container, false);
         mAuth = FirebaseAuth.getInstance();
         Button btn_create;
-        final DatabaseReference databaseRegisterGeneralUser;
 
 
         et_address = view.findViewById(R.id.et_address);
@@ -53,7 +44,7 @@ public class RegisterGenralUserFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         et_age = view.findViewById(R.id.et_age);
-        databaseRegisterGeneralUser = FirebaseDatabase.getInstance().getReference("generalUser");
+
 
         btn_create = view.findViewById(R.id.btn_create);
         btn_create.setOnClickListener(new View.OnClickListener() {

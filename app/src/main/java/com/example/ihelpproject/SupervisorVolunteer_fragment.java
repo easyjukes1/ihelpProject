@@ -47,32 +47,32 @@ public class SupervisorVolunteer_fragment extends Fragment {
 
         listSupervisorVolunteers = new ArrayList<>();
 
-      //  FirebaseDatabase.getInstance().getReference("supervisorUsers")
-                //.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-               // .addValueEventListener(
-                //new ValueEventListener() {
-                  //  @Override
-                    //public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                      //  for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        //    Object getV = dataSnapshot1.getValue();
+        //  FirebaseDatabase.getInstance().getReference("supervisorUsers")
+        //.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+        // .addValueEventListener(
+        //new ValueEventListener() {
+        //  @Override
+        //public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        //  for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+        //    Object getV = dataSnapshot1.getValue();
 
 //                            HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
-  //                          String supervisorId = HashGetV.get("id");
-    //                        String supervisorEmail = HashGetV.get("email");
-      //                      if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)){
+        //                          String supervisorId = HashGetV.get("id");
+        //                        String supervisorEmail = HashGetV.get("email");
+        //                      if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)){
 
-                            //if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)) {
-          //                      getEmployee(supervisorEmail);}
-                            //}
-                        }
-        //            }
+        //if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)) {
+        //                      getEmployee(supervisorEmail);}
+        //}
+    }
+    //            }
 
-            //        @Override
-              //      public void onCancelled(@NonNull DatabaseError databaseError) {
+    //        @Override
+    //      public void onCancelled(@NonNull DatabaseError databaseError) {
 
-          //          }
-        //        }
-        //);
+    //          }
+    //        }
+    //);
 
 
     //}
@@ -96,7 +96,7 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         String volunteerRole = hashGetv.get("role");
                         String volunteerNumber = hashGetv.get("phonenumber");
                         Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null);
+                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, null, null);
 
                         listSupervisorVolunteers.add(studentUser);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

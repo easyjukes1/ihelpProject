@@ -25,16 +25,13 @@ public class RegisterStudentFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password, et_studentId, et_supervisorName,
-            et_age, et_address, et_phonenumber ,et_supervisorEmail,et_supervisor_phoneNumber;
+            et_age, et_address, et_phonenumber, et_supervisorEmail, et_supervisor_phoneNumber;
     View view;
     Student studentUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-
         view = inflater.inflate(R.layout.fragment_register_student, container, false);
         mAuth = FirebaseAuth.getInstance();
         Button btn_create;
@@ -52,7 +49,6 @@ public class RegisterStudentFragment extends Fragment {
         et_supervisorName = view.findViewById(R.id.et_supervisorName);
         et_supervisorEmail = view.findViewById(R.id.et_supervisorEmail);
         et_supervisor_phoneNumber = view.findViewById(R.id.et_supervisorPhoneNumber);
-
 
 
         btn_create = view.findViewById(R.id.btn_create);
@@ -77,14 +73,13 @@ public class RegisterStudentFragment extends Fragment {
                         validateSupervisor(superVisor) | validateAge(age) | validateStudentId(studentId)) {
 
 
-
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     String id = mAuth.getCurrentUser().getUid();
-                                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "studentUser", studentId, superVisor,superVisorEmail,superVisorPhoneNumber);
+                                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "studentUser", studentId, superVisor, superVisorEmail, superVisorPhoneNumber);
                                     FirebaseDatabase.getInstance().getReference("studentUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(studentUser).addOnCompleteListener(new OnCompleteListener<Void>() {

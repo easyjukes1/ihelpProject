@@ -3,32 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FCFCFC"
     android:orientation="vertical"
-    tools:context=".RegisterAccountCheckActivity"
-    android:background="#FCFCFC">
+    tools:context=".RegisterAccountCheckActivity">
 
-  <ImageView
-      android:layout_width="wrap_content"
-      android:layout_height="150dp"
-      android:src="@drawable/icon_ih"
-      android:layout_gravity="center"
-      android:layout_marginTop="10dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icon_ih" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="please wait while the admin checks the
-validity of the information, your username and password will be sent
-to you via email."
-        android:textSize="25dp"
-        android:textColor="#2196F3"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        />
+        android:text="@string/please_wait_while_the_admin_checks_the_validity_of_the_information_your_username_and_password_will_be_sent_to_you_via_email"
+        android:textColor="#2196F3"
+        android:textSize="25sp" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="300dp"
-        android:src="@drawable/background_ih"
         android:layout_marginTop="95dp"
-        />
+        android:src="@drawable/background_ih" />
 </LinearLayout>

@@ -74,7 +74,7 @@ public class RegisterCharityFragment extends Fragment {
                 final Double yValue = Double.valueOf(yView.getText().toString().trim());
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateAddress(address) | validatePhoneNumber(phoneNumber)
-                    ) {
+                ) {
 
 
                     mAuth.createUserWithEmailAndPassword(email, password)
@@ -83,7 +83,7 @@ public class RegisterCharityFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     String id = mAuth.getCurrentUser().getUid();
-                                    charityUser = new Charity(id, "charityUser", name, address, email, password, phoneNumber, "null", "null",xValue, yValue);
+                                    charityUser = new Charity(id, "charityUser", name, address, email, password, phoneNumber, "null", "null", xValue, yValue);
                                     FirebaseDatabase.getInstance().getReference("charityUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(charityUser).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -111,7 +111,6 @@ public class RegisterCharityFragment extends Fragment {
         return view;
 
     }
-
 
 
     @Override

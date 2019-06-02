@@ -44,7 +44,6 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
                 intent.putExtra("jobType", CharityJobsData.get(i).getJobType());
                 intent.putExtra("description", CharityJobsData.get(i).getDescription());
                 intent.putExtra("phoneNumber", CharityJobsData.get(i).getPhoneNumber());
-
                 context.startActivity(intent);
 
             }
@@ -58,7 +57,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
     }
 
     static class myViewHolder extends RecyclerView.ViewHolder {
-        //  private ImageView iv_jobImage;
+
         private TextView tv_jobTitle;
         private TextView tv_jobType;
 
@@ -68,9 +67,7 @@ public class RecyclerViewVJobsAdapter extends RecyclerView.Adapter<RecyclerViewV
         myViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_jobTitle = itemView.findViewById(R.id.charityName);
-
             tv_jobType = itemView.findViewById(R.id.tv_jobType);
-            // iv_jobImage = itemView.findViewById(R.id.imgCharityJobs);
             parentLayout = itemView.findViewById(R.id.layoutJob);
         }
     }

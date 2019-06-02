@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
@@ -30,18 +29,14 @@ public class RegisterSupervisorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         View view;
         view = inflater.inflate(R.layout.fragment_register_supervisor, container, false);
         mAuth = FirebaseAuth.getInstance();
         Button btn_create;
-        final DatabaseReference databaseRegisterSuperVisor;
-
         et_name = view.findViewById(R.id.et_name);
         et_email = view.findViewById(R.id.et_email);
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
-        databaseRegisterSuperVisor = FirebaseDatabase.getInstance().getReference("supervisorUsers");
 
         btn_create = view.findViewById(R.id.btn_create);
 
