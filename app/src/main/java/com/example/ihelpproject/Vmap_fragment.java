@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -66,6 +67,9 @@ public class Vmap_fragment extends Fragment implements OnMapReadyCallback {
                     googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(latitude, longitude))
                             .title("charity name "));
+
+                    LatLng Amman = new LatLng(31.947572, 35.933473);
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Amman, 10f));
 
                 }
 

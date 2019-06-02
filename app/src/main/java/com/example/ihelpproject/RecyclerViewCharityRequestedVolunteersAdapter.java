@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -48,7 +47,7 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, charityVolunteerDetailsActivity.class);
+                Intent intent = new Intent(context, charityRequestedVolunteerDetailsActivity.class);
                 intent.putExtra("name", charityVolunteersData.get(i).getName());
                 intent.putExtra("email", charityVolunteersData.get(i).getEmail());
                 intent.putExtra("Username", charityVolunteersData.get(i).getAddress());
@@ -56,6 +55,7 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
                 intent.putExtra("phonenumber", charityVolunteersData.get(i).getPhonenumber());
                 intent.putExtra("role", charityVolunteersData.get(i).getRole());
                 intent.putExtra("Age", charityVolunteersData.get(i).getAge());
+                intent.putExtra("id", charityVolunteersData.get(i).getId());
           //      if (charityVolunteersData.get(i).getRole().equals("studentUser")) {
             //        intent.putExtra("supervisorName", charityVolunteersData.get(i).get);
               //      intent.putExtra("Age", charityVolunteersData.get(i).getAge());

@@ -3,6 +3,7 @@ package com.example.ihelpproject;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,7 +39,7 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder myViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final myViewHolder myViewHolder, final int i) {
         myViewHolder.tv_jobName.setText(charityJobsData.get(i).getJobName());
         myViewHolder.tv_briefDescription.setText(charityJobsData.get(i).getJobType());
 
@@ -48,26 +49,13 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                AlertDialog.Builder alert = new AlertDialog.Builder(context);
-                alert.setMessage("are you sure you want to delete this job?");
-                alert.setCancelable(true);
-
-                alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(charityJobsData.get(i).getId());
-                        databaseReference1.removeValue();
-                        dialog.cancel();
-                    }
-                });
-                alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialog = alert.create();
-                dialog.show();
+                Intent intent = new Intent(context,CharityJobDetailsActivity.class);
+                intent.putExtra("id",charityJobsData.get(i).getId());
+                intent.putExtra("date", charityJobsData.get(i).getDate());
+                intent.putExtra("description", charityJobsData.get(i).getDescription());
+                intent.putExtra("jobName", charityJobsData.get(i).getJobName());
+                intent.putExtra("jobType", charityJobsData.get(i).getJobType());
+                context.startActivity(intent);
 
 
             }
@@ -85,13 +73,14 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
         private LinearLayout parentLayout;
 
 
+
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tv_jobName = itemView.findViewById(R.id.jobName);
             tv_briefDescription = itemView.findViewById(R.id.briefDescription);
 
-            parentLayout = itemView.findViewById(R.id.img_delete);
+            parentLayout = itemView.findViewById(R.id.parentLayout);
 
         }
     }

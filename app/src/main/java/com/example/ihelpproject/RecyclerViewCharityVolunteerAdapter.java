@@ -42,7 +42,8 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                Intent intent = new Intent(context, charityVolunteerDetailsActivity.class);
+                Intent intent = new Intent(context,charitVolunteerDetailsActivity1.class);
+                intent.putExtra("id",charityVolunteersData.get(i).getId());
                 intent.putExtra("name", charityVolunteersData.get(i).getName());
                 intent.putExtra("email", charityVolunteersData.get(i).getEmail());
                 intent.putExtra("Username", charityVolunteersData.get(i).getAddress());

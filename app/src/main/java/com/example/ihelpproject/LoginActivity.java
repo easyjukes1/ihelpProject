@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                                 startActivity(istudentUser);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
-                                            } else if (user1.get("role").equals("Supervisor")) {
+                                            } else if (user1.get("role").equals("supervisorUsers")) {
                                                 Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, SuperVisorHomePageActivity.class);
                                                 startActivity(isuperVisorHomePageActivity);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

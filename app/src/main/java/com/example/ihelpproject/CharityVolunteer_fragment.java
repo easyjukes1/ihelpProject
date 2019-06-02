@@ -45,7 +45,7 @@ public class CharityVolunteer_fragment extends Fragment {
         super.onCreate(savedInstanceState);
         listCharityVolunteers = new ArrayList<>();
 
-        FirebaseDatabase.getInstance().getReference("charityVolunteers").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("acceptedVolunteers").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {

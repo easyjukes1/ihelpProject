@@ -4,21 +4,24 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class charityVolunteerDetailsActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity {
     TextView tv_name, tv_email, tv_phonenumber, tv_age, tv_address, tv_role, tv_supervisorName, tv_supervisorEmail, tv_supervisorPhoneNumber;
-    Button btn_delete;
+    Button btn_accept, btn_delete;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_charity_volunteer_details);
+        setContentView(R.layout.activity_charity_requested_volunteer_details);
 
         final Intent intent = getIntent();
         final String volunteerId = intent.getStringExtra("id");
@@ -46,6 +49,7 @@ public class charityVolunteerDetailsActivity extends AppCompatActivity {
         tv_supervisorEmail = findViewById(R.id.tv_supervisorEmail);
         tv_supervisorPhoneNumber = findViewById(R.id.tv_supervisorPhoneNumber);
 
+        btn_accept = findViewById(R.id.btn_accept);
         btn_delete = findViewById(R.id.btn_delete);
 
         tv_name.setText(volunteerName);
@@ -58,12 +62,42 @@ public class charityVolunteerDetailsActivity extends AppCompatActivity {
         // tv_supervisorEmail.setText(supervisorEmail);
         // tv_supervisorPhoneNumber.setText(supervisorPhoneNumber);
 
+        btn_accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder alert = new AlertDialog.Builder(charityRequestedVolunteerDetailsActivity.this);
+                alert.setMessage("are you sure you want to accept this volunteer?");
+                alert.setCancelable(true);
 
+                alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseDatabase.getInstance().getReference("acceptedVolunteers")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child(volunteerId)
+                                .setValue(genralUser);
+                        Intent intent = new Intent(charityRequestedVolunteerDetailsActivity.this, CharityHomePageActivity.class);
+                        startActivity(intent);
+                        dialog.cancel();
+
+                    }
+                });
+                alert.setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialog = alert.create();
+                dialog.show();
+
+            }
+        });
 
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(charityVolunteerDetailsActivity.this);
+                AlertDialog.Builder alert = new AlertDialog.Builder(charityRequestedVolunteerDetailsActivity.this);
                 alert.setMessage("are you sure you want to decline this request?");
                 alert.setCancelable(true);
 

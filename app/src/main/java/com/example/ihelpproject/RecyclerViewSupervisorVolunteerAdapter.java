@@ -12,9 +12,9 @@ import java.util.List;
 public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter<RecyclerViewSupervisorVolunteerAdapter.myViewHolder> {
 
     private Context context;
-    private List<Employees> supervisorVolunteersData;
+    private List<Student> supervisorVolunteersData;
 
-    RecyclerViewSupervisorVolunteerAdapter(Context context, List<Employees> supervisorVolunteersData) {
+    RecyclerViewSupervisorVolunteerAdapter(Context context, List<Student> supervisorVolunteersData) {
         this.context = context;
         this.supervisorVolunteersData = supervisorVolunteersData;
     }

@@ -10,7 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class charityVolunteerDetailsActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class charitVolunteerDetailsActivity1 extends AppCompatActivity {
     TextView tv_name, tv_email, tv_phonenumber, tv_age, tv_address, tv_role, tv_supervisorName, tv_supervisorEmail, tv_supervisorPhoneNumber;
     Button btn_delete;
 
@@ -46,7 +50,8 @@ public class charityVolunteerDetailsActivity extends AppCompatActivity {
         tv_supervisorEmail = findViewById(R.id.tv_supervisorEmail);
         tv_supervisorPhoneNumber = findViewById(R.id.tv_supervisorPhoneNumber);
 
-        btn_delete = findViewById(R.id.btn_delete);
+
+        btn_delete = findViewById(R.id.btn_delete1);
 
         tv_name.setText(volunteerName);
         tv_address.setText(volunteerAddress);
@@ -59,20 +64,23 @@ public class charityVolunteerDetailsActivity extends AppCompatActivity {
         // tv_supervisorPhoneNumber.setText(supervisorPhoneNumber);
 
 
-
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(charityVolunteerDetailsActivity.this);
+                AlertDialog.Builder alert = new AlertDialog.Builder(charitVolunteerDetailsActivity1.this);
                 alert.setMessage("are you sure you want to decline this request?");
                 alert.setCancelable(true);
 
                 alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
-                        //           .child(charityVolunteersData.get(i).getId());
-                        //   databaseReference.removeValue();
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("acceptedVolunteers")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child(volunteerId);
+                        databaseReference.removeValue();
+                        Intent startActivityCharity = new Intent(charitVolunteerDetailsActivity1.this,CharityHomePageActivity.class);
+                        startActivity(startActivityCharity);
+
                         dialog.cancel();
 
                     }
@@ -98,3 +106,4 @@ public class charityVolunteerDetailsActivity extends AppCompatActivity {
         });
     }
 }
+

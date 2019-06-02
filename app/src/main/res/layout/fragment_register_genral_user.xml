@@ -142,19 +142,24 @@
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
-
-            <Button
-                android:layout_marginTop="4dp"
-                android:id="@+id/btn_create"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:background="@drawable/custom_button"
-                android:text="Sign up"
-                android:textAllCaps="false"
-                android:textColor="#3797CF"
-                android:textSize="20sp"
-                />
+                android:layout_marginLeft="140dp">
+
+                <Button
+                    android:id="@+id/btn_create"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/custom_button"
+                    android:text="create"
+                    android:textAllCaps="false"
+                    android:textColor="#3797CF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
 
         </LinearLayout>
     </FrameLayout>
