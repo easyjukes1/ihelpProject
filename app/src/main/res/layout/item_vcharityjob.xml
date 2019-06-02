@@ -57,22 +57,7 @@
                     android:textColor="#757575" />
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/img_delete"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="4dp"
 
-            android:orientation="vertical">
-
-            <ImageView
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="delete"
-                android:src="@drawable/ic_close_black_24dp"
-                />
-        </LinearLayout>
     </LinearLayout>
 
     <View

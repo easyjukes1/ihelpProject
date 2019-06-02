@@ -6,8 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="#fff">
+    android:background="#fff"
+    tools:context=".RegisterActivity">
 
 
     <FrameLayout
@@ -83,26 +83,25 @@
                     android:text="charity" />
 
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="150dp"
+                    android:paddingTop="10dp">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingStart="150dp"
-    android:paddingTop="10dp">
-    <Button
+                    <Button
 
-        android:layout_marginTop="4dp"
-        android:id="@+id/btn_continue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:background="@drawable/custom_button"
-        android:text="continue"
-        android:textAllCaps="false"
-        android:textColor="#3797CF"
-        android:textSize="20sp"
-        />
-</LinearLayout>
+                        android:id="@+id/btn_continue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/custom_button"
+                        android:text="continue"
+                        android:textAllCaps="false"
+                        android:textColor="#3797CF"
+                        android:textSize="20sp" />
+                </LinearLayout>
 
 
             </RadioGroup>
