@@ -42,7 +42,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15sp"
                 android:fontFamily="sans-serif-light"
-                android:text="@string/charity_name"
+                android:text="charity name"
                 android:textColor="@color/white"
                 android:textSize="32sp" />
 
@@ -73,7 +73,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/email"
+                        android:text="email"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 

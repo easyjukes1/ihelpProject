@@ -28,7 +28,6 @@ public class Charity {
         this.longitude = longitude;
     }
 
-
     public String getId() {
         return id;
     }
@@ -85,5 +84,35 @@ public class Charity {
         this.phonenumber = phonenumber;
     }
 
+    public String getDetails() {
+        return details;
+    }
 
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public Double getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        Latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 }

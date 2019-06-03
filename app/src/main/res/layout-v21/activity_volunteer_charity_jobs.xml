@@ -72,7 +72,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/charity_name"
+                        android:text="charity name"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -81,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="@string/charity_name"
+                        android:text="charity name "
                         android:textColor="#000000"
                         android:textSize="18sp" />
 
@@ -101,7 +101,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/job_type"
+                        android:text="Job type"
                         android:textColor="@color/headings"
                         android:textSize="13sp" />
 
@@ -110,7 +110,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="@string/job_type"
+                        android:text="job type"
                         android:textColor="#000000"
                         android:textSize="18sp" />
 

@@ -21,18 +21,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_test">testActivity</string>
     <string name="please_wait_while_the_admin_checks_the_validity_of_the_information_your_username_and_password_will_be_sent_to_you_via_email">please wait while the admin checks the validity of the information, your username and password will be sent to you via email.</string>
-    <string name="charity_name">charity name</string>
-    <string name="email">Email</string>
-    <string name="charity_gmail_com">charity@gmail.com</string>
-    <string name="phone">Phone</string>
-    <string name="_9628216232">+9628216232</string>
-    <string name="address">Address</string>
-    <string name="charity_address">charity address</string>
+
     <string name="job_title">job title</string>
-    <string name="charity_name">charity name</string>
-    <string name="charity_name">charity name</string>
-    <string name="job_type">job type</string>
-    <string name="job_type">job type</string>
+
     <string name="charity_email">charity email</string>
     <string name="charity_gmail_com">charity@gmail.com</string>
     <string name="phone">Phone</string>
@@ -41,27 +32,11 @@
     <string name="charity_address">charity address</string>
     <string name="submit">submit</string>
     <string name="logo">logo</string>
-    <string name="join_ihelp_today">join ihelp today</string>
-    <string name="password">password:</string>
-    <string name="phone_number">phone number:</string>
-    <string name="password">password:</string>
-    <string name="phone_number">phone number:</string>
-    <string name="username">username:</string>
-    <string name="supervisor_name">supervisor name:</string>
+
     <string name="company_name">company name:</string>
-    <string name="age">age:</string>
-    <string name="sign_up">Sign up</string>
-    <string name="join_ihelp_today">join ihelp today</string>
-    <string name="name">name:</string>
-    <string name="username">username:</string>
-    <string name="password">password:</string>
-    <string name="age">age:</string>
-    <string name="phone_number">phone number:</string>
+    >
     <string name="create">create</string>
-    <string name="join_ihelp_today">join ihelp today</string>
-    <string name="name">name:</string>
-    <string name="username">username:</string>
-    <string name="password">password:</string>
+
     <string name="age">age:</string>
     <string name="student_id">Student id:</string>
     <string name="phone_number">phone number:</string>
@@ -69,11 +44,7 @@
     <string name="supervisor_email">supervisor Email:</string>
     <string name="supervisor_phonenumber">supervisor phoneNumber:</string>
     <string name="sign_up">Sign up</string>
-    <string name="join_ihelp_today">join ihelp today</string>
-    <string name="name">name:</string>
-    <string name="username">username:</string>
-    <string name="password">password:</string>
-    <string name="sign_up">Sign up</string>
+
     <string name="fragment_supervisor_overview">fragment supervisor overview</string>
     <string name="charity_jobs">charity jobs</string>
     <string name="jobname">jobName</string>

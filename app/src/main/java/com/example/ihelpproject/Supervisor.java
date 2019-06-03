@@ -8,7 +8,7 @@ public class Supervisor {
     private String username;
     private String password;
 
-    Supervisor(String id, String role, String name, String email, String username, String password) {
+    public Supervisor(String id, String role, String name, String email, String username, String password) {
         this.id = id;
         this.role = role;
         this.name = name;

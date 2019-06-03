@@ -2,6 +2,7 @@ package com.example.ihelpproject;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -31,6 +32,9 @@ public class RegisterCharityFragment extends Fragment {
     DatabaseReference databaseRegisterCharity;
     TextView xView, yView;
     double x, y;
+    private static final int PICK_IMAGE_REQUEST = 2;
+    private Uri imgUri;
+
 
 
     @Override
@@ -51,6 +55,9 @@ public class RegisterCharityFragment extends Fragment {
         btn_location = view.findViewById(R.id.btn_location);
         xView = view.findViewById(R.id.x);
         yView = view.findViewById(R.id.y);
+
+
+
 
 
         btn_location.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +119,6 @@ public class RegisterCharityFragment extends Fragment {
 
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -120,7 +126,6 @@ public class RegisterCharityFragment extends Fragment {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             x = data.getDoubleExtra("x", 0);
             y = data.getDoubleExtra("y", 0);
-
             String valuex = Double.toString(x);
             String valuey = Double.toString(y);
             xView.setText(valuex);

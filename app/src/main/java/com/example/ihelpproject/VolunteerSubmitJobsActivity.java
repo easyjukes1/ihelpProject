@@ -79,15 +79,14 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
-
+                                                Toast.makeText(getApplicationContext(), "job submitted", Toast.LENGTH_LONG).show();
+                                                Intent i = new Intent(VolunteerSubmitJobsActivity.this, VolunteerHomePageActivity.class);
+                                                startActivity(i);
                                             }
                                         });
 
 
                             }
-                            Toast.makeText(getApplicationContext(), "job submitted", Toast.LENGTH_LONG).show();
-                            Intent i = new Intent(VolunteerSubmitJobsActivity.this, VolunteerHomePageActivity.class);
-                            startActivity(i);
 
 
                         }

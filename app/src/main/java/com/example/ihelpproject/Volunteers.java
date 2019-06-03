@@ -24,14 +24,6 @@ public class Volunteers {
         this.role = role;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getId() {
         return id;
     }
@@ -88,7 +80,7 @@ public class Volunteers {
         Address = address;
     }
 
-    public String  getPhonenumber() {
+    public String getPhonenumber() {
         return Phonenumber;
     }
 
@@ -96,5 +88,11 @@ public class Volunteers {
         Phonenumber = phonenumber;
     }
 
+    public String getRole() {
+        return role;
+    }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

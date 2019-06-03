@@ -102,7 +102,7 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
                     Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, null, null);
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null);
 
                     listCharityVolunteers.add(studentUser);
                     assert volunteerId != null;
