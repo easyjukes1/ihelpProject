@@ -25,7 +25,8 @@ import java.util.Objects;
 
 public class RegisterEmployeeFragment extends Fragment {
     private FirebaseAuth mAuth;
-    TextInputLayout et_name, et_email, et_username, et_password, et_supervisor, et_companyName, et_age, et_address, et_phonenumber;
+    TextInputLayout et_name, et_email, et_username, et_password, et_supervisor,
+            et_companyName, et_age, et_address, et_phonenumber, et_supervisorEmail, et_supervisor_phoneNumber;
 
     Button btn_create;
     Employees employeeUser;
@@ -49,6 +50,8 @@ public class RegisterEmployeeFragment extends Fragment {
         et_supervisor = view.findViewById(R.id.et_supervisorName);
         et_companyName = view.findViewById(R.id.et_companyName);
         et_age = view.findViewById(R.id.et_age);
+        et_supervisorEmail = view.findViewById(R.id.et_supervisorEmail);
+        et_supervisor_phoneNumber = view.findViewById(R.id.et_supervisorPhoneNumber);
 
         databaseRegisterEmployee = FirebaseDatabase.getInstance().getReference("employeeUser");
 
@@ -65,6 +68,8 @@ public class RegisterEmployeeFragment extends Fragment {
                 final String supervisor = Objects.requireNonNull(et_supervisor.getEditText()).getText().toString();
                 final String companyName = Objects.requireNonNull(et_companyName.getEditText()).getText().toString();
                 final String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
+                final String superVisorEmail = Objects.requireNonNull(et_supervisorEmail.getEditText()).getText().toString();
+                final String superVisorPhoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
                         validateSupervisor(supervisor) | validateCompanyName(companyName) | validateAge(age)) {
@@ -76,7 +81,7 @@ public class RegisterEmployeeFragment extends Fragment {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     String id = mAuth.getCurrentUser().getUid();
-                                    employeeUser = new Employees(id, name, email, username, password, age, address, phoneNumber, "employeeUser", supervisor, companyName);
+                                    employeeUser = new Employees(id, name, email, username, password, age, address, phoneNumber, "employeeUser", supervisor, companyName,superVisorEmail,superVisorPhoneNumber);
                                     FirebaseDatabase.getInstance().getReference("employeeUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(employeeUser).addOnCompleteListener(new OnCompleteListener<Void>() {

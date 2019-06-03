@@ -63,6 +63,7 @@
             android:parentActivityName=".CharityHomePageActivity" />
         <activity android:name=".charitVolunteerDetailsActivity1" />
         <activity android:name=".CharityJobDetailsActivity" />
+        <activity android:name=".supervisorVolunteerDetailsActivity" />
     </application>
 
 </manifest>

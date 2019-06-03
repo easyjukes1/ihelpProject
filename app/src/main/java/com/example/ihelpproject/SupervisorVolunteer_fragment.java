@@ -24,7 +24,8 @@ import java.util.List;
 
 public class SupervisorVolunteer_fragment extends Fragment {
     View view;
-    private List<Student> listSupervisorVolunteers;
+    private List<Volunteers> listSupervisorVolunteers;
+
     RecyclerView recyclerView;
     RecyclerViewSupervisorVolunteerAdapter recyclerAdapter;
 
@@ -47,37 +48,82 @@ public class SupervisorVolunteer_fragment extends Fragment {
 
         listSupervisorVolunteers = new ArrayList<>();
 
-        //  FirebaseDatabase.getInstance().getReference("supervisorUsers")
-        //.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-        // .addValueEventListener(
-        //new ValueEventListener() {
-        //  @Override
-        //public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        //  for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-        //    Object getV = dataSnapshot1.getValue();
+        FirebaseDatabase.getInstance().getReference("supervisorUsers").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-//                            HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
-        //                          String supervisorId = HashGetV.get("id");
-        //                        String supervisorEmail = HashGetV.get("email");
-        //                      if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)){
+                        Object getV = dataSnapshot.getValue();
 
-        //if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)) {
-        //                      getEmployee(supervisorEmail);}
-        //}
+                        HashMap<String, String> HashGetV = (HashMap<String, String>) getV;
+                        String supervisorId = HashGetV.get("id");
+                        String supervisorEmail = HashGetV.get("email");
+                        if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)) {
+
+                            if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)) {
+                                getEmployee(supervisorEmail);
+                                getStudent(supervisorEmail);
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                }
+        );
+
+
     }
-    //            }
-
-    //        @Override
-    //      public void onCancelled(@NonNull DatabaseError databaseError) {
-
-    //          }
-    //        }
-    //);
-
-
-    //}
 
     private void getEmployee(final String superVisorEmail) {
+        FirebaseDatabase.getInstance().getReference("employeeUser").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Object getV = dataSnapshot1.getValue();
+                    HashMap<String, String> hashGetv = (HashMap<String, String>) getV;
+                    if (superVisorEmail.equals(hashGetv.get("supervisorEmail"))) {
+                        String volunteerName = hashGetv.get("name");
+                        String volunteerAge = hashGetv.get("age");
+                        String volunteerAddress = hashGetv.get("address");
+                        String volunteerEmail = hashGetv.get("email");
+                        String volunteerId = hashGetv.get("id");
+                        String volunteerSuperVisor = hashGetv.get("superVisor");
+                        String volunteerUsername = hashGetv.get("username");
+                        String volunteerRole = hashGetv.get("role");
+                        String volunteerNumber = hashGetv.get("phonenumber");
+                        String volunteerSuperVisorEmail = hashGetv.get("superVisorEmail");
+                        String volunteerSuperVisorPhoneNumber = hashGetv.get("superVisorPhoneNumber");
+
+                        Employees employeesUser = new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
+                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor,
+                                null, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber);
+
+                        assert volunteerId != null;
+                        FirebaseDatabase.getInstance().getReference("supervisorVolunteers")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child(volunteerId)
+                                .setValue(employeesUser);
+
+                        listSupervisorVolunteers.add(employeesUser);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                        recyclerView.setAdapter(recyclerAdapter);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                //when there is an error
+            }
+        });
+    }
+
+    private void getStudent(final String superVisorEmail) {
         FirebaseDatabase.getInstance().getReference("studentUser").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -91,12 +137,20 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         String volunteerEmail = hashGetv.get("email");
                         String volunteerId = hashGetv.get("id");
                         String volunteerSuperVisor = hashGetv.get("superVisor");
+                        String volunteerSuperVisorEmail = hashGetv.get("superVisorEmail");
+                        String volunteerSuperVisorPhoneNumber = hashGetv.get("superVisorPhoneNumber");
                         String volunteerUniID = hashGetv.get("uniID");
                         String volunteerUsername = hashGetv.get("username");
                         String volunteerRole = hashGetv.get("role");
                         String volunteerNumber = hashGetv.get("phonenumber");
                         Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, null, null);
+                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber);
+
+                        assert volunteerId != null;
+                        FirebaseDatabase.getInstance().getReference("supervisorVolunteers")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child(volunteerId)
+                                .setValue(studentUser);
 
                         listSupervisorVolunteers.add(studentUser);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -112,4 +166,6 @@ public class SupervisorVolunteer_fragment extends Fragment {
             }
         });
     }
+
+
 }

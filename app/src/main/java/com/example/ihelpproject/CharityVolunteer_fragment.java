@@ -76,7 +76,7 @@ public class CharityVolunteer_fragment extends Fragment {
                             break;
                         case "employeeUser":
                             listCharityVolunteers.add(new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName,null,null));
                             break;
                     }//end switch
 

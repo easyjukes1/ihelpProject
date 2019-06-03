@@ -177,9 +177,11 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerUsername = userData.get("username");
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
-
+                    String volunteerSuperVisorEmail = userData.get("superVisorEmail");
+                    String volunteerSuperVisorPhoneNumber = userData.get("superVisorPhoneNumber");
                     Employees employeesUser = new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName);
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor,
+                            volunteerCompanyName,volunteerSuperVisorEmail,volunteerSuperVisorPhoneNumber);
                     assert volunteerId != null;
                     FirebaseDatabase.getInstance().getReference("charityVolunteers")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
