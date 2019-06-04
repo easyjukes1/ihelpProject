@@ -12,6 +12,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+
 public class CharityAddJobActivity extends AppCompatActivity {
 
     DatabaseReference databaseAddjob;
@@ -29,6 +32,10 @@ public class CharityAddJobActivity extends AppCompatActivity {
         et_briefDescription = findViewById(R.id.et_briefDescription);
         et_description = findViewById(R.id.et_description);
         et_phoneNumber = findViewById(R.id.et_phoneNumber);
+
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
 
         databaseAddjob = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         databaseVolunteersJobs = FirebaseDatabase.getInstance().getReference("volunteersJobs");
@@ -51,7 +58,7 @@ public class CharityAddJobActivity extends AppCompatActivity {
 
                 // we will store the data on the generated id .
                 databaseAddjob.child(idAddJob).setValue(job);
-                databaseVolunteersJobs.child(idVolunteersJobs).setValue(job);
+                databaseVolunteersJobs.child(idAddJob).setValue(job);
                 Toast.makeText(CharityAddJobActivity.this, "job added", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getApplicationContext(), CharityHomePageActivity.class);
                 startActivity(i);

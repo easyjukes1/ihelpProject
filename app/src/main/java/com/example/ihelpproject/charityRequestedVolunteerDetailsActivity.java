@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Objects;
 
 public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity {
     TextView tv_name, tv_email, tv_phonenumber, tv_age, tv_address, tv_role, tv_supervisorName, tv_supervisorEmail, tv_supervisorPhoneNumber;
@@ -96,6 +103,27 @@ public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity 
                 alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        FirebaseDatabase.getInstance().getReference("CharityAddjob").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                    Object charity = dataSnapshot1.getValue();
+                                    HashMap<String, String> charityData = (HashMap<String, String>) charity;
+                                    if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(charityData.get("charityId"))) {
+                                        FirebaseDatabase.getInstance().getReference(Objects.requireNonNull(dataSnapshot1.getKey())).child(volunteerId).removeValue();
+
+                                    }
+
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                //on error
+                            }
+                        });
+
                         //     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
                         //           .child(charityVolunteersData.get(i).getId());
                         //   databaseReference.removeValue();

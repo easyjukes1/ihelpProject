@@ -53,10 +53,13 @@ public class CharityJobDetailsActivity extends AppCompatActivity {
                 alert.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference("volunteersJobs").child(jobId);
+                        databaseReference1.removeValue();
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("CharityAddjob")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .child(jobId);
                         databaseReference.removeValue();
+
                         Intent startActivityCharity = new Intent(CharityJobDetailsActivity.this, CharityHomePageActivity.class);
                         startActivity(startActivityCharity);
                         dialog.cancel();

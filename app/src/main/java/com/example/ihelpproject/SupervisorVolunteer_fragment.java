@@ -146,9 +146,9 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
                                 null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber);
 
-                        assert volunteerId != null;
-                        FirebaseDatabase.getInstance().getReference("supervisorVolunteers")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                       assert volunteerId != null;
+                       FirebaseDatabase.getInstance().getReference("supervisorVolunteers")
+                               .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .child(volunteerId)
                                 .setValue(studentUser);
 

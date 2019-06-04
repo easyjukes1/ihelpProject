@@ -106,10 +106,10 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
 
                     listCharityVolunteers.add(studentUser);
                     assert volunteerId != null;
-                    FirebaseDatabase.getInstance().getReference("charityVolunteers")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .child(volunteerId)
-                            .setValue(studentUser);
+                //    FirebaseDatabase.getInstance().getReference("charityVolunteers")
+                  //          .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    //        .child(volunteerId)
+                      //      .setValue(studentUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
@@ -143,10 +143,10 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
 
                     listCharityVolunteers.add(genralUser);
                     assert volunteerId != null;
-                    FirebaseDatabase.getInstance().getReference("charityVolunteers")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .child(volunteerId)
-                            .setValue(genralUser);
+                  //  FirebaseDatabase.getInstance().getReference("charityVolunteers")
+                    //        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                      //      .child(volunteerId)
+                        //    .setValue(genralUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
@@ -183,10 +183,10 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                             null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor,
                             volunteerCompanyName,volunteerSuperVisorEmail,volunteerSuperVisorPhoneNumber);
                     assert volunteerId != null;
-                    FirebaseDatabase.getInstance().getReference("charityVolunteers")
-                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            .child(volunteerId)
-                            .setValue(employeesUser);
+                   // FirebaseDatabase.getInstance().getReference("charityVolunteers")
+                            //.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            //.child(volunteerId)
+                          //  .setValue(employeesUser);
                     listCharityVolunteers.add(employeesUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);

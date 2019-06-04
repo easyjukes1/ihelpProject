@@ -4,6 +4,8 @@ package com.example.ihelpproject;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +63,7 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
     public int getItemCount() {
         return charityJobsData.size();
     }
+
 
     static class myViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_jobName;
