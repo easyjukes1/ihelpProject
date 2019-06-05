@@ -34,7 +34,7 @@ public class CharityAddJobActivity extends AppCompatActivity {
         et_phoneNumber = findViewById(R.id.et_phoneNumber);
 
         Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        final String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
 
         databaseAddjob = FirebaseDatabase.getInstance().getReference("CharityAddjob").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -52,9 +52,8 @@ public class CharityAddJobActivity extends AppCompatActivity {
 
                 //to create unique id for charity add Jobs
                 String idAddJob = databaseAddjob.push().getKey();
-                String idVolunteersJobs = databaseAddjob.push().getKey();
-                //creating an object of charity add job
-                CharityAddJob job = new CharityAddJob(idAddJob, jobTitle, briefDescription, description, charityId, phoneNumber);
+
+                CharityAddJob job = new CharityAddJob(idAddJob, jobTitle, briefDescription, description, charityId, phoneNumber,currentDate);
 
                 // we will store the data on the generated id .
                 databaseAddjob.child(idAddJob).setValue(job);

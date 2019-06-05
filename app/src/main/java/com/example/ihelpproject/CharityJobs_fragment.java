@@ -26,8 +26,7 @@ import java.util.List;
 
 public class CharityJobs_fragment extends Fragment {
 
-    private List<CharityJobs> listCharityJobs;
-
+    private List<CharityAddJob> listCharityJobs;
     RecyclerViewCharityJobsAdapter recyclerAdapter;
     RecyclerView recyclerView;
 
@@ -69,7 +68,10 @@ public class CharityJobs_fragment extends Fragment {
                     String id = HashAddJob.get("id");
                     String jobTitle = HashAddJob.get("jobTitle");
                     String jobType = HashAddJob.get("jobType");
-                    listCharityJobs.add(new CharityJobs(id, jobTitle, jobType, null, null, ""));
+                    String currentDate = HashAddJob.get("date");
+                    String phoneNumber = HashAddJob.get("phoneNumber");
+                    String description = HashAddJob.get("description");
+                    listCharityJobs.add(new CharityAddJob(id, jobTitle, jobType,description, null,phoneNumber,currentDate));
 
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

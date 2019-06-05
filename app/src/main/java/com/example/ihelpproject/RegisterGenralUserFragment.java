@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,7 +28,9 @@ public class RegisterGenralUserFragment extends Fragment {
     TextInputLayout et_name, et_email, et_username, et_password, et_age, et_address, et_phonenumber;
     View view;
     GenralUser genralUser;
-
+    RadioButton btn_radio;
+    RadioGroup radioGroup;
+    private String gender;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,12 +48,13 @@ public class RegisterGenralUserFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         et_age = view.findViewById(R.id.et_age);
-
+        radioGroup =view.findViewById(R.id.radioGroup);
 
         btn_create = view.findViewById(R.id.btn_create);
         btn_create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 final String email = Objects.requireNonNull(et_email.getEditText()).getText().toString();
                 final String password = Objects.requireNonNull(et_password.getEditText()).getText().toString();
                 final String name = Objects.requireNonNull(et_name.getEditText()).getText().toString();
@@ -57,6 +62,10 @@ public class RegisterGenralUserFragment extends Fragment {
                 final String address = Objects.requireNonNull(et_address.getEditText()).getText().toString();
                 final String phoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
                 final String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                btn_radio = view.findViewById(radioId);
+                gender = (String) btn_radio.getText();
+
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber)
                         | validateAge(age)) {
 
@@ -66,7 +75,7 @@ public class RegisterGenralUserFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     String id = mAuth.getCurrentUser().getUid();
-                                    genralUser = new GenralUser(id, name, email, username, password, age, address, phoneNumber, "generalUser");
+                                    genralUser = new GenralUser(id, name, email, username, password, age, address, phoneNumber, "generalUser",gender);
                                     FirebaseDatabase.getInstance().getReference("generalUser")
                                             .child(Objects.requireNonNull(mAuth.getCurrentUser()).getUid())
                                             .setValue(genralUser).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -63,20 +63,21 @@ public class CharityVolunteer_fragment extends Fragment {
                     String volunteerRole = HashGetV.get("role");
                     String volunteerNumber = HashGetV.get("phonenumber");
                     String volunteerCompanyName = HashGetV.get("companyName");
+                    String volunteerGender = HashGetV.get("gender");
 
                     assert volunteerRole != null;
                     switch (volunteerRole) {
                         case "studentUser":
                             listCharityVolunteers.add(new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null,volunteerGender));
                             break;
                         case "generalUser":
                             listCharityVolunteers.add(new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender));
                             break;
                         case "employeeUser":
                             listCharityVolunteers.add(new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName,null,null));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName,null,null,volunteerGender));
                             break;
                     }//end switch
 

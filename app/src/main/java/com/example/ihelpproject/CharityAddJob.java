@@ -7,14 +7,16 @@ public class CharityAddJob {
     private String description;
     private String charityId;
     private String phoneNumber;
+    private String date;
 
-    public CharityAddJob(String id, String jobTitle, String jobType, String description, String charityId, String phoneNumber) {
+    public CharityAddJob(String id, String jobTitle, String jobType, String description, String charityId, String phoneNumber, String date) {
         this.id = id;
         this.jobTitle = jobTitle;
         this.jobType = jobType;
         this.description = description;
         this.charityId = charityId;
         this.phoneNumber = phoneNumber;
+        this.date = date;
     }
 
     public String getId() {
@@ -63,5 +65,13 @@ public class CharityAddJob {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

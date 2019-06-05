@@ -38,8 +38,9 @@ public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity 
         String volunteerAddress = intent.getStringExtra("address");
         String volunteerAge = intent.getStringExtra("Age");
         String volunteerRole = intent.getStringExtra("role");
+        String volunteerGender = intent.getStringExtra("gender");
         final GenralUser genralUser = new GenralUser(volunteerId, volunteerName, volunteerEmail, null,
-                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole);
+                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole ,volunteerGender);
 
         tv_name = findViewById(R.id.tv_charityName);
         tv_email = findViewById(R.id.tv_charityEmail);
@@ -124,9 +125,6 @@ public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity 
                             }
                         });
 
-                        //     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
-                        //           .child(charityVolunteersData.get(i).getId());
-                        //   databaseReference.removeValue();
                         dialog.cancel();
 
                     }

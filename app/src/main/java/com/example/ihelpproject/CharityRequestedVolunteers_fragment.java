@@ -101,15 +101,12 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerUsername = userData.get("username");
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
+                    String volunteerGender = userData.get("gender");
                     Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null);
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null,volunteerGender);
 
                     listCharityVolunteers.add(studentUser);
                     assert volunteerId != null;
-                //    FirebaseDatabase.getInstance().getReference("charityVolunteers")
-                  //          .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    //        .child(volunteerId)
-                      //      .setValue(studentUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
@@ -138,15 +135,12 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerUsername = userData.get("username");
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
+                    String volunteerGender = userData.get("gender");
                     GenralUser genralUser = new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole);
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender);
 
                     listCharityVolunteers.add(genralUser);
                     assert volunteerId != null;
-                  //  FirebaseDatabase.getInstance().getReference("charityVolunteers")
-                    //        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                      //      .child(volunteerId)
-                        //    .setValue(genralUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);
                 }
@@ -179,14 +173,11 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerNumber = userData.get("phonenumber");
                     String volunteerSuperVisorEmail = userData.get("superVisorEmail");
                     String volunteerSuperVisorPhoneNumber = userData.get("superVisorPhoneNumber");
+                    String volunteerGender = userData.get("gender");
                     Employees employeesUser = new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
                             null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor,
-                            volunteerCompanyName,volunteerSuperVisorEmail,volunteerSuperVisorPhoneNumber);
+                            volunteerCompanyName,volunteerSuperVisorEmail,volunteerSuperVisorPhoneNumber,volunteerGender);
                     assert volunteerId != null;
-                   // FirebaseDatabase.getInstance().getReference("charityVolunteers")
-                            //.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                            //.child(volunteerId)
-                          //  .setValue(employeesUser);
                     listCharityVolunteers.add(employeesUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                     recyclerView.setAdapter(recyclerAdapter);

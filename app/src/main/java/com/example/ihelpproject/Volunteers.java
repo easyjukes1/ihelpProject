@@ -10,9 +10,10 @@ public class Volunteers {
     private String Address;
     private String Phonenumber;
     private String role;
+    private String gender;
 
 
-    public Volunteers(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role) {
+    public Volunteers(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role, String gender) {
         this.id = id;
         Name = name;
         Email = email;
@@ -22,6 +23,15 @@ public class Volunteers {
         Address = address;
         Phonenumber = phonenumber;
         this.role = role;
+        this.gender = gender;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getId() {

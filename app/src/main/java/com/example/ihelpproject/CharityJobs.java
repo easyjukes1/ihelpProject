@@ -8,7 +8,7 @@ public class CharityJobs {
     private String description;
     private String CharityId;
 
-    CharityJobs(String id, String jobName, String jobType, String date, String description, String charityId) {
+    public CharityJobs(String id, String jobName, String jobType, String date, String description, String charityId) {
         this.id = id;
         this.jobName = jobName;
         this.jobType = jobType;
@@ -20,20 +20,48 @@ public class CharityJobs {
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
-    String getJobName() {
+
+    public String getJobName() {
         return jobName;
     }
-    String getJobType() {
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public String getJobType() {
         return jobType;
     }
-    String getDate() {
+
+    public void setJobType(String jobType) {
+        this.jobType = jobType;
+    }
+
+    public String getDate() {
         return date;
     }
-    String getDescription() {
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCharityId() {
+        return CharityId;
+    }
+
+    public void setCharityId(String charityId) {
+        CharityId = charityId;
+    }
 }

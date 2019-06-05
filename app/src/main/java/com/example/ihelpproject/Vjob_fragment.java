@@ -55,7 +55,8 @@ public class Vjob_fragment extends Fragment {
                     String jobType = HashAddJob.get("jobType");
                     String description = HashAddJob.get("description");
                     String phoneNumber = HashAddJob.get("phoneNumber");
-                    listJobs.add(new CharityAddJob(id, jobTitle, jobType, description, "", phoneNumber));
+                    String  date = HashAddJob.get("date");
+                    listJobs.add(new CharityAddJob(id, jobTitle, jobType, description, "", phoneNumber,date));
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(recyclerAdapter);

@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,7 +29,9 @@ public class RegisterEmployeeFragment extends Fragment {
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password, et_supervisor,
             et_companyName, et_age, et_address, et_phonenumber, et_supervisorEmail, et_supervisor_phoneNumber;
-
+    RadioButton btn_radio;
+    RadioGroup radioGroup;
+    private String gender;
     Button btn_create;
     Employees employeeUser;
     DatabaseReference databaseRegisterEmployee;
@@ -37,7 +41,7 @@ public class RegisterEmployeeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view;
+        final View view;
         view = inflater.inflate(R.layout.fragment_register_employee, container, false);
         mAuth = FirebaseAuth.getInstance();
 
@@ -52,6 +56,7 @@ public class RegisterEmployeeFragment extends Fragment {
         et_age = view.findViewById(R.id.et_age);
         et_supervisorEmail = view.findViewById(R.id.et_supervisorEmail);
         et_supervisor_phoneNumber = view.findViewById(R.id.et_supervisorPhoneNumber);
+        radioGroup =view.findViewById(R.id.radioGroup);
 
         databaseRegisterEmployee = FirebaseDatabase.getInstance().getReference("employeeUser");
 
@@ -70,6 +75,9 @@ public class RegisterEmployeeFragment extends Fragment {
                 final String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
                 final String superVisorEmail = Objects.requireNonNull(et_supervisorEmail.getEditText()).getText().toString();
                 final String superVisorPhoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                btn_radio = view.findViewById(radioId);
+                gender = (String) btn_radio.getText();
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
                         validateSupervisor(supervisor) | validateCompanyName(companyName) | validateAge(age)) {
@@ -81,7 +89,7 @@ public class RegisterEmployeeFragment extends Fragment {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                                     String id = mAuth.getCurrentUser().getUid();
-                                    employeeUser = new Employees(id, name, email, username, password, age, address, phoneNumber, "employeeUser", supervisor, companyName,superVisorEmail,superVisorPhoneNumber);
+                                    employeeUser = new Employees(id, name, email, username, password, age, address, phoneNumber, "employeeUser", gender,supervisor, companyName,superVisorEmail,superVisorPhoneNumber);
                                     FirebaseDatabase.getInstance().getReference("employeeUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(employeeUser).addOnCompleteListener(new OnCompleteListener<Void>() {

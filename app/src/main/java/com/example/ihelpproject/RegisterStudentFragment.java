@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +29,9 @@ public class RegisterStudentFragment extends Fragment {
     TextInputLayout et_name, et_email, et_username, et_password, et_studentId, et_supervisorName,
             et_age, et_address, et_phonenumber, et_supervisorEmail, et_supervisor_phoneNumber;
     View view;
+    RadioButton btn_radio;
+    RadioGroup radioGroup;
+    private String gender;
     Student studentUser;
 
     @Override
@@ -37,7 +42,6 @@ public class RegisterStudentFragment extends Fragment {
         Button btn_create;
 
         et_studentId = view.findViewById(R.id.et_ID);
-
         et_address = view.findViewById(R.id.et_address);
         et_phonenumber = view.findViewById(R.id.et_phonenumber);
         et_name = view.findViewById(R.id.et_name);
@@ -45,6 +49,7 @@ public class RegisterStudentFragment extends Fragment {
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
         et_age = view.findViewById(R.id.et_age);
+        radioGroup =view.findViewById(R.id.radioGroup);
 
         et_supervisorName = view.findViewById(R.id.et_supervisorName);
         et_supervisorEmail = view.findViewById(R.id.et_supervisorEmail);
@@ -68,6 +73,9 @@ public class RegisterStudentFragment extends Fragment {
                 final String age = Objects.requireNonNull(et_age.getEditText()).getText().toString();
                 final String superVisorEmail = Objects.requireNonNull(et_supervisorEmail.getEditText()).getText().toString();
                 final String superVisorPhoneNumber = Objects.requireNonNull(et_phonenumber.getEditText()).getText().toString();
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                btn_radio = view.findViewById(radioId);
+                gender = (String) btn_radio.getText();
 
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
                         validateSupervisor(superVisor) | validateAge(age) | validateStudentId(studentId)) {
@@ -79,7 +87,7 @@ public class RegisterStudentFragment extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     String id = mAuth.getCurrentUser().getUid();
-                                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "studentUser", studentId, superVisor, superVisorEmail, superVisorPhoneNumber);
+                                    studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, "studentUser", gender, studentId, superVisor, superVisorEmail, superVisorPhoneNumber);
                                     FirebaseDatabase.getInstance().getReference("studentUser")
                                             .child(mAuth.getCurrentUser().getUid())
                                             .setValue(studentUser).addOnCompleteListener(new OnCompleteListener<Void>() {

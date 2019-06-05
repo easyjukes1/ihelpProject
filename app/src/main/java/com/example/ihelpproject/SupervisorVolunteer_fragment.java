@@ -97,10 +97,11 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         String volunteerNumber = hashGetv.get("phonenumber");
                         String volunteerSuperVisorEmail = hashGetv.get("superVisorEmail");
                         String volunteerSuperVisorPhoneNumber = hashGetv.get("superVisorPhoneNumber");
+                        String volunteerGender = hashGetv.get("gender");
 
                         Employees employeesUser = new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
                                 null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor,
-                                null, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber);
+                                null, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber,volunteerGender);
 
                         assert volunteerId != null;
                         FirebaseDatabase.getInstance().getReference("supervisorVolunteers")
@@ -143,8 +144,9 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         String volunteerUsername = hashGetv.get("username");
                         String volunteerRole = hashGetv.get("role");
                         String volunteerNumber = hashGetv.get("phonenumber");
+                        String volunteerGender = hashGetv.get("gender");
                         Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber);
+                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber,volunteerGender);
 
                        assert volunteerId != null;
                        FirebaseDatabase.getInstance().getReference("supervisorVolunteers")
