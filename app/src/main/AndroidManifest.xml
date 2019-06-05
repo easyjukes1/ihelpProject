@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".charityRequestedVolunteerDetailsActivity" />
+        <activity android:name=".charity.charityRequestedVolunteerDetailsActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -29,29 +29,29 @@
         <activity android:name=".Map2" />
         <activity
             android:name=".GoogleMapActivity"
-            android:parentActivityName=".LoginActivity" />
+            android:parentActivityName=".registerAndLogin.LoginActivity" />
         <activity
-            android:name=".CharityHomePageActivity"
-            android:parentActivityName=".LoginActivity" />
+            android:name=".charity.CharityHomePageActivity"
+            android:parentActivityName=".registerAndLogin.LoginActivity" />
         <activity
-            android:name=".RegisterActivity"
-            android:parentActivityName=".LoginActivity" />
+            android:name=".registerAndLogin.RegisterActivity"
+            android:parentActivityName=".registerAndLogin.LoginActivity" />
         <activity
-            android:name=".SuperVisorHomePageActivity"
-            android:parentActivityName=".LoginActivity" />
+            android:name=".supervisor.SuperVisorHomePageActivity"
+            android:parentActivityName=".registerAndLogin.LoginActivity" />
         <activity
-            android:name=".VolunteerHomePageActivity"
-            android:parentActivityName=".LoginActivity" />
+            android:name=".volunteers.VolunteerHomePageActivity"
+            android:parentActivityName=".registerAndLogin.LoginActivity" />
         <activity
-            android:name=".VolunteerSubmitJobsActivity"
-            android:parentActivityName=".VolunteerHomePageActivity" />
+            android:name=".volunteers.VolunteerSubmitJobsActivity"
+            android:parentActivityName=".volunteers.VolunteerHomePageActivity" />
         <activity
-            android:name=".VolunteerCharityDetailsActivity"
-            android:parentActivityName=".VolunteerHomePageActivity" />
+            android:name=".volunteers.VolunteerCharityDetailsActivity"
+            android:parentActivityName=".volunteers.VolunteerHomePageActivity" />
         <activity
-            android:name=".RegisterAccountCheckActivity"
-            android:parentActivityName=".LoginActivity" />
-        <activity android:name=".LoginActivity">
+            android:name=".registerAndLogin.RegisterAccountCheckActivity"
+            android:parentActivityName=".registerAndLogin.LoginActivity" />
+        <activity android:name=".registerAndLogin.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -59,11 +59,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CharityAddJobActivity"
-            android:parentActivityName=".CharityHomePageActivity" />
-        <activity android:name=".charitVolunteerDetailsActivity1" />
-        <activity android:name=".CharityJobDetailsActivity" />
-        <activity android:name=".supervisorVolunteerDetailsActivity" />
+            android:name=".charity.CharityAddJobActivity"
+            android:parentActivityName=".charity.CharityHomePageActivity" />
+        <activity android:name=".charity.charitVolunteerDetailsActivity1" />
+        <activity android:name=".charity.CharityJobDetailsActivity" />
+        <activity android:name=".supervisor.supervisorVolunteerDetailsActivity" />
     </application>
 
 </manifest>

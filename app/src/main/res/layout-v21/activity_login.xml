@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".registerAndLogin.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:orientation="horizontal"
-            tools:context=".RegisterCharityFragment">
+            tools:context=".registerAndLogin.RegisterCharityFragment">
 
             <LinearLayout
                 android:layout_width="match_parent"

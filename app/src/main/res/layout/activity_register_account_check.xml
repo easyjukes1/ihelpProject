@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FCFCFC"
     android:orientation="vertical"
-    tools:context=".RegisterAccountCheckActivity">
+    tools:context=".registerAndLogin.RegisterAccountCheckActivity">
 
     <ImageView
         android:layout_width="wrap_content"
