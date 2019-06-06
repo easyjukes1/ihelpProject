@@ -1,4 +1,4 @@
-package com.example.ihelpproject;
+package com.example.ihelpproject.registerAndLogin;
 
 import android.Manifest;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ihelpproject.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;

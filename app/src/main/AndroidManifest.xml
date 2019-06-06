@@ -26,9 +26,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Map2" />
         <activity
-            android:name=".GoogleMapActivity"
+            android:name=".registerAndLogin.GoogleMapActivity"
             android:parentActivityName=".registerAndLogin.LoginActivity" />
         <activity
             android:name=".charity.CharityHomePageActivity"
