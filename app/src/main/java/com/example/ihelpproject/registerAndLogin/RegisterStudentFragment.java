@@ -1,6 +1,7 @@
 package com.example.ihelpproject.registerAndLogin;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -34,6 +35,7 @@ public class RegisterStudentFragment extends Fragment {
     RadioGroup radioGroup;
     private String gender;
     Student studentUser;
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +53,7 @@ public class RegisterStudentFragment extends Fragment {
         et_username = view.findViewById(R.id.et_username);
         et_age = view.findViewById(R.id.et_age);
         radioGroup =view.findViewById(R.id.radioGroup);
+        progressDialog = new ProgressDialog(getActivity());
 
         et_supervisorName = view.findViewById(R.id.et_supervisorName);
         et_supervisorEmail = view.findViewById(R.id.et_supervisorEmail);
@@ -81,6 +84,8 @@ public class RegisterStudentFragment extends Fragment {
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
                         validateSupervisor(superVisor) | validateAge(age) | validateStudentId(studentId)) {
 
+                    progressDialog.setMessage("registering user...");
+                    progressDialog.show();
 
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {

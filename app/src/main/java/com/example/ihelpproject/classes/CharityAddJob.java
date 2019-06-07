@@ -1,4 +1,4 @@
-package com.example.ihelpproject.charity;
+package com.example.ihelpproject.classes;
 
 public class CharityAddJob {
     private String id;

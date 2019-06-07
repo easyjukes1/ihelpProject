@@ -60,14 +60,16 @@ public class Vmap_fragment extends Fragment implements OnMapReadyCallback {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Object charityUserStrings = dataSnapshot1.getValue();
-
+                    HashMap<String, String> hashGetCharity = (HashMap<String, String>) charityUserStrings;
                     HashMap<String, Double> charityUser1 = (HashMap<String, Double>) charityUserStrings;
+
+                    String charityName = hashGetCharity.get("name");
                     Double latitude = charityUser1.get("latitude");
                     Double longitude = charityUser1.get("longitude");
 
                     googleMap.addMarker(new MarkerOptions()
                             .position(new LatLng(latitude, longitude))
-                            .title("charity name "));
+                            .title(charityName));
 
                     LatLng Amman = new LatLng(31.947572, 35.933473);
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Amman, 10f));

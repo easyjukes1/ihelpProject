@@ -8,7 +8,8 @@
         android:id="@+id/btn_getLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="is this your location?" />
+        android:text="get location"
+        android:textAllCaps="false"/>
 
     <fragment
         android:id="@+id/map"

@@ -37,6 +37,9 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
     @Override
     public void onBindViewHolder(@NonNull myViewHolder myViewHolder, final int i) {
         myViewHolder.tv_VolunteerName.setText(volunteersData.get(i).getName());
+        myViewHolder.tv_volunteerAge.setText(volunteersData.get(i).getAge());
+        myViewHolder.tv_volunteerGender.setText(volunteersData.get(i).getGender());
+
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,13 +64,15 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
     }
 
     static class myViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_VolunteerName;
+        private TextView tv_VolunteerName, tv_volunteerAge, tv_volunteerGender;
         private LinearLayout parentLayout;
 
         myViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv_VolunteerName = itemView.findViewById(R.id.VolunteerName);
+            tv_VolunteerName = itemView.findViewById(R.id.volunteerName);
             parentLayout = itemView.findViewById(R.id.layoutVolunteer);
+            tv_volunteerAge = itemView.findViewById(R.id.volunteerAge);
+            tv_volunteerGender = itemView.findViewById(R.id.volunteerGender);
 
         }
     }

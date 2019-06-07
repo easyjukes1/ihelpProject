@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.example.ihelpproject.R;
 
 public class VolunteerCharityDetailsActivity extends AppCompatActivity {
-    TextView tv_name, tv_address, tv_email, tv_phonenumber;
+    TextView tv_name, tv_address, tv_email, tv_phonenumber, tv_details;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,23 +21,26 @@ public class VolunteerCharityDetailsActivity extends AppCompatActivity {
         String name = intent.getStringExtra("name");
         String address = intent.getStringExtra("address");
         String email = intent.getStringExtra("email");
-        final String phonenumber = intent.getStringExtra("phonenumber");
+        String details = intent.getStringExtra("details");
+        final String phoneNumber = intent.getStringExtra("phonenumber");
 
 
         tv_name = findViewById(R.id.tv_charityName);
         tv_address = findViewById(R.id.tv_charityAddress);
         tv_email = findViewById(R.id.tv_charityEmail);
         tv_phonenumber = findViewById(R.id.tv_charityPhoneNumber);
+        tv_details = findViewById(R.id.tv_charityDetails);
 
         tv_name.setText(name);
         tv_address.setText(address);
         tv_email.setText(email);
-        tv_phonenumber.setText(phonenumber);
+        tv_phonenumber.setText(phoneNumber);
+        tv_details.setText(details);
 
         tv_phonenumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri call = Uri.parse("tel:" + phonenumber);
+                Uri call = Uri.parse("tel:" + phoneNumber);
                 Intent intent1 = new Intent(Intent.ACTION_DIAL, call);
                 startActivity(intent1);
             }

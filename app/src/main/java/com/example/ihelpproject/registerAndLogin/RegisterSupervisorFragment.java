@@ -1,6 +1,7 @@
 package com.example.ihelpproject.registerAndLogin;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,10 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class RegisterSupervisorFragment extends Fragment {
-
     private FirebaseAuth mAuth;
     TextInputLayout et_name, et_email, et_username, et_password;
     Supervisor supervisorUser;
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,7 +40,7 @@ public class RegisterSupervisorFragment extends Fragment {
         et_email = view.findViewById(R.id.et_email);
         et_password = view.findViewById(R.id.et_password);
         et_username = view.findViewById(R.id.et_username);
-
+        progressDialog = new ProgressDialog(getActivity());
         btn_create = view.findViewById(R.id.btn_create);
 
 
@@ -51,7 +52,8 @@ public class RegisterSupervisorFragment extends Fragment {
                 final String name = et_name.getEditText().getText().toString();
                 final String username = et_username.getEditText().getText().toString();
                 if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username)) {
-
+                    progressDialog.setMessage("registering user...");
+                    progressDialog.show();
 
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {

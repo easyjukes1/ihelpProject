@@ -1,6 +1,7 @@
 package com.example.ihelpproject.charity;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ihelpproject.R;
+import com.example.ihelpproject.classes.CharityAddJob;
 import com.example.ihelpproject.recyclerView.RecyclerViewCharityJobsAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +39,8 @@ public class CharityJobs_fragment extends Fragment {
                              Bundle savedInstanceState) {
         View view;
         view = inflater.inflate(R.layout.fragment_charityjob, container, false);
+
+
 
         FloatingActionButton addFAb;
         addFAb = view.findViewById(R.id.fab_add);
@@ -78,6 +82,7 @@ public class CharityJobs_fragment extends Fragment {
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(recyclerAdapter);
+
             }
 
             @Override

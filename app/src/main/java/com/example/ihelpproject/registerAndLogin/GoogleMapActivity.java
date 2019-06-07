@@ -17,6 +17,7 @@ import com.example.ihelpproject.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -26,9 +27,12 @@ import com.google.android.gms.tasks.Task;
 
 public class GoogleMapActivity extends AppCompatActivity {
     private static String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    //manifast=permition
     private static String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private boolean perrGranted = false;
+    //bydefault location off
     private final static int requestCode1 = 1;
+
     private final static float DEFAULT_ZOOM = 15f;
     double x, y;
     Button btn_getLocation;
@@ -96,8 +100,8 @@ public class GoogleMapActivity extends AppCompatActivity {
     }
 
     private void getLocationPermission() {
-        String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION};
+        String[] permissions = {FINE_LOCATION,
+                COARSE_LOCATION };
 
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(), FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             if (ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {

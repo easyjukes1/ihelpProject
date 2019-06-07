@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ihelpproject.R;
-import com.example.ihelpproject.charity.CharityAddJob;
+import com.example.ihelpproject.classes.CharityAddJob;
 import com.example.ihelpproject.recyclerView.RecyclerViewVJobsAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

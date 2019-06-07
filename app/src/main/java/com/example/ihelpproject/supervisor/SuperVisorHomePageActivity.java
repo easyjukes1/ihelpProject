@@ -71,7 +71,7 @@ public class SuperVisorHomePageActivity extends AppCompatActivity {
                             selectedFragment = new SupervisorVolunteer_fragment();
                             break;
                         case R.id.action_overview:
-                            selectedFragment = new SupervisorOverView_fragment();
+                            selectedFragment = new SupervisorCreateAccount_fragment();
                             break;
                         default:
                             selectedFragment = new SupervisorVolunteer_fragment();

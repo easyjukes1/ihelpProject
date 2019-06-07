@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ihelpproject.R;
-import com.example.ihelpproject.charity.CharityAddJob;
+import com.example.ihelpproject.classes.CharityAddJob;
 import com.example.ihelpproject.charity.CharityJobDetailsActivity;
 
 import java.util.List;

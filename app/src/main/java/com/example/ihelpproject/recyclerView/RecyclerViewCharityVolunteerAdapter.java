@@ -41,13 +41,15 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
     @Override
     public void onBindViewHolder(@NonNull myViewHolder myViewHolder, final int i) {
         myViewHolder.tv_volunteerName.setText(charityVolunteersData.get(i).getName());
+        myViewHolder.tv_volunteerAge.setText(charityVolunteersData.get(i).getAge());
+        myViewHolder.tv_volunteerGender.setText(charityVolunteersData.get(i).getGender());
 
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, charitVolunteerDetailsActivity1.class);
-                intent.putExtra("id",charityVolunteersData.get(i).getId());
+                intent.putExtra("id", charityVolunteersData.get(i).getId());
                 intent.putExtra("name", charityVolunteersData.get(i).getName());
                 intent.putExtra("email", charityVolunteersData.get(i).getEmail());
                 intent.putExtra("Username", charityVolunteersData.get(i).getAddress());
@@ -67,7 +69,7 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
     }
 
     static class myViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_volunteerName;
+        private TextView tv_volunteerName, tv_volunteerAge, tv_volunteerGender;
         private LinearLayout parentLayout;
 
 
@@ -76,6 +78,8 @@ public class RecyclerViewCharityVolunteerAdapter extends RecyclerView.Adapter<Re
 
             tv_volunteerName = itemView.findViewById(R.id.volunteerName);
             parentLayout = itemView.findViewById(R.id.layoutVolunteer);
+            tv_volunteerAge = itemView.findViewById(R.id.volunteerAge);
+            tv_volunteerGender = itemView.findViewById(R.id.volunteerGender);
 
         }
     }

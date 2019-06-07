@@ -43,6 +43,9 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
     @Override
     public void onBindViewHolder(@NonNull myViewHolder myViewHolder, final int i) {
         myViewHolder.tv_volunteerName.setText(charityVolunteersData.get(i).getName());
+        myViewHolder.tv_volunteerAge.setText(charityVolunteersData.get(i).getAge());
+        myViewHolder.tv_volunteerGender.setText(charityVolunteersData.get(i).getGender());
+
 
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,14 +73,15 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
     }
 
     static class myViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_volunteerName;
+        private TextView tv_volunteerName,tv_volunteerAge,tv_volunteerGender;
         private LinearLayout parentLayout;
 
         myViewHolder(@NonNull View itemView) {
             super(itemView);
             tv_volunteerName = itemView.findViewById(R.id.volunteerName);
             parentLayout = itemView.findViewById(R.id.layoutVolunteer);
-
+            tv_volunteerAge = itemView.findViewById(R.id.volunteerAge);
+            tv_volunteerGender = itemView.findViewById(R.id.volunteerGender);
 
         }
     }

@@ -49,6 +49,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
                 intent.putExtra("address", charityData.get(i).getAddress());
                 intent.putExtra("email", charityData.get(i).getEmail());
                 intent.putExtra("phonenumber", charityData.get(i).getPhonenumber());
+                intent.putExtra("details", charityData.get(i).getDetails());
 
                 context.startActivity(intent);
             }

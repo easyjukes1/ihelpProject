@@ -1,5 +1,6 @@
 package com.example.ihelpproject.registerAndLogin;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -17,6 +18,7 @@ import com.example.ihelpproject.R;
 import com.example.ihelpproject.charity.CharityHomePageActivity;
 import com.example.ihelpproject.supervisor.SuperVisorHomePageActivity;
 import com.example.ihelpproject.volunteers.VolunteerHomePageActivity;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,12 +42,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     String role;
     DatabaseReference dbRef;
     ArrayList<CharSequence> RoleList;
+    private ProgressDialog progressDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        progressDialog = new ProgressDialog(LoginActivity.this);
 
         mAuth = FirebaseAuth.getInstance();
         btn_login = findViewById(R.id.btn_login);
@@ -53,7 +57,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         et_password = findViewById(R.id.et_password);
         clickHere = findViewById(R.id.clickHere);
         spinner = findViewById(R.id.spinner);
-
 
         RoleList = new ArrayList<CharSequence>(Arrays.asList(getResources().getStringArray(R.array.roles)));
         ArrayAdapter<CharSequence> adapter;
@@ -72,7 +75,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 String email1 = et_email.getEditText().getText().toString().trim();
                 String password1 = et_password.getEditText().getText().toString().trim();
 
-                if (validateEmail(email1) | validatePassword(password1)) {
+                if (validateEmail(email1) && validatePassword(password1)) {
+
+                    progressDialog.show();
 
                     mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -106,6 +111,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                                             } else if (user1.get("role").equals("supervisorUsers")) {
+
                                                 Intent isuperVisorHomePageActivity = new Intent(LoginActivity.this, SuperVisorHomePageActivity.class);
                                                 startActivity(isuperVisorHomePageActivity);
                                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
