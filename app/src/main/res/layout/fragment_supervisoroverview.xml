@@ -7,7 +7,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp">
 
         <RelativeLayout
             android:id="@+id/rellay1"
@@ -138,6 +139,7 @@
                                 android:id="@+id/radio_male"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:checked="true"
                                 android:text="male" />
 
                             <RadioButton

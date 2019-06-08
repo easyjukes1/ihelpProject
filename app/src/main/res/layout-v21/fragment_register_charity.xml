@@ -24,38 +24,30 @@
                 android:layout_marginTop="20dp">
 
                 <ImageView
+                    android:id="@+id/img_charityProfileImage"
                     android:layout_width="260dp"
                     android:layout_height="170dp"
-                    android:layout_margin="9dp"
                     android:adjustViewBounds="true"
+                    android:background="#009688"
                     android:contentDescription="profile image"
-                    android:padding="3dp"
+                    android:layout_centerVertical="true"
+
                     android:scaleType="centerInside"
-                    android:src="@drawable/org1_icon" />
+                    android:src="@drawable/add_profile_pic" />
 
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tv_changeImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imgUser"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="-10dp"
-                android:fontFamily="sans-serif-light"
-                android:text="change image"
-                android:textColor="@color/white"
-                android:textSize="32sp" />
+
             <TextView
                 android:id="@+id/tv_charityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imgUser"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30sp"
+                android:layout_marginTop="6sp"
                 android:fontFamily="sans-serif-light"
                 android:text="join ihelp today"
-                android:textColor="@color/white"
+                android:textColor="#FDFAFA"
                 android:textSize="32sp" />
 
 
@@ -142,6 +134,20 @@
                             android:hint="@string/phone_number"
                             android:inputType="text" />
                     </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/et_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp"
+                        app:errorEnabled="true">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="details: "
+                            android:inputType="text" />
+                    </android.support.design.widget.TextInputLayout>
+
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -163,19 +169,6 @@
                                 tools:ignore="HardcodedText" />
 
 
-                        </android.support.design.widget.TextInputLayout>
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/et_details"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="5dp"
-                            app:errorEnabled="true">
-
-                            <android.support.design.widget.TextInputEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="details: "
-                                android:inputType="text" />
                         </android.support.design.widget.TextInputLayout>
 
                         <Button

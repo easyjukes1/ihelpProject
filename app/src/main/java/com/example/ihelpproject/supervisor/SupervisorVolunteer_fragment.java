@@ -64,7 +64,6 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         String supervisorId = HashGetV.get("id");
                         String supervisorEmail = HashGetV.get("email");
                         if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)) {
-
                             if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(supervisorId)) {
                                 getEmployee(supervisorEmail);
                                 getStudent(supervisorEmail);
@@ -99,14 +98,15 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         String volunteerSuperVisor = hashGetv.get("superVisor");
                         String volunteerUsername = hashGetv.get("username");
                         String volunteerRole = hashGetv.get("role");
+                        String volunteerImage = hashGetv.get("image");
                         String volunteerNumber = hashGetv.get("phonenumber");
                         String volunteerSuperVisorEmail = hashGetv.get("superVisorEmail");
                         String volunteerSuperVisorPhoneNumber = hashGetv.get("superVisorPhoneNumber");
                         String volunteerGender = hashGetv.get("gender");
 
                         Employees employeesUser = new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor,
-                                null, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber,volunteerGender);
+                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerGender,volunteerImage,volunteerSuperVisor,
+                                null, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber);
 
                         assert volunteerId != null;
                         FirebaseDatabase.getInstance().getReference("supervisorVolunteers")
@@ -148,10 +148,11 @@ public class SupervisorVolunteer_fragment extends Fragment {
                         String volunteerUniID = hashGetv.get("uniID");
                         String volunteerUsername = hashGetv.get("username");
                         String volunteerRole = hashGetv.get("role");
+                        String volunteerImage = hashGetv.get("image");
                         String volunteerNumber = hashGetv.get("phonenumber");
                         String volunteerGender = hashGetv.get("gender");
                         Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber,volunteerGender);
+                                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender ,volunteerImage,volunteerUniID, volunteerSuperVisor, volunteerSuperVisorEmail, volunteerSuperVisorPhoneNumber);
 
                        assert volunteerId != null;
                        FirebaseDatabase.getInstance().getReference("supervisorVolunteers")

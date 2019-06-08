@@ -91,8 +91,8 @@ public class SupervisorCreateAccount_fragment extends Fragment {
                 userType = (String) btn_radioUserType.getText();
 
 
-                if (validateEmail(email) | validatePassword(password) | validateName(name) | validateUsername(username) | validateAddress(address) | validatePhoneNumber(phoneNumber) |
-                        validateSupervisor(superVisor) | validateAge(age) | validateStudentId(studentId)) {
+                if (validateEmail(email) && validatePassword(password) && validateName(name) && validateUsername(username) && validateAddress(address) && validatePhoneNumber(phoneNumber) &&
+                        validateSupervisor(superVisor) && validateAge(age) && validateStudentId(studentId)) {
 
                     progressDialog.setMessage("registering user...");
                     progressDialog.show();
@@ -103,7 +103,7 @@ public class SupervisorCreateAccount_fragment extends Fragment {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     String id = mAuth.getCurrentUser().getUid();
                                     if (userType == "studentUser") {
-                                        studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, userType, gender, studentId, superVisor, superVisorEmail, superVisorPhoneNumber);
+                                        studentUser = new Student(id, name, email, username, password, age, address, phoneNumber, userType, gender,null, studentId, superVisor, superVisorEmail, superVisorPhoneNumber);
 
 
                                         FirebaseDatabase.getInstance().getReference(userType)
@@ -123,7 +123,7 @@ public class SupervisorCreateAccount_fragment extends Fragment {
                                         });
                                     } else {
 
-                                        employeeUser = new Employees(id, name, email, username, password, age, address, phoneNumber, userType, gender, superVisor, null, superVisorEmail, superVisorPhoneNumber);
+                                        employeeUser = new Employees(id, name, email, username, password, age, address, phoneNumber, userType, gender,null, superVisor, null, superVisorEmail, superVisorPhoneNumber);
                                         FirebaseDatabase.getInstance().getReference(userType)
                                                 .child(mAuth.getCurrentUser().getUid())
                                                 .setValue(employeeUser).addOnCompleteListener(new OnCompleteListener<Void>() {

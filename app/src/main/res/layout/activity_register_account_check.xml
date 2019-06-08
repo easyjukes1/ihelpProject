@@ -22,7 +22,11 @@
         android:text="@string/please_wait_while_the_admin_checks_the_validity_of_the_information_your_username_and_password_will_be_sent_to_you_via_email"
         android:textColor="#2196F3"
         android:textSize="25sp" />
-
+<Button
+    android:id="@+id/it"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="continue"/>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="300dp"

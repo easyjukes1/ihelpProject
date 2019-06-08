@@ -11,9 +11,10 @@ public class Volunteers {
     private String Phonenumber;
     private String role;
     private String gender;
+    private String Image;
 
 
-    public Volunteers(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role, String gender) {
+    public Volunteers(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role, String gender, String image) {
         this.id = id;
         Name = name;
         Email = email;
@@ -24,6 +25,15 @@ public class Volunteers {
         Phonenumber = phonenumber;
         this.role = role;
         this.gender = gender;
+        Image = image;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 
     public String getGender() {

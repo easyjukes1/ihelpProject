@@ -7,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ihelpproject.R;
 import com.example.ihelpproject.classes.Volunteers;
 import com.example.ihelpproject.supervisor.supervisorVolunteerDetailsActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
         myViewHolder.tv_VolunteerName.setText(volunteersData.get(i).getName());
         myViewHolder.tv_volunteerAge.setText(volunteersData.get(i).getAge());
         myViewHolder.tv_volunteerGender.setText(volunteersData.get(i).getGender());
-
+        Picasso.get().load(volunteersData.get(i).getImage()).into(myViewHolder.img_charityVolunteer);
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +55,7 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
                 intent.putExtra("role", volunteersData.get(i).getRole());
                 intent.putExtra("Age", volunteersData.get(i).getAge());
                 intent.putExtra("id", volunteersData.get(i).getId());
+                intent.putExtra("image", volunteersData.get(i).getImage());
                 context.startActivity(intent);
             }
         });
@@ -66,6 +69,7 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
     static class myViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_VolunteerName, tv_volunteerAge, tv_volunteerGender;
         private LinearLayout parentLayout;
+        private ImageView img_charityVolunteer;
 
         myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +77,7 @@ public class RecyclerViewSupervisorVolunteerAdapter extends RecyclerView.Adapter
             parentLayout = itemView.findViewById(R.id.layoutVolunteer);
             tv_volunteerAge = itemView.findViewById(R.id.volunteerAge);
             tv_volunteerGender = itemView.findViewById(R.id.volunteerGender);
-
+            img_charityVolunteer = itemView.findViewById(R.id.img_charityVolunteer);
         }
     }
 }

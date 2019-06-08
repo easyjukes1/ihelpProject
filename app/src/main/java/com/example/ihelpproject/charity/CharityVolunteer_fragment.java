@@ -67,6 +67,7 @@ public class CharityVolunteer_fragment extends Fragment {
                     String volunteerUniID = HashGetV.get("uniID");
                     String volunteerUsername = HashGetV.get("username");
                     String volunteerRole = HashGetV.get("role");
+                    String image = HashGetV.get("image");
                     String volunteerNumber = HashGetV.get("phonenumber");
                     String volunteerCompanyName = HashGetV.get("companyName");
                     String volunteerGender = HashGetV.get("gender");
@@ -75,15 +76,15 @@ public class CharityVolunteer_fragment extends Fragment {
                     switch (volunteerRole) {
                         case "studentUser":
                             listCharityVolunteers.add(new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null,volunteerGender));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender,image, volunteerUniID, volunteerSuperVisor,null,null));
                             break;
                         case "generalUser":
                             listCharityVolunteers.add(new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender,image));
                             break;
                         case "employeeUser":
                             listCharityVolunteers.add(new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor, volunteerCompanyName,null,null,volunteerGender));
+                                    null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender,image, volunteerSuperVisor, volunteerCompanyName,null,null));
                             break;
                     }//end switch
 

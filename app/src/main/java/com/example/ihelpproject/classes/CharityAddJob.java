@@ -8,8 +8,9 @@ public class CharityAddJob {
     private String charityId;
     private String phoneNumber;
     private String date;
+    private String image;
 
-    public CharityAddJob(String id, String jobTitle, String jobType, String description, String charityId, String phoneNumber, String date) {
+    public CharityAddJob(String id, String jobTitle, String jobType, String description, String charityId, String phoneNumber, String date, String image) {
         this.id = id;
         this.jobTitle = jobTitle;
         this.jobType = jobType;
@@ -17,6 +18,15 @@ public class CharityAddJob {
         this.charityId = charityId;
         this.phoneNumber = phoneNumber;
         this.date = date;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getId() {

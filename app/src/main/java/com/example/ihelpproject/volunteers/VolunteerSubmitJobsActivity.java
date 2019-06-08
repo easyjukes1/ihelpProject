@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -26,6 +28,7 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
     TextView tv_jobTitle, tv_jobType, tv_charityPhoneNumber;
     FirebaseAuth mAuth;
     Button submit;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +38,19 @@ public class VolunteerSubmitJobsActivity extends AppCompatActivity {
         tv_jobType = findViewById(R.id.tv_jobType);
         tv_charityPhoneNumber = findViewById(R.id.tv_charityPhoneNumber1);
         submit = findViewById(R.id.btn_submit);
+        image = findViewById(R.id.image);
 
         mAuth = FirebaseAuth.getInstance();
         Intent intent = getIntent();
         String jobTitle = intent.getStringExtra("jobTitle");
         String jobType = intent.getStringExtra("jobType");
         String jobPohneNumber = intent.getStringExtra("phoneNumber");
+        String jobImage = intent.getStringExtra("image");
         final String charityPhoneNumber = intent.getStringExtra("PhoneNumber");
         tv_jobTitle.setText(jobTitle);
         tv_jobType.setText(jobType);
         tv_charityPhoneNumber.setText(jobPohneNumber);
-
+        Picasso.get().load(jobImage).into(image);
 
         tv_charityPhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override

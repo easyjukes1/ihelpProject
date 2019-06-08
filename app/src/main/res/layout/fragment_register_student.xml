@@ -24,6 +24,7 @@
                 android:layout_marginTop="20dp">
 
                 <ImageView
+                    android:id="@+id/img_studentProfileImage"
                     android:layout_width="260dp"
                     android:layout_height="170dp"
                     android:layout_margin="9dp"
@@ -31,7 +32,7 @@
                     android:contentDescription="profile image"
                     android:padding="3dp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/male_icon" />
+                    android:src="@drawable/add_profile_pic" />
 
             </RelativeLayout>
 
@@ -42,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imgUser"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="7sp"
                 android:fontFamily="sans-serif-light"
                 android:text="join ihelp today"
                 android:textColor="@color/white"
@@ -100,6 +101,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <RadioButton
+                                android:checked="true"
                                 android:id="@+id/radio_male"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"

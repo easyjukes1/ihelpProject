@@ -8,12 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ihelpproject.R;
 import com.example.ihelpproject.classes.CharityAddJob;
 import com.example.ihelpproject.charity.CharityJobDetailsActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,7 +44,7 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
         myViewHolder.tv_jobName.setText(charityJobsData.get(i).getJobTitle());
         myViewHolder.tv_briefDescription.setText(charityJobsData.get(i).getJobType());
         myViewHolder.tv_date.setText(charityJobsData.get(i).getDate());
-
+        Picasso.get().load(charityJobsData.get(i).getImage()).into(myViewHolder.img_charityJob);
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
 
 
@@ -56,6 +58,7 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
                 intent.putExtra("jobName", charityJobsData.get(i).getJobTitle());
                 intent.putExtra("jobType", charityJobsData.get(i).getJobType());
                 intent.putExtra("phoneNumber", charityJobsData.get(i).getPhoneNumber());
+                intent.putExtra("image", charityJobsData.get(i).getImage());
                 context.startActivity(intent);
 
 
@@ -74,6 +77,7 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
         private TextView tv_briefDescription;
         private LinearLayout parentLayout;
         private TextView tv_date;
+        private ImageView img_charityJob;
 
         myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +85,7 @@ public class RecyclerViewCharityJobsAdapter extends RecyclerView.Adapter<Recycle
             tv_briefDescription = itemView.findViewById(R.id.briefDescription);
             parentLayout = itemView.findViewById(R.id.parentLayout);
             tv_date = itemView.findViewById(R.id.date);
+            img_charityJob = itemView.findViewById(R.id.img_charityJob);
         }
     }
 }

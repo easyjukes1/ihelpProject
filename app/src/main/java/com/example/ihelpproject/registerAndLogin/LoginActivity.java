@@ -77,12 +77,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
                 if (validateEmail(email1) && validatePassword(password1)) {
 
-                    progressDialog.show();
 
                     mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                progressDialog.show();
+
                                 dbRef = FirebaseDatabase.getInstance().getReference(spinner.getSelectedItem().toString());
                                 dbRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                                     @Override

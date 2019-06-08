@@ -62,7 +62,6 @@ public class Vmap_fragment extends Fragment implements OnMapReadyCallback {
                     Object charityUserStrings = dataSnapshot1.getValue();
                     HashMap<String, String> hashGetCharity = (HashMap<String, String>) charityUserStrings;
                     HashMap<String, Double> charityUser1 = (HashMap<String, Double>) charityUserStrings;
-
                     String charityName = hashGetCharity.get("name");
                     Double latitude = charityUser1.get("latitude");
                     Double longitude = charityUser1.get("longitude");

@@ -7,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ihelpproject.R;
 import com.example.ihelpproject.volunteers.VolunteerCharityDetailsActivity;
 import com.example.ihelpproject.classes.Charity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -39,6 +41,9 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
     public void onBindViewHolder(@NonNull final myViewHolder myViewHolder, final int i) {
         myViewHolder.tv_name.setText(charityData.get(i).getName());
         myViewHolder.tv_address.setText(charityData.get(i).getAddress());
+
+        Picasso.get().load(charityData.get(i).getPicture()).into(myViewHolder.charityImage);
+
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -50,6 +55,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
                 intent.putExtra("email", charityData.get(i).getEmail());
                 intent.putExtra("phonenumber", charityData.get(i).getPhonenumber());
                 intent.putExtra("details", charityData.get(i).getDetails());
+                intent.putExtra("image", charityData.get(i).getPicture());
 
                 context.startActivity(intent);
             }
@@ -66,6 +72,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
         private TextView tv_name;
         private TextView tv_address;
         private LinearLayout parentLayout;
+       private ImageView charityImage ;
 
 
         myViewHolder(@NonNull View itemView) {
@@ -73,6 +80,7 @@ public class RecyclerViewVcharityAdapter extends RecyclerView.Adapter<RecyclerVi
             tv_name = itemView.findViewById(R.id.charityName);
             tv_address = itemView.findViewById(R.id.charityLocation);
             parentLayout = itemView.findViewById(R.id.layoutCharity);
+            charityImage = itemView.findViewById(R.id.img_charity);
         }
     }
 }

@@ -58,13 +58,14 @@ public class Vcharity_fragment extends Fragment {
                     String address = charityUser.get("address");
                     String phoneumber = charityUser.get("phonenumber");
                     String id = charityUser.get("id");
-                    String detials = charityUser.get("detials");
-                  
+                    String detials = charityUser.get("details");
+                    String image = charityUser.get("picture");
+
                     HashMap<String, Double> charityUser1 = (HashMap<String, Double>) charityUserStrings;
                     Double latitude = charityUser1.get("latitude");
                     Double longitude = charityUser1.get("longitude");
 
-                    listCharity.add(new Charity(id, "charity", name, address, email, null, phoneumber,detials, null, latitude, longitude));
+                    listCharity.add(new Charity(id, "charity", name, address, email, null, phoneumber,detials,image, latitude, longitude));
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(recyclerAdapter);

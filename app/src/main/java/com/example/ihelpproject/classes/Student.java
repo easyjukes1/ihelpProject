@@ -7,8 +7,8 @@ public class Student extends Volunteers {
     private String supervisorEmail;
     private String supervisorphoneNumber;
 
-    public Student(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role, String gender, String uniID, String supervisor, String supervisorEmail, String supervisorphoneNumber) {
-        super(id, name, email, username, password, age, address, phonenumber, role, gender);
+    public Student(String id, String name, String email, String username, String password, String age, String address, String phonenumber, String role, String gender, String image, String uniID, String supervisor, String supervisorEmail, String supervisorphoneNumber) {
+        super(id, name, email, username, password, age, address, phonenumber, role, gender, image);
         this.uniID = uniID;
         this.supervisor = supervisor;
         this.supervisorEmail = supervisorEmail;

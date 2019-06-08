@@ -96,7 +96,7 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                 Object user = dataSnapshot.getValue();
                 if (user != null) {
                     HashMap<String, String> userData = (HashMap<String, String>) user;
-
+                    String image = userData.get("image");
                     String volunteerName = userData.get("name");
                     String volunteerAge = userData.get("age");
                     String volunteerAddress = userData.get("address");
@@ -109,7 +109,7 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerNumber = userData.get("phonenumber");
                     String volunteerGender = userData.get("gender");
                     Student studentUser = new Student(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerUniID, volunteerSuperVisor,null,null,volunteerGender);
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerGender,image,volunteerUniID, volunteerSuperVisor,null,null);
 
                     listCharityVolunteers.add(studentUser);
                     assert volunteerId != null;
@@ -139,11 +139,12 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerEmail = userData.get("email");
                     String volunteerId = userData.get("id");
                     String volunteerUsername = userData.get("username");
+                    String image = userData.get("image");
                     String volunteerRole = userData.get("role");
                     String volunteerNumber = userData.get("phonenumber");
                     String volunteerGender = userData.get("gender");
                     GenralUser genralUser = new GenralUser(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender);
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender,image);
 
                     listCharityVolunteers.add(genralUser);
                     assert volunteerId != null;
@@ -176,13 +177,14 @@ public class CharityRequestedVolunteers_fragment extends Fragment {
                     String volunteerCompanyName = userData.get("companyName");
                     String volunteerUsername = userData.get("username");
                     String volunteerRole = userData.get("role");
+                    String image = userData.get("image");
                     String volunteerNumber = userData.get("phonenumber");
                     String volunteerSuperVisorEmail = userData.get("superVisorEmail");
                     String volunteerSuperVisorPhoneNumber = userData.get("superVisorPhoneNumber");
                     String volunteerGender = userData.get("gender");
                     Employees employeesUser = new Employees(volunteerId, volunteerName, volunteerEmail, volunteerUsername,
-                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerSuperVisor,
-                            volunteerCompanyName,volunteerSuperVisorEmail,volunteerSuperVisorPhoneNumber,volunteerGender);
+                            null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole,volunteerGender,image,volunteerSuperVisor,
+                            volunteerCompanyName,volunteerSuperVisorEmail,volunteerSuperVisorPhoneNumber);
                     assert volunteerId != null;
                     listCharityVolunteers.add(employeesUser);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -3,6 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="#fff"
+    android:paddingTop="5dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -23,7 +24,7 @@
         <LinearLayout
             android:layout_width="210dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="16dp"
             android:orientation="vertical">
 
@@ -63,8 +64,9 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="5dp"
         android:background="#BDBDBD" />
 </LinearLayout>
 

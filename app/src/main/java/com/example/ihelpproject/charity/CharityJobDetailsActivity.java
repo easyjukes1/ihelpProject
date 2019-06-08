@@ -7,17 +7,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ihelpproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class CharityJobDetailsActivity extends AppCompatActivity {
     TextView tv_jobName, tv_jobType, tv_jobDate, tv_jobDescription;
     Button btn_delete;
-
+    ImageView image1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,9 @@ public class CharityJobDetailsActivity extends AppCompatActivity {
         final String jobDescription = intent.getStringExtra("description");
         final String jobName = intent.getStringExtra("jobName");
         final String jobType = intent.getStringExtra("jobType");
+        final String image = intent.getStringExtra("image");
 
+        image1 = findViewById(R.id.image);
         tv_jobName = findViewById(R.id.tv_jobName);
         tv_jobDate = findViewById(R.id.tv_jobDate);
         tv_jobType = findViewById(R.id.tv_jobType);
@@ -43,7 +47,7 @@ public class CharityJobDetailsActivity extends AppCompatActivity {
         tv_jobDate.setText(jobDate);
         tv_jobType.setText(jobType);
         tv_jobDescription.setText(jobDescription);
-
+        Picasso.get().load(image).into(image1);
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

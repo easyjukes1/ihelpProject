@@ -9,12 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ihelpproject.R;
 import com.example.ihelpproject.classes.Volunteers;
 import com.example.ihelpproject.charity.charityRequestedVolunteerDetailsActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
         myViewHolder.tv_volunteerName.setText(charityVolunteersData.get(i).getName());
         myViewHolder.tv_volunteerAge.setText(charityVolunteersData.get(i).getAge());
         myViewHolder.tv_volunteerGender.setText(charityVolunteersData.get(i).getGender());
-
+        Picasso.get().load(charityVolunteersData.get(i).getImage()).into(myViewHolder.img_charityVolunteer);
 
         myViewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +62,7 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
                 intent.putExtra("role", charityVolunteersData.get(i).getRole());
                 intent.putExtra("Age", charityVolunteersData.get(i).getAge());
                 intent.putExtra("id", charityVolunteersData.get(i).getId());
+                intent.putExtra("image", charityVolunteersData.get(i).getImage());
                 context.startActivity(intent);
             }
         });
@@ -73,8 +76,9 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
     }
 
     static class myViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_volunteerName,tv_volunteerAge,tv_volunteerGender;
+        private TextView tv_volunteerName, tv_volunteerAge, tv_volunteerGender;
         private LinearLayout parentLayout;
+        private ImageView img_charityVolunteer;
 
         myViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,7 +86,7 @@ public class RecyclerViewCharityRequestedVolunteersAdapter extends RecyclerView.
             parentLayout = itemView.findViewById(R.id.layoutVolunteer);
             tv_volunteerAge = itemView.findViewById(R.id.volunteerAge);
             tv_volunteerGender = itemView.findViewById(R.id.volunteerGender);
-
+            img_charityVolunteer = itemView.findViewById(R.id.img_charityVolunteer);
         }
     }
 }

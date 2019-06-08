@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -27,7 +29,7 @@ public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity 
     TextView tv_name, tv_email, tv_phonenumber, tv_age, tv_address, tv_role, tv_supervisorName, tv_supervisorEmail, tv_supervisorPhoneNumber;
     Button btn_accept, btn_delete;
     LinearLayout ll_name, ll_phoneNumber, ll_email;
-
+    ImageView image1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +45,9 @@ public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity 
         String volunteerAge = intent.getStringExtra("Age");
         String volunteerRole = intent.getStringExtra("role");
         String volunteerGender = intent.getStringExtra("gender");
+        String volunteerImage = intent.getStringExtra("image");
         final GenralUser genralUser = new GenralUser(volunteerId, volunteerName, volunteerEmail, null,
-                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerGender);
+                null, volunteerAge, volunteerAddress, volunteerNumber, volunteerRole, volunteerGender,volunteerImage);
 
         tv_name = findViewById(R.id.tv_charityName);
         tv_email = findViewById(R.id.tv_charityEmail);
@@ -60,7 +63,7 @@ public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity 
         ll_phoneNumber = findViewById(R.id.ll_phonenumber);
         btn_accept = findViewById(R.id.btn_accept);
         btn_delete = findViewById(R.id.btn_delete);
-
+        image1 = findViewById(R.id.image);
         if ((volunteerRole.equals("employeeUser") || (volunteerRole.equals("studentUser")))) {
             if (volunteerRole.equals("employeeUser")) {
 
@@ -121,6 +124,7 @@ public class charityRequestedVolunteerDetailsActivity extends AppCompatActivity 
         tv_phonenumber.setText(volunteerNumber);
         tv_age.setText(volunteerAge);
         tv_role.setText(volunteerRole);
+        Picasso.get().load(volunteerImage).into(image1);
 
         btn_accept.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -77,7 +77,8 @@ public class CharityJobs_fragment extends Fragment {
                     String currentDate = HashAddJob.get("date");
                     String phoneNumber = HashAddJob.get("phoneNumber");
                     String description = HashAddJob.get("description");
-                    listCharityJobs.add(new CharityAddJob(id, jobTitle, jobType,description, null,phoneNumber,currentDate));
+                    String image = HashAddJob.get("image");
+                    listCharityJobs.add(new CharityAddJob(id, jobTitle, jobType,description, null,phoneNumber,currentDate,image));
 
                 }
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

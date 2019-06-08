@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
@@ -26,7 +28,7 @@ public class supervisorVolunteerDetailsActivity extends AppCompatActivity {
     TextView tv_name, tv_email, tv_phonenumber, tv_age, tv_address, tv_role, tv_supervisorName, tv_supervisorEmail, tv_supervisorPhoneNumber;
     Button btn_delete;
     LinearLayout ll_name, ll_phoneNumber, ll_email;
-
+    ImageView image1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class supervisorVolunteerDetailsActivity extends AppCompatActivity {
         final String volunteerNumber = intent.getStringExtra("phonenumber");
         String volunteerAddress = intent.getStringExtra("address");
         String volunteerAge = intent.getStringExtra("Age");
+        String volunteerImage = intent.getStringExtra("image");
         String volunteerRole = intent.getStringExtra("role");
 
         tv_name = findViewById(R.id.tv_charityName);
@@ -54,13 +57,14 @@ public class supervisorVolunteerDetailsActivity extends AppCompatActivity {
         ll_email = findViewById(R.id.ll_email);
         ll_name = findViewById(R.id.ll_name);
         ll_phoneNumber = findViewById(R.id.ll_phonenumber);
+        image1 = findViewById(R.id.image);
+
         if ((volunteerRole.equals("employeeUser") || (volunteerRole.equals("studentUser")))) {
             if (volunteerRole.equals("employeeUser")) {
 
                 FirebaseDatabase.getInstance().getReference("employeeUser").child(volunteerId).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                         Object getV = dataSnapshot.getValue();
 
                         HashMap<String, String> hashGetV = (HashMap<String, String>) getV;
@@ -85,7 +89,6 @@ public class supervisorVolunteerDetailsActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         Object getV = dataSnapshot.getValue();
-
                         HashMap<String, String> hashGetV = (HashMap<String, String>) getV;
                         String volunteerSuperVisorEmail = hashGetV.get("supervisorEmail");
                         String volunteerSuperVisorPhoneNumber = hashGetV.get("supervisorphoneNumber");
@@ -117,7 +120,7 @@ public class supervisorVolunteerDetailsActivity extends AppCompatActivity {
         tv_phonenumber.setText(volunteerNumber);
         tv_age.setText(volunteerAge);
         tv_role.setText(volunteerRole);
-
+        Picasso.get().load(volunteerImage).into(image1);
 
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
