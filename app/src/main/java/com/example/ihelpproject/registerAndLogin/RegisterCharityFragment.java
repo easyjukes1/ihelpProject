@@ -103,7 +103,9 @@ public class RegisterCharityFragment extends Fragment {
 
 
                 if (validateEmail(email) && validatePassword(password) && validateName(name) && validateAddress(address) && validatePhoneNumber(phoneNumber)
-                ) {
+                )
+                    if (validateEmail(email1) == validatePassword(password1))
+                {
                     final Double xValue = Double.valueOf(xView.getText().toString().trim());
                     //.trim remove space
                     final Double yValue = Double.valueOf(yView.getText().toString().trim());

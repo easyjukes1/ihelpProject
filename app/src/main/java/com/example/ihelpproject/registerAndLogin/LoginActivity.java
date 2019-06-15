@@ -77,7 +77,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
                 if (validateEmail(email1) && validatePassword(password1)) {
 
-
                     mAuth.signInWithEmailAndPassword(email1, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
